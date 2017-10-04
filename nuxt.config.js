@@ -25,7 +25,7 @@ module.exports = {
      */
     loading: { color: "#3B8070" },
     env: {
-        baseApiUrl: process.env.baseApiUrl || "https://es-prototype-staging-pr-661.herokuapp.com/api"
+        baseApiUrl: process.env.baseApiUrl || "https://buzzmobile-pr-1.herokuapp.com/api/"
     },
     router: {
         middleware: ["setEnv"]
