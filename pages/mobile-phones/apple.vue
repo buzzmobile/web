@@ -104,326 +104,31 @@
           </div>
           <div class="col-xs-12 col-sm-9">
 
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
+            <div class="row" v-for="dRow in dealRows">
+              <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow">
                 <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8 64GB More Something Else</h3>
+                    <div class="row">
+                        <div class="col-xs-12">
+                          <h3 class="bm-pl-b-title">{{dCol.Telcos_device_full_name}}</h3>
+                        </div>
                     </div>
-                  </div>
-                  <div class="bm-pl-b-content">
+                </div>
+                <div class="bm-pl-b-content">
                     <div class="row">
                       <img class="bm-pl-b-c-img" src="" alt="phone">
                       <div class="col-xs-7">
-                        <p>Handset £15.99</p>
-                        <p>£<span class="bm-pl-b-c-price">22</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
+                        <p>Handset £{{dCol.Telcos_deal_cost_json.upfront_inc_vat}}</p>
+                        <p>£<span class="bm-pl-b-c-price">{{dCol.Telcos_deal_cost_json.monthly_total_inc_vat.toString().split(".")[0]}}</span>.{{dCol.Telcos_deal_cost_json.monthly_total_inc_vat.toString().split(".")[1]}} <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_deal_cost_json.monthly_contract_term_months}} months</span></p>
                         <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
+                          <li>Network: {{dCol.Telcos_network_details_json.name}}</li>
+                          <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
+                          <li>Camera: {{dCol.Telcos_device_features_json.megapixels}} megapixels</li>
+                          <li>Storage: {{dCol.Telcos_device_features_json.capacity}}</li>
                         </ul>
                         <a class="btn btn-secondary btn-block">View offers</a>
                       </div>
                     </div>
-                  </div>
                 </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8+ 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p><span class="highlight"><b>FREE</b></span> handset</p>
-                        <p>£<span class="bm-pl-b-c-price">24</span>.99 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Apple iPhone 7 32GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £9.99</p>
-                        <p>£<span class="bm-pl-b-c-price">32</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £15.99</p>
-                        <p>£<span class="bm-pl-b-c-price">22</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8+ 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p><span class="highlight"><b>FREE</b></span> handset</p>
-                        <p>£<span class="bm-pl-b-c-price">24</span>.99 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Apple iPhone 7 32GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £9.99</p>
-                        <p>£<span class="bm-pl-b-c-price">32</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £15.99</p>
-                        <p>£<span class="bm-pl-b-c-price">22</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8+ 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p><span class="highlight"><b>FREE</b></span> handset</p>
-                        <p>£<span class="bm-pl-b-c-price">24</span>.99 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Apple iPhone 7 32GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £9.99</p>
-                        <p>£<span class="bm-pl-b-c-price">32</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £15.99</p>
-                        <p>£<span class="bm-pl-b-c-price">22</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Samsung Galaxy S8+ 64GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p><span class="highlight"><b>FREE</b></span> handset</p>
-                        <p>£<span class="bm-pl-b-c-price">24</span>.99 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-
-                <div class="bm-pl-box bm-pl-box-single">
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h3 class="bm-pl-b-title">Apple iPhone 7 32GB</h3>
-                    </div>
-                  </div>
-                  <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £9.99</p>
-                        <p>£<span class="bm-pl-b-c-price">32</span>.00 <span class="bm-pl-b-c-per">per month / 24 months</span></p>
-                        <ul class="list-unstyled">
-                          <li>feature 1</li>
-                          <li>feature 2</li>
-                          <li>feature 3</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
             
@@ -446,7 +151,19 @@ import { getDeals } from "../../plugins/api";
 export default {
     computed: {
         ...mapState({
-            deals: state => state.deals
+            dealRows: state => {
+                const dealsPerRow = 3;
+                const dRows = [];
+                let dCol = [];
+                for (let deal of state.deals) {
+                    dCol.push(deal);
+                    if (dCol.length === dealsPerRow) {
+                        dRows.push(dCol);
+                        dCol = [];
+                    }
+                }
+                return dRows;
+            }
         })
     },
     methods: {
