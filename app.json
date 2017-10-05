@@ -1,0 +1,21 @@
+{
+    "addons": [
+        "papertrail"
+    ],
+    "buildpacks": [{
+        "url": "urn:buildpack:heroku/nodejs"
+    }],
+    "env": {
+        "HEROKU_APP_NAME": { "required": true },
+        "HEROKU_PARENT_APP_NAME": { "required": true },
+        "NPM_CONFIG_PRODUCTION": { "required": true },
+        "baseApiUrl": { "required": true }
+    },
+    "name": "buzzMobiles-web",
+    "scripts": {
+        
+    },
+    "formation": [
+      { "process": "web",    "quantity": 1}
+    ]
+}
