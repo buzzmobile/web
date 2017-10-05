@@ -441,7 +441,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import { getDeals } from "../../../plugins/api";
+import { getDeals } from "../../plugins/api";
 
 export default {
     computed: {
