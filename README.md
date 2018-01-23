@@ -1,4 +1,4 @@
-# newbuzzmobiles
+# new Buzz Mobiles
 
 > nuxt version of buzz mobiles
 

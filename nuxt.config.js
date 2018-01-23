@@ -1,13 +1,17 @@
+const pkg = require("./package");
+
 module.exports = {
+    mode: "universal",
+
     /*
-     ** Headers of the page
-     */
+  ** Headers of the page
+  */
     head: {
-        title: "mopho - homepage",
+        title: pkg.name,
         meta: [
             { charset: "utf-8" },
             { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { hid: "description", name: "description", content: "Nuxt.js project" },
+            { hid: "description", name: "description", content: pkg.description },
             { name: "http-equiv", content: "IE=edge" }
         ],
         link: [
@@ -19,36 +23,67 @@ module.exports = {
             { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" }
         ]
     },
-    css: ["assets/styles/style.css"],
+
     /*
-     ** Customize the progress-bar color
-     */
+  ** Customize the progress-bar color
+  */
     loading: { color: "#3B8070" },
-    env: {
-        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
-    },
+
     router: {
         middleware: ["setEnv"]
     },
+
     /*
-     ** Build configuration
-     */
+  ** Global CSS
+  */
+    css: [
+    ],
+
+    /*
+  ** Plugins to load before mounting the App
+  */
+    plugins: [
+        "assets/styles/style.css"
+    ],
+
+    /*
+  ** Nuxt.js modules
+  */
+    modules: [
+    // Doc: https://github.com/nuxt-community/axios-module#usage
+        "@nuxtjs/axios"//,
+    // Doc: https://bootstrap-vue.js.org/docs/
+    //"bootstrap-vue/nuxt"
+    ],
+
+    env: {
+        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
+    },
+
+    /*
+  ** Axios module configuration
+  */
+    axios: {
+    // See https://github.com/nuxt-community/axios-module#options
+        baseURL: process.env.baseApiUrl || "http://localhost:7778/api/"
+    },
+
+    /*
+  ** Build configuration
+  */
     build: {
-        vendor: ["axios"],
-        /*
-         ** Run ESLINT on save
-         */
-        extend (config, ctx) {
-            if (ctx.isClient) {
+    /*
+    ** You can extend webpack config here
+    */
+        extend(config, ctx) {
+            // Run ESLint on save
+            if (ctx.isDev && ctx.isClient) {
                 config.module.rules.push({
                     enforce: "pre",
                     test: /\.(js|vue)$/,
                     loader: "eslint-loader",
                     exclude: /(node_modules)/
                 });
-                if (ctx.dev) {
-                    config.devtool = "eval-source-map";
-                }
             }
         }
     }
