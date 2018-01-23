@@ -51,8 +51,18 @@
 // };
 
 export default {
-    initFilteredPageMutation (state, deals) {
+    initFilteredPageMutation (state, { deals, dealsPerRow }) {
         state.deals = deals;
+        const dealRows = [];
+        let dealColumn = [];
+        for (let deal of state.deals) {
+            dealColumn.push(deal);
+            if (dealColumn.length === dealsPerRow) {
+                dealRows.push(dealColumn);
+                dealColumn = [];
+            }
+        }
+        state.dealRows = dealRows;
     }
     // initPricesPageServerSideMutation (state, { switchData, quoteMetaAndData }) {
     //     mapServerSwitchToState(state, switchData);

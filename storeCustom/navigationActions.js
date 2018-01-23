@@ -33,8 +33,8 @@ export default {
     // initSummaryPageServerSideAction ({ commit }, { switchData, redirect }) {
     //     commit("initSummaryPageServerSideMutation", { switchData, redirect });
     // },
-    initFilteredPageAction ({ commit }, deals) {
-        commit("initFilteredPageMutation", deals);
+    initFilteredPageAction ({ commit }, { deals, dealsPerRow }) {
+        commit("initFilteredPageMutation", { deals, dealsPerRow });
     }
     // async quoteSelectedAction ({ commit, state }, quote) {
     //     const { switchId } = state;

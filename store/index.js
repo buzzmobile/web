@@ -61,6 +61,7 @@ export const state = {
     // quotes: null,
     // reviewQuotes: null,
     // quotesMeta: null,
+    dealRows: null,
     deals: null,
     router: null,
     env: null

@@ -15,131 +15,127 @@
             </div>      
           </div>
         </div>
-</section>
+    </section>
 
-<section class="bm-product-selector">
-  
-  <div class="container">
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#deals" aria-controls="deals" role="tab" data-toggle="tab">Deals</a></li>
-    </ul>
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="deals">
-        
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
+    <section class="bm-product-selector">
+      <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#deals" aria-controls="deals" role="tab" data-toggle="tab">Deals</a></li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="deals">
+            
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
 
-            <div class="bm-p-s-filter">
-              <form>
-                <p>Choose network:</p>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> O2
-                  </label>
+                <div class="bm-p-s-filter">
+                  <form>
+                    <p>Choose network:</p>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> O2
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> EE
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Vodaphone
+                      </label>
+                    </div>
+                    <p>Select your perfect deal:</p>
+                    <div class="form-group">
+                      <label class="sr-only" for="incMinutes">Included minutes</label>
+                      <select class="form-control" id="incMinutes">
+                        <option>Any minutes</option>
+                        <option>200-500 minutes</option>
+                        <option>500-1000 minutes</option>
+                        <option>1000-2000 minutes</option>
+                        <option>Unlimited minutes</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="incTexts">Included texts</label>
+                      <select class="form-control" id="incTexts">
+                        <option>Any texts</option>
+                        <option>200-500 minutes</option>
+                        <option>500-1000 minutes</option>
+                        <option>1000-2000 minutes</option>
+                        <option>Unlimited minutes</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="incData">Included data</label>
+                      <select class="form-control" id="incData">
+                        <option>Any data</option>
+                        <option>200-500 minutes</option>
+                        <option>500-1000 minutes</option>
+                        <option>1000-2000 minutes</option>
+                        <option>Unlimited minutes</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="monthCost">Monthly cost</label>
+                      <select class="form-control" id="monthCost">
+                        <option>Any monthly cost</option>
+                        <option>200-500 minutes</option>
+                        <option>500-1000 minutes</option>
+                        <option>1000-2000 minutes</option>
+                        <option>Unlimited minutes</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label class="sr-only" for="contractLength">Contract length</label>
+                      <select class="form-control" id="contractLength">
+                        <option>Any contract length</option>
+                        <option>200-500 minutes</option>
+                        <option>500-1000 minutes</option>
+                        <option>1000-2000 minutes</option>
+                        <option>Unlimited minutes</option>
+                      </select>
+                    </div>
+                  </form>
                 </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> EE
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox"> Vodaphone
-                  </label>
-                </div>
-                <p>Select your perfect deal:</p>
-                <div class="form-group">
-                  <label class="sr-only" for="incMinutes">Included minutes</label>
-                  <select class="form-control" id="incMinutes">
-                    <option>Any minutes</option>
-                    <option>200-500 minutes</option>
-                    <option>500-1000 minutes</option>
-                    <option>1000-2000 minutes</option>
-                    <option>Unlimited minutes</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="incTexts">Included texts</label>
-                  <select class="form-control" id="incTexts">
-                    <option>Any texts</option>
-                    <option>200-500 minutes</option>
-                    <option>500-1000 minutes</option>
-                    <option>1000-2000 minutes</option>
-                    <option>Unlimited minutes</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="incData">Included data</label>
-                  <select class="form-control" id="incData">
-                    <option>Any data</option>
-                    <option>200-500 minutes</option>
-                    <option>500-1000 minutes</option>
-                    <option>1000-2000 minutes</option>
-                    <option>Unlimited minutes</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="monthCost">Monthly cost</label>
-                  <select class="form-control" id="monthCost">
-                    <option>Any monthly cost</option>
-                    <option>200-500 minutes</option>
-                    <option>500-1000 minutes</option>
-                    <option>1000-2000 minutes</option>
-                    <option>Unlimited minutes</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label class="sr-only" for="contractLength">Contract length</label>
-                  <select class="form-control" id="contractLength">
-                    <option>Any contract length</option>
-                    <option>200-500 minutes</option>
-                    <option>500-1000 minutes</option>
-                    <option>1000-2000 minutes</option>
-                    <option>Unlimited minutes</option>
-                  </select>
-                </div>
-              </form>
-            </div>
+              </div>
+              <div class="col-xs-12 col-sm-9">
 
-          </div>
-          <div class="col-xs-12 col-sm-9">
-
-            <div class="row" v-for="dRow in dealRows">
-              <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow">
-                <div class="bm-pl-box bm-pl-box-single">
-                    <div class="row">
-                        <div class="col-xs-12">
-                          <h3 class="bm-pl-b-title">{{dCol.Telcos_device_full_name}}</h3>
+                <div class="row" v-for="dRow in dealRows">
+                  <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow">
+                    <div class="bm-pl-box bm-pl-box-single">
+                        <div class="row">
+                            <div class="col-xs-12">
+                              <h3 class="bm-pl-b-title">{{dCol.Telcos_device_full_name}}</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bm-pl-b-content">
-                    <div class="row">
-                      <img class="bm-pl-b-c-img" src="" alt="phone">
-                      <div class="col-xs-7">
-                        <p>Handset £{{dCol.Telcos_deal_cost_json.upfront_inc_vat}}</p>
-                        <p>£<span class="bm-pl-b-c-price">{{dCol.Telcos_deal_cost_json.monthly_total_inc_vat.toString().split(".")[0]}}</span>.{{dCol.Telcos_deal_cost_json.monthly_total_inc_vat.toString().split(".")[1]}} <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_deal_cost_json.monthly_contract_term_months}} months</span></p>
-                        <ul class="list-unstyled">
-                          <li>Network: {{dCol.Telcos_network_details_json.name}}</li>
-                          <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                          <li>Camera: {{dCol.Telcos_device_features_json.megapixels}} megapixels</li>
-                          <li>Storage: {{dCol.Telcos_device_features_json.capacity}}</li>
-                        </ul>
-                        <a class="btn btn-secondary btn-block">View offers</a>
-                      </div>
+                    <div class="bm-pl-b-content">
+                        <div class="row">
+                          <img class="bm-pl-b-c-img" src="" alt="phone">
+                          <div class="col-xs-7">
+                            <p>Handset £{{dCol.Telcos_initial_cost}}</p>
+                            <p>£<span class="bm-pl-b-c-price">{{dCol.Telcos_month_cost.toString().split(".")[0]}}</span>.{{dCol.Telcos_month_cost.toString().split(".")[1]}} <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span></p>
+                            <ul class="list-unstyled">
+                              <li>Network: {{dCol.Telcos_network}}</li>
+                              <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
+                              <li>Minutes: {{dCol.Telcos_inc_minutes}}</li>
+                              <li>Texts: {{dCol.Telcos_inc_texts}}</li>
+                              <li>Storage: {{dCol.Telcos_storage_size}}</li>
+                            </ul>
+                            <a class="btn btn-secondary btn-block">View offer</a>
+                          </div>
+                        </div>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
-
       </div>
-    </div>
-  </div>
-
-</section>
+    </section>
     </main>
 </template>
 
@@ -151,19 +147,7 @@ import { getDeals } from "../../plugins/api";
 export default {
     computed: {
         ...mapState({
-            dealRows: state => {
-                const dealsPerRow = 3;
-                const dRows = [];
-                let dCol = [];
-                for (let deal of state.deals) {
-                    dCol.push(deal);
-                    if (dCol.length === dealsPerRow) {
-                        dRows.push(dCol);
-                        dCol = [];
-                    }
-                }
-                return dRows;
-            }
+            dealRows: state => state.dealRows
         })
     },
     methods: {
@@ -175,37 +159,27 @@ export default {
     mounted () {
         this.$store.dispatch("setRouterFromMountAction", this.$router);
     },
-    // validate ({ params, store }) {
-    //     const step1SwitchIdEqualsParamId = store.state.serverSwitchId === params.id;
-    //     const paramsHasIdProp = params.id != null;
-    //     return step1SwitchIdEqualsParamId || paramsHasIdProp;
-    // },
     async fetch ({ isClient, isServer, env, params, store }) {
         const { dispatch } = store;
-        // if (isClient) {
-        //     const { state } = store;
-        //     const {
-        //         typeHasChanged,
-        //         currentMonthlyCostHasChanged,
-        //         selectedAddressIdHasChanged,
-        //         selectedAddressId,
-        //         quotes,
-        //         selectedQuote
-        //     } = state;
-        //     const loadQuotesFromStep1 = selectedAddressId &&
-        //         (!quotes ||
-        //             typeHasChanged ||
-        //             currentMonthlyCostHasChanged ||
-        //             selectedAddressIdHasChanged);
-        //     if (loadQuotesFromStep1 || selectedQuote) {
-        //         const quoteMetaAndData = await getQuotesClientSide(state);
-        //         dispatch("initPricesPageClientSideAction", quoteMetaAndData);
-        //     }
-        // }
-        // if (isServer) {
-        const deals = await getDeals(env, params);
-        dispatch("initFilteredPageAction", deals);
-        // }
-    }    // middleware: ["ensureSwitchId"]
+        const qry = `
+        {
+          allDealsFiltered(merchantCategory:MobilePhone, operatingSystem: iOS) {
+            aw_deep_link
+            Telcos_device_full_name
+            Telcos_initial_cost
+            Telcos_month_cost
+            Telcos_term
+            Telcos_storage_size
+            Telcos_network
+            product_name
+            Telcos_inc_data
+            Telcos_inc_texts
+            Telcos_inc_minutes
+          }
+        }
+        `;
+        const deals = await getDeals(env, qry);
+        dispatch("initFilteredPageAction", { deals, dealsPerRow: 3 });
+    }
 };
 </script>
