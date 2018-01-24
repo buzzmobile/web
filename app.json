@@ -11,7 +11,7 @@
         "NPM_CONFIG_PRODUCTION": { "required": true },
         "baseApiUrl": { "required": true },
         "HOST": { "value": "0.0.0.0" },
-        "NODE_ENV": { "value": true }
+        "NODE_ENV": { "value": "production" }
     },
     "name": "buzzMobiles-web",
     "scripts": {
