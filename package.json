@@ -21,6 +21,7 @@
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
+    "@nuxtjs/localtunnel": "^1.0.1",
     "babel-eslint": "^8.2.1",
     "cross-env": "^5.0.1",
     "eslint": "^4.15.0",

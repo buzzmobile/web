@@ -35,6 +35,7 @@ module.exports = {
         ],
     },
     modules: [
+        ["@nuxtjs/localtunnel", { subdomain: "buzzmobile" }], //https://buzzmobile.localtunnel.me/
         "@nuxtjs/pwa",
         // Doc: https://github.com/nuxt-community/axios-module#usage
         "@nuxtjs/axios"//,
@@ -42,8 +43,7 @@ module.exports = {
     //"bootstrap-vue/nuxt"
     ],
     env: {
-        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/",
-        DEBUG: true
+        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
     },
     axios: {
     // See https://github.com/nuxt-community/axios-module#options
