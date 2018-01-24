@@ -2,10 +2,7 @@ const pkg = require("./package");
 
 module.exports = {
     mode: "universal",
-
-    /*
-  ** Headers of the page
-  */
+    // Headers of the page
     head: {
         title: pkg.name,
         meta: [
@@ -23,58 +20,29 @@ module.exports = {
             { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" }
         ]
     },
-
-    /*
-  ** Customize the progress-bar color
-  */
     loading: { color: "#3B8070" },
-
     router: {
         middleware: ["setEnv"]
     },
-
-    /*
-  ** Global CSS
-  */
     css: [
-    ],
-
-    /*
-  ** Plugins to load before mounting the App
-  */
-    plugins: [
         "assets/styles/style.css"
     ],
-
-    /*
-  ** Nuxt.js modules
-  */
+    plugins: [
+    ],
     modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
         "@nuxtjs/axios"//,
     // Doc: https://bootstrap-vue.js.org/docs/
     //"bootstrap-vue/nuxt"
     ],
-
     env: {
         baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
     },
-
-    /*
-  ** Axios module configuration
-  */
     axios: {
     // See https://github.com/nuxt-community/axios-module#options
         baseURL: process.env.baseApiUrl || "http://localhost:7778/api/"
     },
-
-    /*
-  ** Build configuration
-  */
     build: {
-    /*
-    ** You can extend webpack config here
-    */
         extend(config, ctx) {
             // Run ESLint on save
             if (ctx.isDev && ctx.isClient) {
