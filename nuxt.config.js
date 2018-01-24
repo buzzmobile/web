@@ -22,7 +22,7 @@ module.exports = {
     },
     loading: { color: "#3B8070" },
     router: {
-        middleware: ["setEnv"]
+        middleware: ["setEnv","https"]
     },
     css: [
         "assets/styles/style.css"
