@@ -29,14 +29,21 @@ module.exports = {
     ],
     plugins: [
     ],
+    workbox: {
+        importScripts: [
+            "serviceWorker.js"
+        ],
+    },
     modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
+        "@nuxtjs/pwa",
+        // Doc: https://github.com/nuxt-community/axios-module#usage
         "@nuxtjs/axios"//,
     // Doc: https://bootstrap-vue.js.org/docs/
     //"bootstrap-vue/nuxt"
     ],
     env: {
-        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
+        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/",
+        DEBUG: true
     },
     axios: {
     // See https://github.com/nuxt-community/axios-module#options
