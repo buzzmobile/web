@@ -102,8 +102,8 @@
               </div>
               <div class="col-xs-12 col-sm-9">
 
-                <div class="row" v-for="dRow in dealRows">
-                  <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow">
+                <div class="row" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
+                  <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
                     <div class="bm-pl-box bm-pl-box-single">
                         <div class="row">
                             <div class="col-xs-12">
@@ -159,7 +159,7 @@ export default {
     mounted () {
         this.$store.dispatch("setRouterFromMountAction", this.$router);
     },
-    async fetch ({ isClient, isServer, env, params, store }) {
+    async fetch ({ client, server, env, params, store }) {
         const { dispatch } = store;
         const qry = `
         {
