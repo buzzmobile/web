@@ -163,7 +163,15 @@ export default {
         const { dispatch } = store;
         const qry = `
         {
-          allDealsFiltered(merchantCategory:MobilePhone, operatingSystem: iOS) {
+          allDealsFiltered(
+            merchantCategory:MobilePhone, 
+            operatingSystem: iOS, 
+            contractType: Contract, 
+            productVersionName:iPhoneX, 
+            onlyIncludeUnlimitedMinutesAndTexts: true,
+            sortBy:TCO_ASC
+          ) 
+          {
             aw_deep_link
             Telcos_device_full_name
             Telcos_initial_cost
