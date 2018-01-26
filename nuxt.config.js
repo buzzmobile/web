@@ -35,7 +35,7 @@ module.exports = {
         ],
     },
     modules: [
-        ["@nuxtjs/localtunnel", { subdomain: "buzzmobile" }], //https://buzzmobile.localtunnel.me/
+        // ["@nuxtjs/localtunnel", { subdomain: "buzzmobile" }], //https://buzzmobile.localtunnel.me/
         "@nuxtjs/pwa",
         // Doc: https://github.com/nuxt-community/axios-module#usage
         "@nuxtjs/axios"//,
