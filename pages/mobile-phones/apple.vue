@@ -5,12 +5,12 @@
           <div class="bm-pt-box">
             <div class="row">
               <div class="col-xs-12">
-                <h1>Apple Contract mobile phone deals</h1>
+                <h1>iPhone X Contracts</h1>
               </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-md-8">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam harum, expedita labore dolor nobis sit quos ipsam perferendis repellendus consequuntur ea praesentium delectus accusamus, tenetur architecto eligendi? Recusandae debitis voluptatum illo omnis eius natus, ipsa fugit perferendis, rerum quae quo, voluptates id dolor, maxime modi.</p>
+                <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total Cost of Ownership</p>
               </div>
             </div>      
           </div>
@@ -48,26 +48,6 @@
                     </div>
                     <p>Select your perfect deal:</p>
                     <div class="form-group">
-                      <label class="sr-only" for="incMinutes">Included minutes</label>
-                      <select class="form-control" id="incMinutes">
-                        <option>Any minutes</option>
-                        <option>200-500 minutes</option>
-                        <option>500-1000 minutes</option>
-                        <option>1000-2000 minutes</option>
-                        <option>Unlimited minutes</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="incTexts">Included texts</label>
-                      <select class="form-control" id="incTexts">
-                        <option>Any texts</option>
-                        <option>200-500 minutes</option>
-                        <option>500-1000 minutes</option>
-                        <option>1000-2000 minutes</option>
-                        <option>Unlimited minutes</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
                       <label class="sr-only" for="incData">Included data</label>
                       <select class="form-control" id="incData">
                         <option>Any data</option>
@@ -101,7 +81,6 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-9">
-
                 <div class="row" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
                   <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
                     <div class="bm-pl-box bm-pl-box-single">
@@ -120,8 +99,6 @@
                             <ul class="list-unstyled">
                               <li>Network: {{dCol.Telcos_network}}</li>
                               <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
-                              <li>Minutes: {{dCol.Telcos_inc_minutes}}</li>
-                              <li>Texts: {{dCol.Telcos_inc_texts}}</li>
                               <li>Storage: {{dCol.Telcos_storage_size}}</li>
                             </ul>
                             <a class="btn btn-secondary btn-block">View offer</a>
@@ -168,7 +145,8 @@ export default {
             operatingSystem: iOS, 
             contractType: Contract, 
             productVersionName:iPhoneX, 
-            onlyIncludeUnlimitedMinutesAndTexts: true,
+            numberOfTexts: Unlimited,
+            talkMinutes: Unlimited,
             sortBy:TCO_ASC
           ) 
           {
@@ -181,8 +159,6 @@ export default {
             Telcos_network
             product_name
             Telcos_inc_data
-            Telcos_inc_texts
-            Telcos_inc_minutes
           }
         }
         `;
