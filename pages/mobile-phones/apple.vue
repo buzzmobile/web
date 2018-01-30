@@ -24,26 +24,54 @@
         </ul>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="deals">
-            
             <div class="row">
               <div class="col-xs-12 col-sm-3">
-
                 <div class="bm-p-s-filter">
                   <form>
                     <p>Choose network:</p>
-                    <div class="checkbox">
+                    <div class="radio">
                       <label>
-                        <input type="checkbox"> O2
+                        <input type="radio" name="selected-network" value="Any" :checked="selectedNetworkFilter==='Any'" @change="networksFilterChanged">Any
                       </label>
                     </div>
-                    <div class="checkbox">
+                    <div class="radio">
                       <label>
-                        <input type="checkbox"> EE
+                        <input type="radio" name="selected-network" value="BT" :checked="selectedNetworkFilter==='BT'" @change="networksFilterChanged">BT
                       </label>
                     </div>
-                    <div class="checkbox">
+                    <div class="radio">
                       <label>
-                        <input type="checkbox"> Vodaphone
+                        <input type="radio" name="selected-network" value="EE" :checked="selectedNetworkFilter==='EE'" @change="networksFilterChanged">EE
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="Giffgaff" :checked="selectedNetworkFilter==='Giffgaff'" @change="networksFilterChanged">Giffgaff
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="iD" :checked="selectedNetworkFilter==='iD'" @change="networksFilterChanged">iD
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="O2" :checked="selectedNetworkFilter==='O2'" @change="networksFilterChanged">O2
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="Three" :checked="selectedNetworkFilter==='Three'" @change="networksFilterChanged">Three
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="VirginMobile" :checked="selectedNetworkFilter==='Virgin'" @change="networksFilterChanged">Virgin
+                      </label>
+                    </div>
+                    <div class="radio">
+                      <label>
+                        <input type="radio" name="selected-network" value="Vodafone" :checked="selectedNetworkFilter==='Vodafone'" @change="networksFilterChanged">Vodafone
                       </label>
                     </div>
                     <p>Select your perfect deal:</p>
@@ -119,23 +147,21 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import { getDeals } from "../../plugins/api";
 
 export default {
     computed: {
         ...mapState({
-            dealRows: state => state.dealRows
+            dealRows: state => state.dealRows, 
+            selectedNetworkFilter: state => state.selectedNetworkFilter
         })
     },
     methods: {
         ...mapActions({
-            "toggleDetails": "toggleDetailsAction",
-            "selectQuote": "quoteSelectedAction"
+            "networksFilterChanged": "networksFilterChangedAction"
         })
     },
-    async fetch ({ client, server, env, params, store }) {
-        const { dispatch } = store;
-        const qry = `
+    async fetch ({ store }) {
+        const query = `
         {
           allDealsFiltered(
             merchantCategory:MobilePhone, 
@@ -144,6 +170,7 @@ export default {
             productVersionName:iPhoneX, 
             numberOfTexts: Unlimited,
             talkMinutes: Unlimited,
+            network: Any,
             sortBy:TCO_ASC
           ) 
           {
@@ -154,13 +181,17 @@ export default {
             Telcos_term
             Telcos_storage_size
             Telcos_network
+            Telcos_network_details_json {
+              name,
+              logo_url
+            }
             product_name
             Telcos_inc_data
           }
         }
         `;
-        const deals = await getDeals(env, qry);
-        dispatch("initFilteredPageAction", { deals, dealsPerRow: 3 });
+        const { dispatch } = store;
+        return dispatch("initDealsPageAction", { query, dealsPerRow: 3 });
     }
 };
 </script>

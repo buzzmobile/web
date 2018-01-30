@@ -1,7 +1,42 @@
 // import R from "ramda";
-// import { getAddressesPickList, searchForCompany, getBank } from "../plugins/api";
+import { executeQuery } from "../plugins/api";
 
 export default {
+    async networksFilterChangedAction( { commit }, { target }) {
+        const { value : selectedNetworkFilter } = target;
+        const query = `
+        {
+            allDealsFiltered(
+                merchantCategory:MobilePhone, 
+            operatingSystem: iOS, 
+            contractType: Contract, 
+            productVersionName:iPhoneX, 
+            numberOfTexts: Unlimited,
+            talkMinutes: Unlimited,
+            network: ${selectedNetworkFilter},
+            sortBy:TCO_ASC
+          ) 
+          {
+            aw_deep_link
+            Telcos_device_full_name
+            Telcos_initial_cost
+            Telcos_month_cost
+            Telcos_term
+            Telcos_storage_size
+            Telcos_network
+            Telcos_network_details_json {
+              name,
+              logo_url
+            }
+            product_name
+            Telcos_inc_data
+          }
+        }
+        `;
+        const { $axios: axios } = this;
+        const deals = await executeQuery(axios, query);
+        commit("networksFilterChangedMutation", { deals, selectedNetworkFilter });
+    }
     // typeChangedAction ({ commit }, newType) {
     //     commit("typeChangedMutation", newType);
     // },

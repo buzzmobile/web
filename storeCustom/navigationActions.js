@@ -1,14 +1,18 @@
-// import * as api from "../plugins/api";
+import { executeQuery } from "../plugins/api";
 
 /*
-    actions:
-        - that result in a change of url
-        - caused by a change in the url (e.g. manual edit of address in address bar)
-        - a page refresh (user hitting F5)
-        - first time navigation to the site (e.g. email link)
+actions:
+- that result in a change of url
+- caused by a change in the url (e.g. manual edit of address in address bar)
+- a page refresh (user hitting F5)
+- first time navigation to the site (e.g. email link)
 */
 
 export default {
+    async initDealsPageAction ({ commit }, { query, dealsPerRow }) {
+        const deals = await executeQuery(this.$axios, query);
+        commit("initDealsPageMutation", { deals, dealsPerRow });
+    }
     // initPricesPageServerSideAction ({ commit }, { switchData, quoteMetaAndData }) {
     //     commit("initPricesPageServerSideMutation", { switchData, quoteMetaAndData });
     // },
@@ -33,9 +37,6 @@ export default {
     // initSummaryPageServerSideAction ({ commit }, { switchData, redirect }) {
     //     commit("initSummaryPageServerSideMutation", { switchData, redirect });
     // },
-    initFilteredPageAction ({ commit }, { deals, dealsPerRow }) {
-        commit("initFilteredPageMutation", { deals, dealsPerRow });
-    }
     // async quoteSelectedAction ({ commit, state }, quote) {
     //     const { switchId } = state;
     //     const usageData = await api.upsertUsage(switchId, state);

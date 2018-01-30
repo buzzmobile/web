@@ -1,8 +1,12 @@
-// import R from "ramda";
-
-// import makeAddressesUiFriendly from "./makeAddressesUiFriendly";
+import { setDeals } from "./sharedMutations";
 
 export default {
+    networksFilterChangedMutation(state, { deals, selectedNetworkFilter }) {
+        const { dealsPerRow } = state;
+        state.selectedNetworkFilter = selectedNetworkFilter;
+        setDeals(state, deals, dealsPerRow);
+    }
+
     // addressesReturnedMutation (state, { unGroupedAddresses, type }) {
     //     state.addressGroups = makeAddressesUiFriendly({ unGroupedAddresses, type });
     // },
