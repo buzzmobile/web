@@ -10,6 +10,5 @@ export const actions = Object.assign({}, userActions, frameworkActions, navigati
 export const state = () => {
     dealRows: null;
     deals: null;
-    router: null;
     env: null;
 };
