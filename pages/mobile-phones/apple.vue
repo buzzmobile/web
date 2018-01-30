@@ -133,9 +133,6 @@ export default {
             "selectQuote": "quoteSelectedAction"
         })
     },
-    mounted () {
-        this.$store.dispatch("setRouterFromMountAction", this.$router);
-    },
     async fetch ({ client, server, env, params, store }) {
         const { dispatch } = store;
         const qry = `
