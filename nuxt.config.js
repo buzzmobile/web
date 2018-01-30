@@ -22,7 +22,7 @@ module.exports = {
     },
     loading: { color: "#3B8070" },
     router: {
-        middleware: ["setEnv","https"]
+        middleware: ["https"]
     },
     css: [
         "assets/styles/style.css"
@@ -42,9 +42,6 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org/docs/
     //"bootstrap-vue/nuxt"
     ],
-    env: {
-        baseApiUrl: process.env.baseApiUrl || "http://localhost:7778/api/"
-    },
     axios: {
     // See https://github.com/nuxt-community/axios-module#options
         baseURL: process.env.baseApiUrl || "http://localhost:7778/api/",
