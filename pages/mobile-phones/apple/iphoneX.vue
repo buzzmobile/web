@@ -34,37 +34,6 @@
                         <input type="radio" name="selected-network" :value=network :checked="selectedNetworkFilter===network" @change="networksFilterChanged">{{getNetworkDisplayName(network, availableNetworksDisplay)}}
                       </label>
                     </div>
-                    <p>Select your perfect deal:</p>
-                    <div class="form-group">
-                      <label class="sr-only" for="incData">Included data</label>
-                      <select class="form-control" id="incData">
-                        <option>Any data</option>
-                        <option>200-500 minutes</option>
-                        <option>500-1000 minutes</option>
-                        <option>1000-2000 minutes</option>
-                        <option>Unlimited minutes</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="monthCost">Monthly cost</label>
-                      <select class="form-control" id="monthCost">
-                        <option>Any monthly cost</option>
-                        <option>200-500 minutes</option>
-                        <option>500-1000 minutes</option>
-                        <option>1000-2000 minutes</option>
-                        <option>Unlimited minutes</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                      <label class="sr-only" for="contractLength">Contract length</label>
-                      <select class="form-control" id="contractLength">
-                        <option>Any contract length</option>
-                        <option>200-500 minutes</option>
-                        <option>500-1000 minutes</option>
-                        <option>1000-2000 minutes</option>
-                        <option>Unlimited minutes</option>
-                      </select>
-                    </div>
                   </form>
                 </div>
               </div>
