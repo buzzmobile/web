@@ -25,7 +25,7 @@ module.exports = {
         middleware: ["https"]
     },
     css: [
-        "assets/styles/style.css"
+        "@/assets/styles/style.scss"
     ],
     plugins: [
     ],

@@ -1,0 +1,70 @@
+// colors
+
+$body-bg: #f8f8f8;
+
+$text-color: #111;
+
+$brand-primary: #CF1D69; // pink
+$brand-secondary: #F35F76; // light pink
+$brand-tertiary: #4C4070; // purple
+$brand-quarternary: #12EED5; // turquoise
+
+$brand-dark: #22252D; // almost black
+
+// components
+$border-radius-base: 2px;
+$border-radius-large: 2px;
+$border-radius-small: 2px;
+
+// fonts
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Pacifico');
+
+$font-logo: 'Pacifico', cursive;
+
+$font-family-sans-serif: 'PT Sans', Arial, sans-serif;
+
+$font-size-base: 16px;
+
+$font-size-h1: floor(($font-size-base * 3)); // ~48px
+$font-size-h2: floor(($font-size-base * 2.25)); // ~36px
+$font-size-h3: ceil(($font-size-base * 1.5)); // ~24px
+
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 400;
+$headings-color: $brand-dark;
+
+// buttons
+
+$btn-border-radius-base: 2px;
+$btn-border-radius-large: 2px;
+$btn-border-radius-small: 2px;
+
+$btn-primary-color: #fff;
+$btn-primary-bg: $brand-primary;
+$btn-primary-border: $brand-primary;
+
+$btn-secondary-color: #fff;
+$btn-secondary-bg: $brand-dark;
+$btn-secondary-border: $brand-dark;
+
+// nav
+
+$navbar-height: 60px;
+$navbar-margin-bottom: 0;
+$navbar-border-radius: 0;
+
+$navbar-default-bg: #fff;
+$navbar-default-border: transparent;
+
+// Navbar links
+$navbar-default-link-color: #fff;
+$navbar-default-link-hover-color: #ddd;
+$navbar-default-link-hover-bg: lighten($brand-dark,25%);
+$navbar-default-link-active-color: #ddd;
+$navbar-default-link-active-bg: lighten($brand-dark,25%);
+
+$nav-link-padding: 5px 15px;
+
+// forms
+$input-border-focus: $brand-primary;
