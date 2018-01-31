@@ -8,29 +8,29 @@ export default {
         {
             allDealsFiltered(
                 merchantCategory:MobilePhone, 
-            operatingSystem: iOS, 
-            contractType: Contract, 
-            productVersionName:iPhoneX, 
-            numberOfTexts: Unlimited,
-            talkMinutes: Unlimited,
-            network: ${selectedNetworkFilter},
-            sortBy:TCO_ASC
-          ) 
-          {
-            aw_deep_link
-            Telcos_device_full_name
-            Telcos_initial_cost
-            Telcos_month_cost
-            Telcos_term
-            Telcos_storage_size
-            Telcos_network
-            Telcos_network_details_json {
-              name,
-              logo_url
+                operatingSystem: iOS, 
+                contractType: Contract, 
+                productVersionName:iPhoneX, 
+                numberOfTexts: Unlimited,
+                talkMinutes: Unlimited,
+                network: ${selectedNetworkFilter},
+                sortBy:TCO_ASC
+            ) 
+            {
+              aw_deep_link
+              merchant_name
+              Telcos_device_full_name
+              Telcos_initial_cost
+              Telcos_month_cost
+              Telcos_term
+              Telcos_storage_size
+              Telcos_network
+              product_name
+              Telcos_inc_data
+              Telcos_device_features_json {
+                colour
+              }
             }
-            product_name
-            Telcos_inc_data
-          }
         }
         `;
         const { $axios: axios } = this;

@@ -29,49 +29,9 @@
                 <div class="bm-p-s-filter">
                   <form>
                     <p>Choose network:</p>
-                    <div class="radio">
+                    <div class="radio" v-for="network in availableNetworks" v-bind:key="network" >
                       <label>
-                        <input type="radio" name="selected-network" value="Any" :checked="selectedNetworkFilter==='Any'" @change="networksFilterChanged">Any
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="BT" :checked="selectedNetworkFilter==='BT'" @change="networksFilterChanged">BT
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="EE" :checked="selectedNetworkFilter==='EE'" @change="networksFilterChanged">EE
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="Giffgaff" :checked="selectedNetworkFilter==='Giffgaff'" @change="networksFilterChanged">Giffgaff
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="iD" :checked="selectedNetworkFilter==='iD'" @change="networksFilterChanged">iD
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="O2" :checked="selectedNetworkFilter==='O2'" @change="networksFilterChanged">O2
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="Three" :checked="selectedNetworkFilter==='Three'" @change="networksFilterChanged">Three
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="VirginMobile" :checked="selectedNetworkFilter==='Virgin'" @change="networksFilterChanged">Virgin
-                      </label>
-                    </div>
-                    <div class="radio">
-                      <label>
-                        <input type="radio" name="selected-network" value="Vodafone" :checked="selectedNetworkFilter==='Vodafone'" @change="networksFilterChanged">Vodafone
+                        <input type="radio" name="selected-network" :value=network :checked="selectedNetworkFilter===network" @change="networksFilterChanged">{{getNetworkDisplayName(network, availableNetworksDisplay)}}
                       </label>
                     </div>
                     <p>Select your perfect deal:</p>
@@ -128,6 +88,8 @@
                               <li>Network: {{dCol.Telcos_network}}</li>
                               <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
                               <li>Storage: {{dCol.Telcos_storage_size}}</li>
+                              <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
+                              <li>With: {{dCol.merchant_name}}</li>
                             </ul>
                             <a class="btn btn-secondary btn-block">View offer</a>
                           </div>
@@ -152,13 +114,19 @@ export default {
     computed: {
         ...mapState({
             dealRows: state => state.dealRows, 
-            selectedNetworkFilter: state => state.selectedNetworkFilter
+            selectedNetworkFilter: state => state.selectedNetworkFilter,
+            availableNetworks: state => state.availableNetworks,
+            availableNetworksDisplay: state => state.availableNetworksDisplay
         })
     },
     methods: {
         ...mapActions({
             "networksFilterChanged": "networksFilterChangedAction"
-        })
+        }),
+        getNetworkDisplayName(network, availableNetworksDisplay) {
+            const hasDisplay = availableNetworksDisplay.find(a => a.coded === network);
+            return hasDisplay ? hasDisplay.display : network;
+        }
     },
     async fetch ({ store }) {
         const query = `
@@ -175,18 +143,18 @@ export default {
           ) 
           {
             aw_deep_link
+            merchant_name
             Telcos_device_full_name
             Telcos_initial_cost
             Telcos_month_cost
             Telcos_term
             Telcos_storage_size
             Telcos_network
-            Telcos_network_details_json {
-              name,
-              logo_url
-            }
             product_name
             Telcos_inc_data
+            Telcos_device_features_json {
+              colour
+            }
           }
         }
         `;

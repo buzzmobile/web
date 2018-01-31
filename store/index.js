@@ -10,11 +10,25 @@ const actions = Object.assign({}, userActions, navigationActions);
 
 const createStore = () => {
     return new Vuex.Store({
-        state:    {
+        state: {
             dealRows: null,
             deals: null,
             dealsPerRow: null,
-            selectedNetworkFilter: "Any"
+            selectedNetworkFilter: "Any",
+            availableNetworksDisplay: [
+                { coded: "VirginMobile", display: "Virgin" }
+            ],
+            availableNetworks: [
+                "Any",
+                "BT",
+                "EE",
+                "Giffgaff",
+                "iD",
+                "O2",
+                "Three",
+                "VirginMobile",
+                "Vodafone"
+            ]
         },
         mutations,
         actions
