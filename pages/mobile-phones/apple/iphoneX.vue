@@ -49,7 +49,6 @@
                     </div>
                     <div class="bm-pl-b-content">
                         <div class="row">
-                          <img class="bm-pl-b-c-img" src="" alt="phone">
                           <div class="col-xs-7">
                             <p>Handset £{{dCol.Telcos_initial_cost}}</p>
                             <p>£<span class="bm-pl-b-c-price">{{dCol.Telcos_month_cost.toString().split(".")[0]}}</span>.{{dCol.Telcos_month_cost.toString().split(".")[1]}} <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span></p>
