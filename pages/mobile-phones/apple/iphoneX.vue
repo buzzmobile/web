@@ -29,9 +29,9 @@
                 <div class="bm-p-s-filter">
                   <form>
                     <p>Choose network:</p>
-                      <select name="" id="" @change="networksFilterChanged">
-                        <option :value="network" v-for="network in availableNetworks" v-bind:key="network" >{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
-                      </select>
+                    <select name="" id="" @change="networksFilterChanged">
+                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network" >{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                    </select>
                   </form>
                 </div>
               </div>
