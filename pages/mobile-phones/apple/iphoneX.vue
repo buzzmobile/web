@@ -53,7 +53,7 @@
                         <div class="col-xs-7">
                           <p>Handset £{{dCol.Telcos_initial_cost}}</p>
                           <p>£
-                            <span class="bm-pl-b-c-price">{{dCol.Telcos_month_cost.toString().split(".")[0]}}</span>.{{dCol.Telcos_month_cost.toString().split(".")[1]}}
+                            <span class="bm-pl-b-c-price">{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
                             <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span>
                           </p>
                           <ul class="list-unstyled">
@@ -101,6 +101,12 @@ export default {
                 a => a.coded === network
             );
             return hasDisplay ? hasDisplay.display : network;
+        },
+        getMonthlyPricePoundsPart(deal) {
+            return deal.Telcos_month_cost.toString().split(".")[0];
+        },
+        getMonthlyPricePencePart(deal) {
+            return deal.Telcos_month_cost.toFixed(2).toString().split(".")[1];
         }
     },
     async fetch({ store }) {
