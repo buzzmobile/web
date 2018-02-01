@@ -120,6 +120,7 @@ export default {
                 numberOfTexts: Unlimited,
                 talkMinutes: Unlimited,
                 network: Any,
+                merchant: e2saveNot,
                 sortBy:TCO_ASC
               ) 
               {

@@ -14,6 +14,7 @@ export default {
                 numberOfTexts: Unlimited,
                 talkMinutes: Unlimited,
                 network: ${selectedNetworkFilter},
+                merchant: e2saveNot,
                 sortBy:TCO_ASC
             ) 
             {
