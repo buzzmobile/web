@@ -4,19 +4,19 @@
         <div class="container">
           <div class="bm-pt-box">
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-xs-12 text-center">
                 <h1>iPhone X Contracts</h1>
+                <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total Cost of Ownership</p>
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-12 col-md-8">
-                <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total Cost of Ownership</p>
+              <div class="col-md-12 col-md-offset-1 col-lg-12 col-lg-offset-2">
+                <img src="~/assets/images/iphonexcolors-800x573.jpg" alt="" class="img-responsive">
               </div>
             </div>      
           </div>
         </div>
     </section>
-
     <section class="bm-product-selector">
       <div class="container">
         <ul class="nav nav-tabs" role="tablist">
@@ -81,7 +81,7 @@ import { mapState, mapActions } from "vuex";
 export default {
     computed: {
         ...mapState({
-            dealRows: state => state.dealRows, 
+            dealRows: state => state.dealRows,
             selectedNetworkFilter: state => state.selectedNetworkFilter,
             availableNetworks: state => state.availableNetworks,
             availableNetworksDisplay: state => state.availableNetworksDisplay
@@ -89,43 +89,45 @@ export default {
     },
     methods: {
         ...mapActions({
-            "networksFilterChanged": "networksFilterChangedAction"
+            networksFilterChanged: "networksFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
-            const hasDisplay = availableNetworksDisplay.find(a => a.coded === network);
+            const hasDisplay = availableNetworksDisplay.find(
+                a => a.coded === network
+            );
             return hasDisplay ? hasDisplay.display : network;
         }
     },
-    async fetch ({ store }) {
+    async fetch({ store }) {
         const query = `
-        {
-          allDealsFiltered(
-            merchantCategory:MobilePhone, 
-            operatingSystem: iOS, 
-            contractType: Contract, 
-            productVersionName:iPhoneX, 
-            numberOfTexts: Unlimited,
-            talkMinutes: Unlimited,
-            network: Any,
-            sortBy:TCO_ASC
-          ) 
-          {
-            aw_deep_link
-            merchant_name
-            Telcos_device_full_name
-            Telcos_initial_cost
-            Telcos_month_cost
-            Telcos_term
-            Telcos_storage_size
-            Telcos_network
-            product_name
-            Telcos_inc_data
-            Telcos_device_features_json {
-              colour
+            {
+              allDealsFiltered(
+                merchantCategory:MobilePhone, 
+                operatingSystem: iOS, 
+                contractType: Contract, 
+                productVersionName:iPhoneX, 
+                numberOfTexts: Unlimited,
+                talkMinutes: Unlimited,
+                network: Any,
+                sortBy:TCO_ASC
+              ) 
+              {
+                aw_deep_link
+                merchant_name
+                Telcos_device_full_name
+                Telcos_initial_cost
+                Telcos_month_cost
+                Telcos_term
+                Telcos_storage_size
+                Telcos_network
+                product_name
+                Telcos_inc_data
+                Telcos_device_features_json {
+                  colour
+                }
+              }
             }
-          }
-        }
-        `;
+            `;
         const { dispatch } = store;
         return dispatch("initDealsPageAction", { query, dealsPerRow: 3 });
     }
