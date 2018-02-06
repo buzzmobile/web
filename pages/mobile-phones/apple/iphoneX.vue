@@ -63,7 +63,7 @@
                             <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
                             <li>With: {{dCol.merchant_name}}</li>
                           </ul>
-                          <a class="btn btn-secondary btn-block">View offer</a>
+                          <nuxt-link class="btn btn-secondary btn-block" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                         </div>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ export default {
                 sortBy:TCO_ASC
               ) 
               {
-                aw_deep_link
+                id
                 merchant_name
                 Telcos_device_full_name
                 Telcos_initial_cost
