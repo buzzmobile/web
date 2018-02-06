@@ -20,7 +20,6 @@ export default {
             {
               aw_deep_link
               merchant_name
-              Telcos_device_full_name
               Telcos_initial_cost
               Telcos_month_cost
               Telcos_term
