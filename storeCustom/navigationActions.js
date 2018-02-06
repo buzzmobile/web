@@ -1,4 +1,4 @@
-import { executeQuery } from "../plugins/api";
+import { executeAllDealsQuery, executeGetDealQuery } from "../plugins/api";
 
 /*
 actions:
@@ -10,32 +10,15 @@ actions:
 
 export default {
     async initDealsPageAction ({ commit }, { query, dealsPerRow }) {
-        const deals = await executeQuery(this.$axios, query);
+        const deals = await executeAllDealsQuery(this.$axios, query);
         commit("initDealsPageMutation", { deals, dealsPerRow });
+    },
+    async initDealPageAction ({ commit }, { query }) {
+        const deal = await executeGetDealQuery(this.$axios, query);
+        commit("initDealPageMutation", { deal });
     }
     // initPricesPageServerSideAction ({ commit }, { switchData, quoteMetaAndData }) {
     //     commit("initPricesPageServerSideMutation", { switchData, quoteMetaAndData });
-    // },
-    // initPricesPageClientSideAction ({ commit }, quoteMetaAndData) {
-    //     commit("initPricesPageClientSideMutation", quoteMetaAndData);
-    // },
-    // initDetailsPageServerSideAction ({ commit }, { switchData, currentSupplierPickList, companyPickList }) {
-    //     commit("initDetailsPageServerSideMutation", { switchData, currentSupplierPickList, companyPickList });
-    // },
-    // initDetailsPageClientSideAction ({ commit }, currentSupplierPickList) {
-    //     commit("initDetailsPageClientSideMutation", currentSupplierPickList);
-    // },
-    // initReviewPageClientSideAction ({ commit }, { quoteMetaAndData }) {
-    //     commit("initReviewPageClientSideMutation", { quoteMetaAndData });
-    // },
-    // initReviewPageServerSideAction ({ commit }, { switchData, quoteMetaAndData, redirect }) {
-    //     commit("initReviewPageServerSideMutation", { switchData, quoteMetaAndData, redirect });
-    // },
-    // initSummaryPageClientSideAction ({ commit }) {
-    //     commit("initSummaryPageClientSideMutation");
-    // },
-    // initSummaryPageServerSideAction ({ commit }, { switchData, redirect }) {
-    //     commit("initSummaryPageServerSideMutation", { switchData, redirect });
     // },
     // async quoteSelectedAction ({ commit, state }, quote) {
     //     const { switchId } = state;

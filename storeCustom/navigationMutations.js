@@ -3,6 +3,9 @@ import { setDeals } from "./sharedMutations";
 export default {
     initDealsPageMutation (state, { deals, dealsPerRow }) {
         setDeals(state, deals, dealsPerRow);
+    },
+    initDealPageMutation (state, { deal }) {
+        state.selectedDeal = deal;
     }
     // initPricesPageServerSideMutation (state, { switchData, quoteMetaAndData }) {
     //     mapServerSwitchToState(state, switchData);

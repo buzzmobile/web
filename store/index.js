@@ -28,7 +28,8 @@ const createStore = () => {
                 "Three",
                 "VirginMobile",
                 "Vodafone"
-            ]
+            ],
+            selectedDeal: null
         },
         mutations,
         actions

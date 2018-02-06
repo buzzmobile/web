@@ -1,5 +1,5 @@
 // import R from "ramda";
-import { executeQuery } from "../plugins/api";
+import { executeAllDealsQuery } from "../plugins/api";
 
 export default {
     async networksFilterChangedAction( { commit }, { target }) {
@@ -35,7 +35,7 @@ export default {
         }
         `;
         const { $axios: axios } = this;
-        const deals = await executeQuery(axios, query);
+        const deals = await executeAllDealsQuery(axios, query);
         commit("networksFilterChangedMutation", { deals, selectedNetworkFilter });
     }
     // typeChangedAction ({ commit }, newType) {
