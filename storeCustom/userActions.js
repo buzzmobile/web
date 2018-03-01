@@ -5,7 +5,7 @@ export default {
     async networksFilterChangedAction( { commit, state }, { target }) {
         const { value : selectedNetworkFilter } = target;
         const { os, productVersionName } = state;
-        const query = buildGetQuery(os, productVersionName);
+        const query = buildGetQuery(os, productVersionName, selectedNetworkFilter);
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("networksFilterChangedMutation", { deals, selectedNetworkFilter });

@@ -16,7 +16,7 @@ async function getQueryResult(axios, query) {
     });
 }
 
-export function buildGetQuery (os, productVersionName) {
+export function buildGetQuery (os, productVersionName, network = "Any") {
     return `
     {
       allDealsFiltered(
@@ -26,7 +26,7 @@ export function buildGetQuery (os, productVersionName) {
         contractType: Contract, 
         numberOfTexts: Unlimited,
         talkMinutes: Unlimited,
-        network: Any,
+        network: ${network},
         merchant: e2saveNot,
         sortBy:TCO_ASC
       ) 
