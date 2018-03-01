@@ -15,3 +15,36 @@ async function getQueryResult(axios, query) {
         }
     });
 }
+
+export function buildGetQuery (os, productVersionName) {
+    return `
+    {
+      allDealsFiltered(
+        merchantCategory:MobilePhone, 
+        operatingSystem: ${os}, 
+        productVersionName: ${productVersionName}, 
+        contractType: Contract, 
+        numberOfTexts: Unlimited,
+        talkMinutes: Unlimited,
+        network: Any,
+        merchant: e2saveNot,
+        sortBy:TCO_ASC
+      ) 
+      {
+        id
+        merchant_name
+        Telcos_device_full_name
+        Telcos_initial_cost
+        Telcos_month_cost
+        Telcos_term
+        Telcos_storage_size
+        Telcos_network
+        product_name
+        Telcos_inc_data
+        Telcos_device_features_json {
+          colour
+        }
+      }
+    }
+    `;
+};

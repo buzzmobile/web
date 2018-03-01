@@ -1,7 +1,9 @@
 import { setDeals } from "./sharedMutations";
 
 export default {
-    initDealsPageMutation (state, { deals, dealsPerRow }) {
+    initDealsPageMutation (state, { deals, dealsPerRow, os, productVersionName }) {
+        state.os = os;
+        state.productVersionName = productVersionName;
         setDeals(state, deals, dealsPerRow);
     },
     initDealPageMutation (state, { deal }) {

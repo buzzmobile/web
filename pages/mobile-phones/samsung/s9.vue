@@ -5,14 +5,14 @@
         <div class="bm-pt-box">
           <div class="row">
             <div class="col-xs-12 text-center">
-              <h1>iPhone X Contracts</h1>
+              <h1>Samsung S9 Contracts</h1>
               <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered
                 by Total Cost of Ownership</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
-              <img src="~/assets/images/iphonexcolors-800x573.jpg" alt="" class="img-responsive">
+            <div class="col-md-12 col-md-offset-2 col-lg-12 col-lg-offset-3">
+              <img src="~/assets/images/s9All.jpg" alt="" class="img-responsive">
             </div>
           </div>
         </div>
@@ -111,8 +111,8 @@ export default {
         }
     },
     async fetch({ store }) {
-        const os = "iOS";
-        const productVersionName = "iPhoneX";
+        const os = "Android";
+        const productVersionName = "S9Any";
         const query = buildGetQuery(os, productVersionName);
         const { dispatch } = store;
         return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, productVersionName });

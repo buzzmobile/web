@@ -1,38 +1,11 @@
 // import R from "ramda";
-import { executeAllDealsQuery } from "../plugins/api";
+import { buildGetQuery, executeAllDealsQuery } from "../plugins/api";
 
 export default {
-    async networksFilterChangedAction( { commit }, { target }) {
+    async networksFilterChangedAction( { commit, state }, { target }) {
         const { value : selectedNetworkFilter } = target;
-        const query = `
-        {
-            allDealsFiltered(
-                merchantCategory:MobilePhone, 
-                operatingSystem: iOS, 
-                contractType: Contract, 
-                productVersionName:iPhoneX, 
-                numberOfTexts: Unlimited,
-                talkMinutes: Unlimited,
-                network: ${selectedNetworkFilter},
-                merchant: e2saveNot,
-                sortBy:TCO_ASC
-            ) 
-            {
-              aw_deep_link
-              merchant_name
-              Telcos_initial_cost
-              Telcos_month_cost
-              Telcos_term
-              Telcos_storage_size
-              Telcos_network
-              product_name
-              Telcos_inc_data
-              Telcos_device_features_json {
-                colour
-              }
-            }
-        }
-        `;
+        const { os, productVersionName } = state;
+        const query = buildGetQuery(os, productVersionName);
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("networksFilterChangedMutation", { deals, selectedNetworkFilter });

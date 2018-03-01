@@ -18,7 +18,7 @@
               <h1></h1>
               <div class="row">
                 <div class="col-xs-12 col-md-6">
-                  <a class="btn btn-primary btn-block disabled">Samsung Galaxy S9</a>
+                  <a class="btn btn-primary btn-block" href="/mobile-phones/samsung/s9">Samsung Galaxy S9/Plus</a>
                 </div>
               </div>
             </div>

@@ -9,9 +9,9 @@ actions:
 */
 
 export default {
-    async initDealsPageAction ({ commit }, { query, dealsPerRow }) {
+    async initDealsPageAction ({ commit }, { query, dealsPerRow, os, productVersionName }) {
         const deals = await executeAllDealsQuery(this.$axios, query);
-        commit("initDealsPageMutation", { deals, dealsPerRow });
+        commit("initDealsPageMutation", { deals, dealsPerRow, os, productVersionName });
     },
     async initDealPageAction ({ commit }, { query }) {
         const deal = await executeGetDealQuery(this.$axios, query);

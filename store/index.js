@@ -29,7 +29,9 @@ const createStore = () => {
                 "VirginMobile",
                 "Vodafone"
             ],
-            selectedDeal: null
+            selectedDeal: null,
+            os: null,
+            productVersionName: null
         },
         mutations,
         actions
