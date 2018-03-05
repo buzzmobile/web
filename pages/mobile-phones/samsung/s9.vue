@@ -5,14 +5,33 @@
         <div class="bm-pt-box">
           <div class="row">
             <div class="col-xs-12 text-center">
-              <h1>Samsung S9 Contracts</h1>
+              <h1>Samsung S9/S9+ Contracts</h1>
               <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered
                 by Total Cost of Ownership</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 col-md-offset-2 col-lg-12 col-lg-offset-3">
-              <img src="~/assets/images/s9All.jpg" alt="" class="img-responsive">
+            <div class="col-xs-4">
+              <img class="img-responsive" sizes="30vw" srcset="
+~/assets/images/galaxy-s9-black-back-360.jpg 360w,
+~/assets/images/galaxy-s9-black-back-480.jpg 480w,
+~/assets/images/galaxy-s9-black-back-684.jpg 684w,
+~/assets/images/galaxy-s9-black-back-763.jpg 763w,
+~/assets/images/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/galaxy-s9-black-back-360.jpg" alt="">
+            </div>
+            <div class="col-xs-4">
+              <img class="img-responsive" sizes="30vw" srcset="
+~/assets/images/galaxy-s9-purple-back-360.jpg 360w,
+~/assets/images/galaxy-s9-purple-back-581.jpg 581w,
+~/assets/images/galaxy-s9-purple-back-785.jpg 785w,
+~/assets/images/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/galaxy-s9-purple-back-360.jpg" alt="">
+            </div>
+            <div class="col-xs-4">
+              <img class="img-responsive" sizes="30vw" srcset="
+~/assets/images/galaxy-s9-blue-back-360.jpg 360w,
+~/assets/images/galaxy-s9-blue-back-596.jpg 596w,
+~/assets/images/galaxy-s9-blue-back-797.jpg 797w,
+~/assets/images/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/galaxy-s9-blue-back-360.jpg" alt="">
             </div>
           </div>
         </div>
@@ -77,6 +96,7 @@
     </section>
   </main>
 </template>
+
 
 
 
