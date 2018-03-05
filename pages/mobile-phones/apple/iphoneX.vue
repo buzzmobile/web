@@ -11,8 +11,17 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
-              <img src="~/assets/images/iphonexcolors-800x573.jpg" alt="" class="img-responsive">
+            <div class="col-xs-6">
+               <img class="img-responsive" sizes="50vw" srcset="
+~/assets/images/iphone-x-silver-600.jpg 600w,
+~/assets/images/iphone-x-silver-1014.jpg 1014w,
+~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="">
+            </div>
+            <div class="col-xs-6">
+               <img class="img-responsive" sizes="50vw" srcset="
+~/assets/images/iphone-x-gray-600.jpg 600w,
+~/assets/images/iphone-x-gray-966.jpg 966w,
+~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="">
             </div>
           </div>
         </div>
@@ -77,6 +86,7 @@
     </section>
   </main>
 </template>
+
 
 
 
