@@ -15,13 +15,13 @@
                <img class="img-responsive" sizes="50vw" srcset="
 ~/assets/images/iphone-x-silver-600.jpg 600w,
 ~/assets/images/iphone-x-silver-1014.jpg 1014w,
-~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="">
+~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in silver">
             </div>
             <div class="col-xs-6">
                <img class="img-responsive" sizes="50vw" srcset="
 ~/assets/images/iphone-x-gray-600.jpg 600w,
 ~/assets/images/iphone-x-gray-966.jpg 966w,
-~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="">
+~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in grey">
             </div>
           </div>
         </div>
@@ -40,9 +40,19 @@
               <div class="col-xs-12 col-sm-3">
                 <div class="bm-p-s-filter">
                   <form>
-                    <p>Choose network:</p>
-                    <select name="" id="" @change="networksFilterChanged">
+                    <p>Network:</p>
+                    <select @change="networksFilterChanged">
                       <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                    </select>
+                    <p></p>
+                    <p>Storage:</p>
+                    <select @change="storageFilterChanged">
+                      <option :value="s.coded" v-for="s in availableiPhoneXStorage" v-bind:key="s.coded">{{s.display}}</option>
+                    </select>
+                    <p></p>
+                    <p>Colour:</p>
+                    <select @change="colourFilterChanged">
+                      <option :value="s.coded" v-for="s in availableiPhoneColours" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -66,11 +76,11 @@
                             <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span>
                           </p>
                           <ul class="list-unstyled">
-                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
+                            <li>With: {{dCol.merchant_name}}</li>
+                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Storage: {{dCol.Telcos_storage_size}}</li>
                             <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                            <li>With: {{dCol.merchant_name}}</li>
                           </ul>
                           <nuxt-link class="btn btn-secondary btn-block" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                         </div>
@@ -87,9 +97,6 @@
   </main>
 </template>
 
-
-
-
 <script>
 import { mapState, mapActions } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
@@ -98,14 +105,17 @@ export default {
     computed: {
         ...mapState({
             dealRows: state => state.dealRows,
-            selectedNetworkFilter: state => state.selectedNetworkFilter,
             availableNetworks: state => state.availableNetworks,
-            availableNetworksDisplay: state => state.availableNetworksDisplay
+            availableNetworksDisplay: state => state.availableNetworksDisplay,
+            availableiPhoneXStorage: state => state.availableiPhoneXStorage,
+            availableiPhoneColours: state => state.availableiPhoneColours
         })
     },
     methods: {
         ...mapActions({
-            networksFilterChanged: "networksFilterChangedAction"
+            networksFilterChanged: "networksFilterChangedAction",
+            storageFilterChanged: "storageFilterChangedAction",
+            colourFilterChanged: "colourFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(
@@ -113,19 +123,15 @@ export default {
             );
             return hasDisplay ? hasDisplay.display : network;
         },
-        getMonthlyPricePoundsPart(deal) {
-            return deal.Telcos_month_cost.toString().split(".")[0];
-        },
-        getMonthlyPricePencePart(deal) {
-            return deal.Telcos_month_cost.toFixed(2).toString().split(".")[1];
-        }
+        getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
+        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
     },
     async fetch({ store }) {
         const os = "iOS";
-        const productVersionName = "iPhoneX";
-        const query = buildGetQuery(os, productVersionName);
+        const selectedProductVersionName = "iPhoneX";
+        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, productVersionName });
+        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
     }
 };
 </script>

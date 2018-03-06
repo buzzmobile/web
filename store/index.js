@@ -29,9 +29,32 @@ const createStore = () => {
                 "VirginMobile",
                 "Vodafone"
             ],
+            selectediPhoneXStorage: "Any",
+            availableiPhoneXStorage: [
+                { display: "Any", coded: "Any" },
+                { display: "64 GB", coded: "GB64" },
+                { display: "256 GB", coded: "GB256" }
+            ],
+            availableS9ProductVersions: [
+                { display: "Any", coded: "S9Any" },
+                { display: "S9", coded: "S9" },
+                { display: "S9 +", coded: "S9Plus" }
+            ],
             selectedDeal: null,
             os: null,
-            productVersionName: null
+            selectedProductVersionName: null,
+            selectedColour: "Any",
+            availableiPhoneColours: [
+                { display: "Any", coded: "Any" },
+                { display: "Silver", coded: "Silver" },
+                { display: "Space Grey", coded: "Space_Grey" }
+            ],
+            availableS9Colours: [
+                { display: "Any", coded: "Any" },
+                { display: "Coral Blue", coded: "Coral_Blue" },
+                { display: "Midnight Black", coded: "Midnight_Black" },
+                { display: "Lilac Purple", coded: "Lilac_Purple" }
+            ]
         },
         mutations,
         actions

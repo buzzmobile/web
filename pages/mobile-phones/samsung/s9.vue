@@ -17,21 +17,21 @@
 ~/assets/images/galaxy-s9-black-back-480.jpg 480w,
 ~/assets/images/galaxy-s9-black-back-684.jpg 684w,
 ~/assets/images/galaxy-s9-black-back-763.jpg 763w,
-~/assets/images/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/galaxy-s9-black-back-360.jpg" alt="">
+~/assets/images/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/galaxy-s9-black-back-360.jpg" alt="Samsung S9 in Midnight Black">
             </div>
             <div class="col-xs-4">
               <img class="img-responsive" sizes="30vw" srcset="
 ~/assets/images/galaxy-s9-purple-back-360.jpg 360w,
 ~/assets/images/galaxy-s9-purple-back-581.jpg 581w,
 ~/assets/images/galaxy-s9-purple-back-785.jpg 785w,
-~/assets/images/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/galaxy-s9-purple-back-360.jpg" alt="">
+~/assets/images/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/galaxy-s9-purple-back-360.jpg" alt="Samsung S9 in Lilac Purple">
             </div>
             <div class="col-xs-4">
               <img class="img-responsive" sizes="30vw" srcset="
 ~/assets/images/galaxy-s9-blue-back-360.jpg 360w,
 ~/assets/images/galaxy-s9-blue-back-596.jpg 596w,
 ~/assets/images/galaxy-s9-blue-back-797.jpg 797w,
-~/assets/images/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/galaxy-s9-blue-back-360.jpg" alt="">
+~/assets/images/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/galaxy-s9-blue-back-360.jpg" alt="Samsung S9 in Coral Blue">
             </div>
           </div>
         </div>
@@ -50,9 +50,19 @@
               <div class="col-xs-12 col-sm-3">
                 <div class="bm-p-s-filter">
                   <form>
-                    <p>Choose network:</p>
+                    <p>Network:</p>
                     <select name="" id="" @change="networksFilterChanged">
                       <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                    </select>
+                    <p></p>
+                    <p>Model:</p>
+                    <select name="" id="" @change="productVersionNameFilterChanged">
+                      <option :value="p.coded" v-for="p in availableS9ProductVersions" v-bind:key="p.coded">{{p.display}}</option>
+                    </select>
+                    <p></p>
+                    <p>Colour:</p>
+                    <select @change="colourFilterChanged">
+                      <option :value="s.coded" v-for="s in availableS9Colours" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -76,11 +86,11 @@
                             <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span>
                           </p>
                           <ul class="list-unstyled">
-                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
+                            <li>With: {{dCol.merchant_name}}</li>
+                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Storage: {{dCol.Telcos_storage_size}}</li>
                             <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                            <li>With: {{dCol.merchant_name}}</li>
                           </ul>
                           <nuxt-link class="btn btn-secondary btn-block" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                         </div>
@@ -97,9 +107,6 @@
   </main>
 </template>
 
-
-
-
 <script>
 import { mapState, mapActions } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
@@ -108,14 +115,17 @@ export default {
     computed: {
         ...mapState({
             dealRows: state => state.dealRows,
-            selectedNetworkFilter: state => state.selectedNetworkFilter,
             availableNetworks: state => state.availableNetworks,
-            availableNetworksDisplay: state => state.availableNetworksDisplay
+            availableNetworksDisplay: state => state.availableNetworksDisplay,
+            availableS9ProductVersions: state => state.availableS9ProductVersions,
+            availableS9Colours: state => state.availableS9Colours
         })
     },
     methods: {
         ...mapActions({
-            networksFilterChanged: "networksFilterChangedAction"
+            networksFilterChanged: "networksFilterChangedAction",
+            productVersionNameFilterChanged: "productVersionNameFilterChangedAction",
+            colourFilterChanged: "colourFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(
@@ -123,19 +133,15 @@ export default {
             );
             return hasDisplay ? hasDisplay.display : network;
         },
-        getMonthlyPricePoundsPart(deal) {
-            return deal.Telcos_month_cost.toString().split(".")[0];
-        },
-        getMonthlyPricePencePart(deal) {
-            return deal.Telcos_month_cost.toFixed(2).toString().split(".")[1];
-        }
+        getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
+        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
     },
     async fetch({ store }) {
         const os = "Android";
-        const productVersionName = "S9Any";
-        const query = buildGetQuery(os, productVersionName);
+        const selectedProductVersionName = "S9Any";
+        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, productVersionName });
+        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
     }
 };
 </script>

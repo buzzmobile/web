@@ -6,7 +6,7 @@
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <a class="bm-toplogo" href="/">mopho</a>
+              <nuxt-link class="bm-toplogo" to="/">mopho</nuxt-link>              
             </div>
           </div>
         </div>
