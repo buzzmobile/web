@@ -43,11 +43,17 @@ const createStore = () => {
             selectedDeal: null,
             os: null,
             selectedProductVersionName: null,
-            selectediPhoneXColour: "Any",
+            selectedColour: "Any",
             availableiPhoneColours: [
                 { display: "Any", coded: "Any" },
                 { display: "Silver", coded: "Silver" },
                 { display: "Space Grey", coded: "Space_Grey" }
+            ],
+            availableS9Colours: [
+                { display: "Any", coded: "Any" },
+                { display: "Coral Blue", coded: "Coral_Blue" },
+                { display: "Midnight Black", coded: "Midnight_Black" },
+                { display: "Lilac Purple", coded: "Lilac_Purple" }
             ]
         },
         mutations,

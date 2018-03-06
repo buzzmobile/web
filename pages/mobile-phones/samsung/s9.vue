@@ -59,6 +59,11 @@
                     <select name="" id="" @change="productVersionNameFilterChanged">
                       <option :value="p.coded" v-for="p in availableS9ProductVersions" v-bind:key="p.coded">{{p.display}}</option>
                     </select>
+                    <p></p>
+                    <p>Colour:</p>
+                    <select @change="colourFilterChanged">
+                      <option :value="s.coded" v-for="s in availableS9Colours" v-bind:key="s.coded">{{s.display}}</option>
+                    </select>
                   </form>
                 </div>
               </div>
@@ -81,11 +86,11 @@
                             <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span>
                           </p>
                           <ul class="list-unstyled">
-                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
+                            <li>With: {{dCol.merchant_name}}</li>
+                            <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Storage: {{dCol.Telcos_storage_size}}</li>
                             <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                            <li>With: {{dCol.merchant_name}}</li>
                           </ul>
                           <nuxt-link class="btn btn-secondary btn-block" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                         </div>
@@ -112,13 +117,15 @@ export default {
             dealRows: state => state.dealRows,
             availableNetworks: state => state.availableNetworks,
             availableNetworksDisplay: state => state.availableNetworksDisplay,
-            availableS9ProductVersions: state => state.availableS9ProductVersions
+            availableS9ProductVersions: state => state.availableS9ProductVersions,
+            availableS9Colours: state => state.availableS9Colours
         })
     },
     methods: {
         ...mapActions({
             networksFilterChanged: "networksFilterChangedAction",
-            productVersionNameFilterChanged: "productVersionNameFilterChangedAction"
+            productVersionNameFilterChanged: "productVersionNameFilterChangedAction",
+            colourFilterChanged: "colourFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(

@@ -16,9 +16,9 @@ export default {
         state.selectedProductVersionName = selectedProductVersionNameFilter;
         setDeals(state, deals, dealsPerRow);
     },
-    iPhoneColourFilterChangedMutation(state, { deals, selectediPhoneXColourFilter }) {
+    colourFilterChangedMutation(state, { deals, selectedColourFilter }) {
         const { dealsPerRow } = state;
-        state.selectediPhoneXColour = selectediPhoneXColourFilter;
+        state.selectedColour = selectedColourFilter;
         setDeals(state, deals, dealsPerRow);
     }
 };
