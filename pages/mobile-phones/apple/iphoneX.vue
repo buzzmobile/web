@@ -47,7 +47,7 @@
                     <p></p>
                     <p>Storage:</p>
                     <select @change="storageFilterChanged">
-                      <option :value="s.coded" v-for="s in availableiPhoneXStorage" v-bind:key="s.display">{{s.display}}</option>
+                      <option :value="s.coded" v-for="s in availableiPhoneXStorage" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -108,7 +108,7 @@ export default {
     methods: {
         ...mapActions({
             networksFilterChanged: "networksFilterChangedAction",
-            storageFilterChanged: "storageFilterChanged"
+            storageFilterChanged: "storageFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(
@@ -121,10 +121,10 @@ export default {
     },
     async fetch({ store }) {
         const os = "iOS";
-        const productVersionName = "iPhoneX";
-        const query = buildGetQuery(os, productVersionName);
+        const selectedProductVersionName = "iPhoneX";
+        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, productVersionName });
+        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
     }
 };
 </script>

@@ -10,5 +10,10 @@ export default {
         const { dealsPerRow } = state;
         state.selectedStorageFilter = selectedStorageFilter;
         setDeals(state, deals, dealsPerRow);
+    },
+    productVersionFilterChangedMutation(state, { deals, selectedProductVersionNameFilter }) {
+        const { dealsPerRow } = state;
+        state.selectedProductVersionName = selectedProductVersionNameFilter;
+        setDeals(state, deals, dealsPerRow);
     }
 };

@@ -50,9 +50,14 @@
               <div class="col-xs-12 col-sm-3">
                 <div class="bm-p-s-filter">
                   <form>
-                    <p>Choose network:</p>
+                    <p>Network:</p>
                     <select name="" id="" @change="networksFilterChanged">
                       <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                    </select>
+                    <p></p>
+                    <p>Model:</p>
+                    <select name="" id="" @change="productVersionNameFilterChanged">
+                      <option :value="p.coded" v-for="p in availableS9ProductVersions" v-bind:key="p.coded">{{p.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -106,12 +111,14 @@ export default {
         ...mapState({
             dealRows: state => state.dealRows,
             availableNetworks: state => state.availableNetworks,
-            availableNetworksDisplay: state => state.availableNetworksDisplay
+            availableNetworksDisplay: state => state.availableNetworksDisplay,
+            availableS9ProductVersions: state => state.availableS9ProductVersions
         })
     },
     methods: {
         ...mapActions({
-            networksFilterChanged: "networksFilterChangedAction"
+            networksFilterChanged: "networksFilterChangedAction",
+            productVersionNameFilterChanged: "productVersionNameFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(
@@ -124,10 +131,10 @@ export default {
     },
     async fetch({ store }) {
         const os = "Android";
-        const productVersionName = "S9Any";
-        const query = buildGetQuery(os, productVersionName);
+        const selectedProductVersionName = "S9Any";
+        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, productVersionName });
+        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
     }
 };
 </script>
