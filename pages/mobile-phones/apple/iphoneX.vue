@@ -49,6 +49,11 @@
                     <select @change="storageFilterChanged">
                       <option :value="s.coded" v-for="s in availableiPhoneXStorage" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
+                    <p></p>
+                    <p>Colour:</p>
+                    <select @change="iPhoneColourFilterChanged">
+                      <option :value="s.coded" v-for="s in availableiPhoneColours" v-bind:key="s.coded">{{s.display}}</option>
+                    </select>
                   </form>
                 </div>
               </div>
@@ -102,13 +107,15 @@ export default {
             dealRows: state => state.dealRows,
             availableNetworks: state => state.availableNetworks,
             availableNetworksDisplay: state => state.availableNetworksDisplay,
-            availableiPhoneXStorage: state => state.availableiPhoneXStorage
+            availableiPhoneXStorage: state => state.availableiPhoneXStorage,
+            availableiPhoneColours: state => state.availableiPhoneColours
         })
     },
     methods: {
         ...mapActions({
             networksFilterChanged: "networksFilterChangedAction",
-            storageFilterChanged: "storageFilterChangedAction"
+            storageFilterChanged: "storageFilterChangedAction",
+            iPhoneColourFilterChanged: "iPhoneColourFilterChangedAction"
         }),
         getNetworkDisplayName(network, availableNetworksDisplay) {
             const hasDisplay = availableNetworksDisplay.find(

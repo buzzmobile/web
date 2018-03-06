@@ -16,7 +16,7 @@ async function getQueryResult(axios, query) {
     });
 }
 
-export function buildGetQuery (os, productVersionName, network = "Any", storage = "Any") {
+export function buildGetQuery (os, productVersionName, network = "Any", storage = "Any", colour = "Any") {
     return `
     {
       allDealsFiltered(
@@ -29,6 +29,7 @@ export function buildGetQuery (os, productVersionName, network = "Any", storage 
         network: ${network},
         merchant: e2saveNot,
         storageSize: ${storage},
+        colour: ${colour},
         sortBy:TCO_ASC
       ) 
       {

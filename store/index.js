@@ -42,7 +42,13 @@ const createStore = () => {
             ],
             selectedDeal: null,
             os: null,
-            selectedProductVersionName: null
+            selectedProductVersionName: null,
+            selectediPhoneXColour: "Any",
+            availableiPhoneColours: [
+                { display: "Any", coded: "Any" },
+                { display: "Silver", coded: "Silver" },
+                { display: "Space Grey", coded: "Space_Grey" }
+            ]
         },
         mutations,
         actions

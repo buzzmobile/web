@@ -15,5 +15,10 @@ export default {
         const { dealsPerRow } = state;
         state.selectedProductVersionName = selectedProductVersionNameFilter;
         setDeals(state, deals, dealsPerRow);
+    },
+    iPhoneColourFilterChangedMutation(state, { deals, selectediPhoneXColourFilter }) {
+        const { dealsPerRow } = state;
+        state.selectediPhoneXColour = selectediPhoneXColourFilter;
+        setDeals(state, deals, dealsPerRow);
     }
 };

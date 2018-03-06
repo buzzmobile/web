@@ -24,5 +24,13 @@ export default {
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("productVersionFilterChangedMutation", { deals, selectedProductVersionNameFilter });
+    },
+    async iPhoneColourFilterChangedAction( { commit, state }, { target }) {
+        const { value: selectediPhoneXColourFilter } = target;
+        const { os, selectedProductVersionName, selectedNetworkFilter, selectedStorageFilter } = state;
+        const query = buildGetQuery(os, selectedProductVersionName, selectedNetworkFilter, selectedStorageFilter, selectediPhoneXColourFilter);
+        const { $axios: axios } = this;
+        const deals = await executeAllDealsQuery(axios, query);
+        commit("iPhoneColourFilterChangedMutation", { deals, selectediPhoneXColourFilter });
     }
 };
