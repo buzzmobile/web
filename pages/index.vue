@@ -8,7 +8,7 @@
               <h1></h1>
               <div class="row">
                 <div class="col-xs-12 col-md-6">
-                  <a class="btn btn-primary btn-block" href="/mobile-phones/apple/iPhoneX">Apple iPhone X</a>
+                  <nuxt-link class="btn btn-primary btn-block" to="/mobile-phones/apple/iPhoneX">Apple iPhone X</nuxt-link>
                 </div>
               </div>
             </div>
@@ -18,7 +18,7 @@
               <h1></h1>
               <div class="row">
                 <div class="col-xs-12 col-md-6">
-                  <a class="btn btn-primary btn-block" href="/mobile-phones/samsung/s9">Samsung Galaxy S9/Plus</a>
+                  <nuxt-link class="btn btn-primary btn-block" to="/mobile-phones/samsung/s9">Samsung Galaxy S9/+</nuxt-link>
                 </div>
               </div>
             </div>
