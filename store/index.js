@@ -29,6 +29,12 @@ const createStore = () => {
                 "VirginMobile",
                 "Vodafone"
             ],
+            selectediPhoneXStorage: "Any",
+            availableiPhoneXStorage: [
+                { display: "Any", coded: "Any" },
+                { display: "64 GB", coded: "GB64" },
+                { display: "256 GB", coded: "GB256" }
+            ],
             selectedDeal: null,
             os: null,
             productVersionName: null

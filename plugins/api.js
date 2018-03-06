@@ -16,7 +16,7 @@ async function getQueryResult(axios, query) {
     });
 }
 
-export function buildGetQuery (os, productVersionName, network = "Any") {
+export function buildGetQuery (os, productVersionName, network = "Any", storage = "Any") {
     return `
     {
       allDealsFiltered(
@@ -28,6 +28,7 @@ export function buildGetQuery (os, productVersionName, network = "Any") {
         talkMinutes: Unlimited,
         network: ${network},
         merchant: e2saveNot,
+        storageSize: ${storage},
         sortBy:TCO_ASC
       ) 
       {

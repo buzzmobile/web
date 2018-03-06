@@ -97,9 +97,6 @@
   </main>
 </template>
 
-
-
-
 <script>
 import { mapState, mapActions } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
@@ -108,7 +105,6 @@ export default {
     computed: {
         ...mapState({
             dealRows: state => state.dealRows,
-            selectedNetworkFilter: state => state.selectedNetworkFilter,
             availableNetworks: state => state.availableNetworks,
             availableNetworksDisplay: state => state.availableNetworksDisplay
         })
@@ -123,12 +119,8 @@ export default {
             );
             return hasDisplay ? hasDisplay.display : network;
         },
-        getMonthlyPricePoundsPart(deal) {
-            return deal.Telcos_month_cost.toString().split(".")[0];
-        },
-        getMonthlyPricePencePart(deal) {
-            return deal.Telcos_month_cost.toFixed(2).toString().split(".")[1];
-        }
+        getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
+        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
     },
     async fetch({ store }) {
         const os = "Android";
