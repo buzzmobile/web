@@ -110,8 +110,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
-const ns = "s9Store";
-const { mapState, mapActions, mapGetters } = createNamespacedHelpers(ns);
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers("s9Store");
 
 export default {
     computed: {

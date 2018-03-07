@@ -1,5 +1,4 @@
 import { buildGetQuery, executeAllDealsQuery } from "../plugins/api";
-import { setDeals } from "../storeCustom/sharedMutations";
 
 export const state = () => ({
     dealRows: null,
@@ -10,6 +9,7 @@ export const state = () => ({
 });
 
 export const getters = {
+    namespace: () => "s9Store",
     dealsPerRow: () => 3,
     osFilter: () => "Android",
     availableColours: () => [
@@ -47,56 +47,53 @@ export const getters = {
 
 export const actions = {
     async initDealsPageAction ({ commit, getters, state }) {
-        const { dealsPerRow, osFilter } = getters;
+        const { dealsPerRow, osFilter, namespace } = getters;
         const { modelFilter } = state;
         const query = buildGetQuery({ osFilter, modelFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("initDealsPageMutation", { deals, dealsPerRow });
+        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
     },
     async networksFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : networkFilter } = target;
         const { colourFilter, modelFilter } = state;
-        const { dealsPerRow, osFilter } = getters;
+        const { dealsPerRow, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("networkFilterChangedMutation", { deals, dealsPerRow, networkFilter });
+        commit("networkFilterChangedMutation", { networkFilter });
+        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
     },
     async modelFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : modelFilter } = target;
         const { networkFilter, colourFilter } = state;
-        const { dealsPerRow, osFilter } = getters;
+        const { dealsPerRow, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("modelFilterChangedMutation", { deals, dealsPerRow, modelFilter });
+        commit("modelFilterChangedMutation", { modelFilter });
+        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
     },
     async colourFilterChangedAction( { commit, state, getters }, { target }) {
         const { value: colourFilter } = target;
         const { networkFilter, modelFilter } = state;
-        const { dealsPerRow, osFilter } = getters;
+        const { dealsPerRow, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("colourFilterChangedMutation", { deals, dealsPerRow, colourFilter });
+        commit("colourFilterChangedMutation", { colourFilter });
+        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
     }
 };
 
 export const mutations = {
-    initDealsPageMutation (state, { deals, dealsPerRow }) {
-        setDeals(state, deals, dealsPerRow);
-    },
-    networkFilterChangedMutation(state, { deals, dealsPerRow, networkFilter }) {
+    networkFilterChangedMutation(state, { networkFilter }) {
         state.networkFilter = networkFilter;
-        setDeals(state, deals, dealsPerRow);
     },
-    modelFilterChangedMutation(state, { deals, dealsPerRow, modelFilter }) {
+    modelFilterChangedMutation(state, { modelFilter }) {
         state.modelFilter = modelFilter;
-        setDeals(state, deals, dealsPerRow);
     },
-    colourFilterChangedMutation(state, { deals, dealsPerRow, colourFilter }) {
+    colourFilterChangedMutation(state, { colourFilter }) {
         state.colourFilter = colourFilter;
-        setDeals(state, deals, dealsPerRow);
     }
 };
