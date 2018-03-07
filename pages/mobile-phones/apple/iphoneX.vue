@@ -111,7 +111,6 @@ export default {
         ...mapGetters([
             "availableColours",
             "availableNetworks",
-            "availableNetworksDisplay",
             "availableStorages",
             "getNetworkDisplayName"
         ])

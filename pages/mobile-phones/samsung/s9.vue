@@ -52,17 +52,17 @@
                   <form>
                     <p>Network:</p>
                     <select name="" id="" @change="networksFilterChanged">
-                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
                     </select>
                     <p></p>
                     <p>Model:</p>
-                    <select name="" id="" @change="productVersionNameFilterChanged">
-                      <option :value="p.coded" v-for="p in availableS9ProductVersions" v-bind:key="p.coded">{{p.display}}</option>
+                    <select name="" id="" @change="modelFilterChanged">
+                      <option :value="model.coded" v-for="model in availableModels" v-bind:key="model.coded">{{model.display}}</option>
                     </select>
                     <p></p>
                     <p>Colour:</p>
                     <select @change="colourFilterChanged">
-                      <option :value="s.coded" v-for="s in availableS9Colours" v-bind:key="s.coded">{{s.display}}</option>
+                      <option :value="colour.coded" v-for="colour in availableColours" v-bind:key="colour.coded">{{colour.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -103,45 +103,40 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> 
   </main>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
+const ns = "s9Store";
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers(ns);
 
 export default {
     computed: {
-        ...mapState({
-            dealRows: state => state.dealRows,
-            availableNetworks: state => state.availableNetworks,
-            availableNetworksDisplay: state => state.availableNetworksDisplay,
-            availableS9ProductVersions: state => state.availableS9ProductVersions,
-            availableS9Colours: state => state.availableS9Colours
-        })
+        ...mapState([
+            "dealRows"
+        ]),
+        ...mapGetters([
+            "availableColours",
+            "availableNetworks",
+            "availableModels",
+            "getNetworkDisplayName"
+        ])
     },
     methods: {
         ...mapActions({
             networksFilterChanged: "networksFilterChangedAction",
-            productVersionNameFilterChanged: "productVersionNameFilterChangedAction",
+            modelFilterChanged: "modelFilterChangedAction",
             colourFilterChanged: "colourFilterChangedAction"
         }),
-        getNetworkDisplayName(network, availableNetworksDisplay) {
-            const hasDisplay = availableNetworksDisplay.find(
-                a => a.coded === network
-            );
-            return hasDisplay ? hasDisplay.display : network;
-        },
         getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
         getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
     },
     async fetch({ store }) {
-        const os = "Android";
-        const selectedProductVersionName = "S9Any";
-        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
+        return dispatch("s9Store/initDealsPageAction");
     }
 };
 </script>
