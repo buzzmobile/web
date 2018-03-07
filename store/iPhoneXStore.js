@@ -12,8 +12,8 @@ export const state = () => ({
 
 export const getters = {
     dealsPerRow: () => 3,
-    productVersionName: () => "iPhoneX",
-    os: () => "iOS",
+    modelFilter: () => "iPhoneX",
+    osFilter: () => "iOS",
     availableColours: () => [
         { display: "Any", coded: "Any" },
         { display: "Silver", coded: "Silver" },
@@ -48,26 +48,26 @@ export const getters = {
 
 export const actions = {
     async initDealsPageAction ({ commit, getters }) {
-        const { dealsPerRow, productVersionName, os } = getters;
-        const query = buildGetQuery(os, productVersionName);
+        const { dealsPerRow, modelFilter, osFilter } = getters;
+        const query = buildGetQuery({ osFilter, modelFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("initDealsPageMutation", { deals, dealsPerRow, os, productVersionName });
+        commit("initDealsPageMutation", { deals, dealsPerRow });
     },
     async networksFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : networkFilter } = target;
         const { storageFilter, colourFilter } = state;
-        const { dealsPerRow, productVersionName, os } = getters;
-        const query = buildGetQuery(os, productVersionName, networkFilter, storageFilter, colourFilter);
+        const { dealsPerRow, modelFilter, osFilter } = getters;
+        const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("networksFilterChangedMutation", { deals, dealsPerRow, networkFilter });
+        commit("networkFilterChangedMutation", { deals, dealsPerRow, networkFilter });
     },
     async storageFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : storageFilter } = target;
         const { networkFilter, colourFilter } = state;
-        const { dealsPerRow, productVersionName, os } = getters;
-        const query = buildGetQuery(os, productVersionName, networkFilter, storageFilter, colourFilter);
+        const { dealsPerRow, modelFilter, osFilter } = getters;
+        const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("storageFilterChangedMutation", { deals, dealsPerRow, storageFilter });
@@ -75,8 +75,8 @@ export const actions = {
     async colourFilterChangedAction( { commit, state, getters }, { target }) {
         const { value: colourFilter } = target;
         const { networkFilter, storageFilter } = state;
-        const { dealsPerRow, productVersionName, os } = getters;
-        const query = buildGetQuery(os, productVersionName, networkFilter, storageFilter, colourFilter);
+        const { dealsPerRow, modelFilter, osFilter } = getters;
+        const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter } );
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("colourFilterChangedMutation", { deals, dealsPerRow, colourFilter });
@@ -87,7 +87,7 @@ export const mutations = {
     initDealsPageMutation (state, { deals, dealsPerRow }) {
         setDeals(state, deals, dealsPerRow);
     },
-    networksFilterChangedMutation(state, { deals, dealsPerRow, networkFilter }) {
+    networkFilterChangedMutation(state, { deals, dealsPerRow, networkFilter }) {
         state.networkFilter = networkFilter;
         setDeals(state, deals, dealsPerRow);
     },

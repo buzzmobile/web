@@ -16,20 +16,20 @@ async function getQueryResult(axios, query) {
     });
 }
 
-export function buildGetQuery (os, productVersionName, network = "Any", storage = "Any", colour = "Any") {
+export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", storageFilter = "Any", colourFilter = "Any" }) {
     return `
     {
       allDealsFiltered(
         merchantCategory:MobilePhone, 
-        operatingSystem: ${os}, 
-        productVersionName: ${productVersionName}, 
+        operatingSystem: ${osFilter}, 
+        productVersionName: ${modelFilter}, 
         contractType: Contract, 
         numberOfTexts: Unlimited,
         talkMinutes: Unlimited,
-        network: ${network},
+        network: ${networkFilter},
         merchant: e2saveNot,
-        storageSize: ${storage},
-        colour: ${colour},
+        storageSize: ${storageFilter},
+        colour: ${colourFilter},
         sortBy:TCO_ASC
       ) 
       {
