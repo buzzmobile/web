@@ -15,13 +15,13 @@
                <img class="img-responsive" sizes="50vw" srcset="
 ~/assets/images/iphone-x-silver-600.jpg 600w,
 ~/assets/images/iphone-x-silver-1014.jpg 1014w,
-~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in silver">
+~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
             </div>
             <div class="col-xs-6">
                <img class="img-responsive" sizes="50vw" srcset="
 ~/assets/images/iphone-x-gray-600.jpg 600w,
 ~/assets/images/iphone-x-gray-966.jpg 966w,
-~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in grey">
+~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
             </div>
           </div>
         </div>
