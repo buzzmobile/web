@@ -1,4 +1,4 @@
-import { buildGetQuery, executeAllDealsQuery, executeGetDealQuery } from "../plugins/api";
+import { buildGetQuery, executeAllDealsQuery } from "../plugins/api";
 import { setDeals } from "../storeCustom/sharedMutations";
 
 export const state = () => ({
@@ -6,8 +6,7 @@ export const state = () => ({
     deals: null,
     networkFilter: "Any",
     colourFilter: "Any",
-    modelFilter: "S9Any",
-    selectedDeal: null
+    modelFilter: "S9Any"
 });
 
 export const getters = {

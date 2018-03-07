@@ -50,3 +50,37 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
     }
     `;
 };
+
+export function buildGetDealQuery ({ id }) {
+    return `
+    {
+      getDealById(
+        id:"${id}"
+      ) 
+      {
+        aw_deep_link
+        merchant_name
+        Telcos_device_full_name
+        Telcos_device_description
+        Telcos_initial_cost
+        Telcos_month_cost
+        Telcos_term
+        Telcos_storage_size
+        Telcos_network
+        product_name
+        Telcos_inc_data
+        Telcos_device_features_json {
+          max_data_standard
+          colour
+          megapixels
+        }
+        Telcos_network_details_json {
+          logo_url
+        }
+        Telcos_deal_cost_json {
+          tco_inc_vat
+        }
+      }
+    }
+    `;
+};

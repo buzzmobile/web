@@ -55,18 +55,17 @@
 
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const ns = "dealStore";
+const { mapGetters } = createNamespacedHelpers(ns);
 
 export default {
     computed: {
-        ...mapState({
-            deal: state => state.selectedDeal,
-        })
+        ...mapGetters([
+            "deal"
+        ])
     },
     methods: {
-        ...mapActions({
-            // networksFilterChanged: "networksFilterChangedAction"
-        }),
         getMonthlyPricePoundsPart(deal) {
             return deal.Telcos_month_cost.toString().split(".")[0];
         },
@@ -84,39 +83,9 @@ export default {
         }
     },
     async fetch({ store, params }) {
-        const query = `
-            {
-              getDealById(
-                id:"${params.id}"
-              ) 
-              {
-                aw_deep_link
-                merchant_name
-                Telcos_device_full_name
-                Telcos_device_description
-                Telcos_initial_cost
-                Telcos_month_cost
-                Telcos_term
-                Telcos_storage_size
-                Telcos_network
-                product_name
-                Telcos_inc_data
-                Telcos_device_features_json {
-                  max_data_standard
-                  colour
-                  megapixels
-                }
-                Telcos_network_details_json {
-                  logo_url
-                }
-                Telcos_deal_cost_json {
-                  tco_inc_vat
-                }
-              }
-            }
-            `;
         const { dispatch } = store;
-        return dispatch("initDealPageAction", { query });
+        const { id } = params;
+        return dispatch("dealStore/initDealPageAction", { id });
     }
 };
 </script>
