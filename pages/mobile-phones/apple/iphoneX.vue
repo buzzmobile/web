@@ -42,17 +42,17 @@
                   <form>
                     <p>Network:</p>
                     <select @change="networksFilterChanged">
-                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network, availableNetworksDisplay)}}</option>
+                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
                     </select>
                     <p></p>
                     <p>Storage:</p>
                     <select @change="storageFilterChanged">
-                      <option :value="s.coded" v-for="s in availableiPhoneXStorage" v-bind:key="s.coded">{{s.display}}</option>
+                      <option :value="s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
                     <p></p>
                     <p>Colour:</p>
                     <select @change="colourFilterChanged">
-                      <option :value="s.coded" v-for="s in availableiPhoneColours" v-bind:key="s.coded">{{s.display}}</option>
+                      <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
                     </select>
                   </form>
                 </div>
@@ -98,18 +98,21 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
+const { mapState, mapActions, mapGetters } = createNamespacedHelpers("iPhoneXStore");
 
 export default {
     computed: {
-        ...mapState({
-            dealRows: state => state.dealRows,
-            availableNetworks: state => state.availableNetworks,
-            availableNetworksDisplay: state => state.availableNetworksDisplay,
-            availableiPhoneXStorage: state => state.availableiPhoneXStorage,
-            availableiPhoneColours: state => state.availableiPhoneColours
-        })
+        ...mapState([
+            "dealRows"
+        ]),
+        ...mapGetters([
+            "availableColours",
+            "availableNetworks",
+            "availableStorages",
+            "getNetworkDisplayName"
+        ])
     },
     methods: {
         ...mapActions({
@@ -117,21 +120,12 @@ export default {
             storageFilterChanged: "storageFilterChangedAction",
             colourFilterChanged: "colourFilterChangedAction"
         }),
-        getNetworkDisplayName(network, availableNetworksDisplay) {
-            const hasDisplay = availableNetworksDisplay.find(
-                a => a.coded === network
-            );
-            return hasDisplay ? hasDisplay.display : network;
-        },
         getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
         getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
     },
     async fetch({ store }) {
-        const os = "iOS";
-        const selectedProductVersionName = "iPhoneX";
-        const query = buildGetQuery(os, selectedProductVersionName);
         const { dispatch } = store;
-        return dispatch("initDealsPageAction", { query, dealsPerRow: 3, os, selectedProductVersionName });
+        return dispatch("iPhoneXStore/initDealsPageAction");
     }
 };
 </script>

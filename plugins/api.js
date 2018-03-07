@@ -16,20 +16,20 @@ async function getQueryResult(axios, query) {
     });
 }
 
-export function buildGetQuery (os, productVersionName, network = "Any", storage = "Any", colour = "Any") {
+export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", storageFilter = "Any", colourFilter = "Any" }) {
     return `
     {
       allDealsFiltered(
         merchantCategory:MobilePhone, 
-        operatingSystem: ${os}, 
-        productVersionName: ${productVersionName}, 
+        operatingSystem: ${osFilter}, 
+        productVersionName: ${modelFilter}, 
         contractType: Contract, 
         numberOfTexts: Unlimited,
         talkMinutes: Unlimited,
-        network: ${network},
+        network: ${networkFilter},
         merchant: e2saveNot,
-        storageSize: ${storage},
-        colour: ${colour},
+        storageSize: ${storageFilter},
+        colour: ${colourFilter},
         sortBy:TCO_ASC
       ) 
       {
@@ -45,6 +45,40 @@ export function buildGetQuery (os, productVersionName, network = "Any", storage 
         Telcos_inc_data
         Telcos_device_features_json {
           colour
+        }
+      }
+    }
+    `;
+};
+
+export function buildGetDealQuery ({ id }) {
+    return `
+    {
+      getDealById(
+        id:"${id}"
+      ) 
+      {
+        aw_deep_link
+        merchant_name
+        Telcos_device_full_name
+        Telcos_device_description
+        Telcos_initial_cost
+        Telcos_month_cost
+        Telcos_term
+        Telcos_storage_size
+        Telcos_network
+        product_name
+        Telcos_inc_data
+        Telcos_device_features_json {
+          max_data_standard
+          colour
+          megapixels
+        }
+        Telcos_network_details_json {
+          logo_url
+        }
+        Telcos_deal_cost_json {
+          tco_inc_vat
         }
       }
     }
