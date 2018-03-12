@@ -22,7 +22,7 @@ module.exports = {
         middleware: ["https"]
     },
     css: [
-        "@/assets/styles/style.scss"
+        "@/assets/styles/tailwind.css"
     ],
     plugins: [
     ],
