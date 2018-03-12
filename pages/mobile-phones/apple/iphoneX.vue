@@ -1,24 +1,24 @@
 <template>
   <main>
-    <section class="bm-product-type">
-      <div class="container">
-        <div class="bm-pt-box">
-          <div class="row">
-            <div class="col-xs-12 text-center">
+    <section>
+      <div>
+        <div>
+          <div>
+            <div>
               <h1>iPhone X Contracts</h1>
               <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered
                 by Total Cost of Ownership</p>
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-6">
-               <img class="img-responsive" sizes="50vw" srcset="
+          <div>
+            <div>
+               <img sizes="50vw" srcset="
 ~/assets/images/iphone-x-silver-600.jpg 600w,
 ~/assets/images/iphone-x-silver-1014.jpg 1014w,
 ~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
             </div>
-            <div class="col-xs-6">
-               <img class="img-responsive" sizes="50vw" srcset="
+            <div>
+               <img sizes="50vw" srcset="
 ~/assets/images/iphone-x-gray-600.jpg 600w,
 ~/assets/images/iphone-x-gray-966.jpg 966w,
 ~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
@@ -27,18 +27,18 @@
         </div>
       </div>
     </section>
-    <section class="bm-product-selector">
-      <div class="container">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
+    <section>
+      <div>
+        <ul role="tablist">
+          <li role="presentation">
             <a href="#deals" aria-controls="deals" role="tab" data-toggle="tab">Deals</a>
           </li>
         </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="deals">
-            <div class="row">
-              <div class="col-xs-12 col-sm-3">
-                <div class="bm-p-s-filter">
+        <div>
+          <div role="tabpanel" id="deals">
+            <div>
+              <div>
+                <div>
                   <form>
                     <p>Network:</p>
                     <select @change="networksFilterChanged">
@@ -57,32 +57,32 @@
                   </form>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-9">
-                <div class="row" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
-                  <div class="col-xs-12 col-sm-6 col-md-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
-                    <div class="bm-pl-box bm-pl-box-single">
-                      <div class="row">
-                        <div class="col-xs-12">
-                          <h3 class="bm-pl-b-title">{{dCol.Telcos_device_full_name}}</h3>
+              <div>
+                <div v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
+                  <div v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
+                    <div>
+                      <div>
+                        <div>
+                          <h3>{{dCol.Telcos_device_full_name}}</h3>
                         </div>
                       </div>
                     </div>
-                    <div class="bm-pl-b-content">
-                      <div class="row">
-                        <div class="col-xs-7">
+                    <div>
+                      <div>
+                        <div>
                           <p>Handset £{{dCol.Telcos_initial_cost}}</p>
                           <p>£
-                            <span class="bm-pl-b-c-price">{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
-                            <span class="bm-pl-b-c-per">per month / {{dCol.Telcos_term}} months</span>
+                            <span>{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
+                            <span>per month / {{dCol.Telcos_term}} months</span>
                           </p>
-                          <ul class="list-unstyled">
+                          <ul>
                             <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
                             <li>With: {{dCol.merchant_name}}</li>
                             <li>Network: {{dCol.Telcos_network}}</li>
                             <li>Storage: {{dCol.Telcos_storage_size}}</li>
                             <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
                           </ul>
-                          <nuxt-link class="btn btn-secondary btn-block" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
+                          <nuxt-link :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                         </div>
                       </div>
                     </div>

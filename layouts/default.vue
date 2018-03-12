@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>
-      <nav class="navbar navbar-default">
-        <div class="bm-logonav">
-          <div class="container">
+      <nav>
+        <div>
+          <div>
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <nuxt-link class="bm-toplogo" to="/">mopho</nuxt-link>              
+            <div>
+              <nuxt-link to="/">mopho</nuxt-link>              
             </div>
           </div>
         </div>
@@ -14,10 +14,10 @@
     </div>
     <nuxt/>
     <div>
-      <section class="bm-lower-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
+      <section>
+        <div>
+          <div>
+            <div>
               <h4>About us</h4>
               <p>
                 <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit</b>
@@ -29,19 +29,19 @@
           </div>
         </div>
       </section>
-      <footer class="bm-footer">
-        <div class="bm-f-top">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-4">
-                <h5 class="bm-f-t-logo">
+      <footer>
+        <div>
+          <div>
+            <div>
+              <div>
+                <h5>
                   <a href="/">mopho</a>
                 </h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, nulla, vitae! Consectetur aliquid dolore,
                   suscipit odio commodi tempore, animi voluptatum? Ipsa commodi ea rem! Corporis.</p>
               </div>
-              <div class="col-xs-12 col-md-offset-2 col-md-2">
-                <ul class="list-unstyled bm-f-t-list">
+              <div>
+                <ul>
                   <li>
                     <b>Footer head</b>
                   </li>
@@ -53,10 +53,10 @@
             </div>
           </div>
         </div>
-        <div class="bm-f-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12">
+        <div>
+          <div>
+            <div>
+              <div>
                 <p>
                   <a href="">&copy; mopho.com 2017 | Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
                 </p>
