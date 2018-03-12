@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="font-sans antialiased" id="app">
+  <div class="flex flex-col min-h-screen">
+    <header class="font-sans antialiased" id="app">
       <nav class="flex items-center justify-between flex-wrap bg-grey-lighter p-4">
         <div class="flex items-center flex-no-shrink mr-6">
           <nuxt-link class="no-underline font-bold text-xl tracking-wide text-pink-brand" to="/">Mopho</nuxt-link>
@@ -14,7 +14,7 @@
           </button>
         </div>
         <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-          <div class="text-sm sm:flex-grow self-end">
+          <div class="text-sm sm:flex-grow">
             <nuxt-link to="/mobile-phones/apple/iphonex" class="no-underline block text-pink-brand hover:text-pink-light mt-4 mr-4 sm:inline-block sm:mt-0">
               iPhone X
             </nuxt-link>
@@ -24,17 +24,17 @@
           </div>
         </div>
       </nav>
-    </div>
-    <div>
-    <nuxt/>
-    </div>
-      <footer>
-        <div>
-          <p>mopho.com 2018</p>
-        </div>
-      </footer>
+    </header>
+    <main class="flex-1">
+      <nuxt/>
+    </main>
+    <footer class="p-4 self-center">
+      <p>mopho.com 2018</p>
+    </footer>
   </div>
 </template>
+
+
 
 <script>
 import { createNamespacedHelpers } from "vuex";
