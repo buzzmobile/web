@@ -15,9 +15,6 @@ module.exports = {
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
         ],
         script: [
-            { src: "https://use.fontawesome.com/9a080b10fd.js" },
-            { src: "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" },
-            { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" }
         ]
     },
     loading: { color: "#3B8070" },
