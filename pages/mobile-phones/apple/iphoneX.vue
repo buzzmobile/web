@@ -3,24 +3,24 @@
     <header>
       <div>
         <div>
-          <h2>iPhone X Contracts</h2>
-          <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
+          <h2 class="text-center py-4">iPhone X Contracts</h2>
+          <p class="text-center px-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
             Cost of Ownership</p>
         </div>
-        <div>
-          <div>
-            <img sizes="50vw" srcset="
+        <div class="flex shadow py-4">
+            <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphone-x-silver-600.jpg 600w,
               ~/assets/images/iphone-x-silver-1014.jpg 1014w,
-              ~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
-          </div>
-          <div>
-            <img sizes="50vw" srcset="
+              ~/assets/images/iphone-x-silver-1278.jpg 1278w" 
+              src="~/assets/images/iphone-x-silver-600.jpg" 
+              alt="iPhone X in Silver">
+            <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphone-x-gray-600.jpg 600w,
               ~/assets/images/iphone-x-gray-966.jpg 966w,
-              ~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
+              ~/assets/images/iphone-x-gray-1278.jpg 1278w" 
+              src="~/assets/images/iphone-x-gray-600.jpg" 
+              alt="iPhone X in Space Grey">
           </div>
-        </div>
       </div>
     </header>
     <main>
