@@ -8,39 +8,69 @@
             Cost of Ownership</p>
         </div>
         <div class="flex shadow py-4">
-            <img class="w-1/2" sizes="50vw" srcset="
+          <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphone-x-silver-600.jpg 600w,
               ~/assets/images/iphone-x-silver-1014.jpg 1014w,
-              ~/assets/images/iphone-x-silver-1278.jpg 1278w" 
-              src="~/assets/images/iphone-x-silver-600.jpg" 
-              alt="iPhone X in Silver">
-            <img class="w-1/2" sizes="50vw" srcset="
+              ~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
+          <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphone-x-gray-600.jpg 600w,
               ~/assets/images/iphone-x-gray-966.jpg 966w,
-              ~/assets/images/iphone-x-gray-1278.jpg 1278w" 
-              src="~/assets/images/iphone-x-gray-600.jpg" 
-              alt="iPhone X in Space Grey">
-          </div>
+              ~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
+        </div>
       </div>
     </header>
     <main>
-      <div>
-        <form>
-          <p>Network:</p>
-          <select @change="networksFilterChanged">
-            <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
-          </select>
-          <p></p>
-          <p>Storage:</p>
-          <select @change="storageFilterChanged">
-            <option :value="s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
-          </select>
-          <p></p>
-          <p>Colour:</p>
-          <select @change="colourFilterChanged">
-            <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
-          </select>
-        </form>
+      <form class="flex flex-col sm:flex-row mx-4">
+        <div class="sm:w-1/3 p-4">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="storage">
+            Storage
+          </label>
+          <div class="relative">
+            <select @change="storageFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+              id="storage">
+              <option :value="s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
+            </select>
+            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="sm:w-1/3 p-4">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="colour">
+            Colour
+          </label>
+          <div class="relative">
+            <select @change="colourFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+              id="colour">
+              <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
+            </select>
+            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="sm:w-1/3 p-4">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="network">
+            Network
+          </label>
+          <div class="relative">
+            <select @change="networksFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+              id="network">
+              <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
+            </select>
+            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="ml-8 my-4">
         <div>
           <div v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
             <div v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
@@ -71,6 +101,13 @@
     </main>
   </div>
 </template>
+
+
+
+
+
+
+
 
 
 
