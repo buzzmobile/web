@@ -536,6 +536,7 @@ module.exports = {
     minWidth: {
         "0": "0",
         "full": "100%",
+        "1/3": "31%"
     },
 
 
@@ -585,8 +586,7 @@ module.exports = {
         "3xl": "80rem",
         "4xl": "90rem",
         "5xl": "100rem",
-        "full": "100%",
-        "1/3": "31%"
+        "full": "100%"
     },
 
 

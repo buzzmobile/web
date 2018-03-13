@@ -70,46 +70,39 @@
           </div>
         </div>
       </form>
-        <div class="mx-4">
-          <div class="px-4" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
-            <div class="sm:max-w-1/3 p-4 rounded overflow-hidden shadow-lg" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
-              <div>
-                <h3>{{dCol.Telcos_device_full_name}}</h3>
+      <div class="mx-4">
+        <div class="px-4" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
+          <div class="w-full p-4 rounded overflow-hidden shadow-lg my-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
+            <div class="max-w-md w-full lg:flex">
+              <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+                style="background-image: url('https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_dark_gray_large.jpg')"
+                title="Woman holding a mug">
               </div>
-              <div>
-                <div>
-                  <p>Handset £{{dCol.Telcos_initial_cost}}</p>
-                  <p>£
-                    <span>{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
-                    <span>per month / {{dCol.Telcos_term}} months</span>
-                  </p>
-                  <ul>
-                    <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
-                    <li>With: {{dCol.merchant_name}}</li>
-                    <li>Network: {{dCol.Telcos_network}}</li>
-                    <li>Storage: {{dCol.Telcos_storage_size}}</li>
-                    <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                  </ul>
-                  <nuxt-link :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
+              <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                <div class="mb-8">
+                  <div class="font-bold text-xl mb-2">{{dCol.Telcos_device_full_name}}</div>
+                  <div>
+                    <div>
+                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-1 py-1 mr-2">£{{dCol.Telcos_initial_cost}} upfront</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-1 py-1 mr-2">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
+                      <p></p>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 mt-4">Data: {{dCol.Telcos_inc_data/1000}} GB with {{dCol.Telcos_network}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 ">Storage: {{dCol.Telcos_storage_size}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 ">Colour: {{dCol.Telcos_device_features_json.colour}}</span>
+                    </div>
+                  </div>
                 </div>
+                  <nuxt-link class="no-underline rounded-full bg-brand-pink text-white px-4 py-1 w-full text-center" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
               </div>
+            </div>
+            <div>
             </div>
           </div>
         </div>
+      </div>
     </main>
   </div>
 </template>
-
-
-
-
-
-
-
-
-
-
-
 
 <script>
 import { createNamespacedHelpers } from "vuex";
