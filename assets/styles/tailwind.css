@@ -66,3 +66,12 @@
   .bg-iphone-x-silver {
     background-image: url("https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_silver_large.jpg");
   }
+  .deal-card--price {
+    @apply .inline-block .bg-brand-grey .rounded-full .text-xl .font-black .text-brand-pink
+  }
+  .deal-card--feature {
+    @apply .inline-block .bg-brand-grey .rounded-full .text-sm .font-semibold
+  }
+  .btn {
+    @apply .no-underline .bg-brand-pink .rounded .text-white .text-center
+  }
