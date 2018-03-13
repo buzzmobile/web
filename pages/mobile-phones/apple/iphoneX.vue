@@ -70,10 +70,9 @@
           </div>
         </div>
       </form>
-      <div class="ml-8 my-4">
-        <div>
-          <div v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
-            <div v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
+        <div class="mx-4">
+          <div class="px-4" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
+            <div class="sm:max-w-1/3 p-4 rounded overflow-hidden shadow-lg" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
               <div>
                 <h3>{{dCol.Telcos_device_full_name}}</h3>
               </div>
@@ -97,7 +96,6 @@
             </div>
           </div>
         </div>
-      </div>
     </main>
   </div>
 </template>
