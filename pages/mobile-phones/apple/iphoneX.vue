@@ -4,10 +4,10 @@
       <div>
         <div>
           <h2 class="text-center py-4">iPhone X Contracts</h2>
-          <p class="text-center px-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
+          <p class="text-center px-4 mx-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
             Cost of Ownership</p>
         </div>
-        <div class="flex shadow py-4">
+        <div class="flex shadow py-4 mx-8">
           <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphone-x-silver-600.jpg 600w,
               ~/assets/images/iphone-x-silver-1014.jpg 1014w,
