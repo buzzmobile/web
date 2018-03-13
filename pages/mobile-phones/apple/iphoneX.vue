@@ -81,11 +81,11 @@
               </div>
               <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                 <div class="mb-8">
-                  <div class="inline-block bg-brand-grey rounded-full font-bold text-xl px-2 py-1 mb-4">{{dCol.Telcos_device_full_name}}</div>
+                  <div class="inline-block bg-brand-grey rounded-full font-bold text-xl text-center px-2 py-1 mb-4">{{dCol.Telcos_device_full_name}}</div>
                   <div>
                     <div>
-                      <span class="deal-card--price px-2 py-1 mr-2">£{{dCol.Telcos_initial_cost}} upfront</span>
-                      <span class="deal-card--price px-2 py-1 mr-2">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
+                      <span class="deal-card--price px-2 py-1">£{{dCol.Telcos_initial_cost}} upfront</span>
+                      <span class="deal-card--price px-2 py-1">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
                       <p></p>
                       <span class="deal-card--feature px-2 py-1 mt-4">Data: {{dCol.Telcos_inc_data/1000}} GB with {{dCol.Telcos_network}}</span>
                       <span class="deal-card--feature px-2 py-1 ">Storage: {{dCol.Telcos_storage_size}}</span>
