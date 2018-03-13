@@ -74,8 +74,9 @@
         <div class="px-4" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
           <div class="w-full p-4 rounded overflow-hidden shadow-lg my-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
             <div class="max-w-md w-full lg:flex">
-              <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                style="background-image: url('https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_dark_gray_large.jpg')"
+              <div 
+                :class="setBgImageUrl(dCol)"
+                class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
                 :title=dCol.Telcos_device_full_name>
               </div>
               <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
@@ -83,16 +84,16 @@
                   <div class="font-bold text-xl mb-2">{{dCol.Telcos_device_full_name}}</div>
                   <div>
                     <div>
-                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-1 py-1 mr-2">£{{dCol.Telcos_initial_cost}} upfront</span>
-                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-1 py-1 mr-2">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-2 py-1 mr-2">£{{dCol.Telcos_initial_cost}} upfront</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-xl font-black text-brand-pink px-2 py-1 mr-2">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
                       <p></p>
-                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 mt-4">Data: {{dCol.Telcos_inc_data/1000}} GB with {{dCol.Telcos_network}}</span>
-                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 ">Storage: {{dCol.Telcos_storage_size}}</span>
-                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-1 py-1 ">Colour: {{dCol.Telcos_device_features_json.colour}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-2 py-1 mt-4">Data: {{dCol.Telcos_inc_data/1000}} GB with {{dCol.Telcos_network}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-2 py-1 ">Storage: {{dCol.Telcos_storage_size}}</span>
+                      <span class="inline-block bg-brand-grey rounded-full text-sm font-semibold px-2 py-1 ">Colour: {{dCol.Telcos_device_features_json.colour}}</span>
                     </div>
                   </div>
                 </div>
-                <nuxt-link class="no-underline rounded-full bg-brand-pink text-white px-4 py-1 w-full text-center" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
+                <nuxt-link class="no-underline rounded bg-brand-pink text-white px-4 py-1 w-full text-center" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
               </div>
             </div>
             <div>
@@ -129,7 +130,8 @@ export default {
             colourFilterChanged: "colourFilterChangedAction"
         }),
         getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
-        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1]
+        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1],
+        setBgImageUrl: deal => "bg-iphone-x-" + deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")
     },
     async fetch({ store }) {
         const { dispatch } = store;

@@ -57,6 +57,12 @@
   */
 
   .no-bigger-than {
-    max-width: config('screens.xl');
+    max-width: config("screens.xl");
     margin: 0 auto;
+  }
+  .bg-iphone-x-space-grey {
+    background-image: url("https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_dark_gray_large.jpg")
+  }
+  .bg-iphone-x-silver {
+    background-image: url("https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_silver_large.jpg");
   }
