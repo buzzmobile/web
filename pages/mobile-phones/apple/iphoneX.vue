@@ -1,101 +1,80 @@
 <template>
-  <main>
-    <section>
+  <div>
+    <header>
       <div>
         <div>
+          <h2>iPhone X Contracts</h2>
+          <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
+            Cost of Ownership</p>
+        </div>
+        <div>
           <div>
-            <div>
-              <h1>iPhone X Contracts</h1>
-              <p>Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered
-                by Total Cost of Ownership</p>
-            </div>
+            <img sizes="50vw" srcset="
+              ~/assets/images/iphone-x-silver-600.jpg 600w,
+              ~/assets/images/iphone-x-silver-1014.jpg 1014w,
+              ~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
           </div>
           <div>
-            <div>
-               <img sizes="50vw" srcset="
-~/assets/images/iphone-x-silver-600.jpg 600w,
-~/assets/images/iphone-x-silver-1014.jpg 1014w,
-~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
-            </div>
-            <div>
-               <img sizes="50vw" srcset="
-~/assets/images/iphone-x-gray-600.jpg 600w,
-~/assets/images/iphone-x-gray-966.jpg 966w,
-~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
-            </div>
+            <img sizes="50vw" srcset="
+              ~/assets/images/iphone-x-gray-600.jpg 600w,
+              ~/assets/images/iphone-x-gray-966.jpg 966w,
+              ~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
           </div>
         </div>
       </div>
-    </section>
-    <section>
+    </header>
+    <main>
       <div>
-        <ul role="tablist">
-          <li role="presentation">
-            <a href="#deals" aria-controls="deals" role="tab" data-toggle="tab">Deals</a>
-          </li>
-        </ul>
+        <form>
+          <p>Network:</p>
+          <select @change="networksFilterChanged">
+            <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
+          </select>
+          <p></p>
+          <p>Storage:</p>
+          <select @change="storageFilterChanged">
+            <option :value="s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
+          </select>
+          <p></p>
+          <p>Colour:</p>
+          <select @change="colourFilterChanged">
+            <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
+          </select>
+        </form>
         <div>
-          <div role="tabpanel" id="deals">
-            <div>
+          <div v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
+            <div v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
+              <div>
+                <h3>{{dCol.Telcos_device_full_name}}</h3>
+              </div>
               <div>
                 <div>
-                  <form>
-                    <p>Network:</p>
-                    <select @change="networksFilterChanged">
-                      <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
-                    </select>
-                    <p></p>
-                    <p>Storage:</p>
-                    <select @change="storageFilterChanged">
-                      <option :value="s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
-                    </select>
-                    <p></p>
-                    <p>Colour:</p>
-                    <select @change="colourFilterChanged">
-                      <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
-                    </select>
-                  </form>
-                </div>
-              </div>
-              <div>
-                <div v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
-                  <div v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
-                    <div>
-                      <div>
-                        <div>
-                          <h3>{{dCol.Telcos_device_full_name}}</h3>
-                        </div>
-                      </div>
-                    </div>
-                    <div>
-                      <div>
-                        <div>
-                          <p>Handset £{{dCol.Telcos_initial_cost}}</p>
-                          <p>£
-                            <span>{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
-                            <span>per month / {{dCol.Telcos_term}} months</span>
-                          </p>
-                          <ul>
-                            <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
-                            <li>With: {{dCol.merchant_name}}</li>
-                            <li>Network: {{dCol.Telcos_network}}</li>
-                            <li>Storage: {{dCol.Telcos_storage_size}}</li>
-                            <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
-                          </ul>
-                          <nuxt-link :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <p>Handset £{{dCol.Telcos_initial_cost}}</p>
+                  <p>£
+                    <span>{{getMonthlyPricePoundsPart(dCol)}}</span>.{{getMonthlyPricePencePart(dCol)}}
+                    <span>per month / {{dCol.Telcos_term}} months</span>
+                  </p>
+                  <ul>
+                    <li>Data: {{dCol.Telcos_inc_data/1000}} GB</li>
+                    <li>With: {{dCol.merchant_name}}</li>
+                    <li>Network: {{dCol.Telcos_network}}</li>
+                    <li>Storage: {{dCol.Telcos_storage_size}}</li>
+                    <li>Colour: {{dCol.Telcos_device_features_json.colour}}</li>
+                  </ul>
+                  <nuxt-link :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </main>
+  </div>
 </template>
+
+
+
+
 
 <script>
 import { createNamespacedHelpers } from "vuex";
