@@ -34,7 +34,7 @@
 
       <form class="flex flex-col sm:flex-row mx-4">
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="model">
+          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="model">
             Model
           </label>
           <div class="relative">
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="colour">
+          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="colour">
             Colour
           </label>
           <div class="relative">
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="network">
+          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="network">
             Network
           </label>
           <div class="relative">

@@ -104,7 +104,7 @@
 }
 
 .deal-card--feature {
-  @apply .inline-block .bg-brand-grey .rounded-full .text-sm .font-semibold
+  @apply .inline-block .bg-brand-grey .rounded-full .font-semibold
 }
 
 .btn {
