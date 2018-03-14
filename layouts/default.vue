@@ -15,7 +15,7 @@
             </button>
           </div>
           <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div class="text-sm sm:flex-grow">
+            <div class="sm:flex-grow">
               <nuxt-link to="/mobile-phones/apple/iphonex" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
                 iPhone X
               </nuxt-link>
