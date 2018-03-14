@@ -94,8 +94,8 @@
                 <div class="inline-block bg-brand-grey rounded-full font-bold text-xl text-center px-2 py-1 mb-4">{{deal.Telcos_device_full_name}}</div>
                 <div>
                   <div>
-                    <span class="deal-card--price px-2 py-1">£{{deal.Telcos_initial_cost}} upfront</span>
-                    <span class="deal-card--price px-2 py-1">{{deal.Telcos_term}} months at £{{getMonthlyPricePoundsPart(deal)}}.{{getMonthlyPricePencePart(deal)}}</span>
+                    <span class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</span>
+                    <span class="deal-card--price px-2 py-1">{{deal.Telcos_term}} months at {{currency(deal.Telcos_month_cost)}}</span>
                     <p></p>
                     <span class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</span>
                     <span class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</span>
@@ -137,10 +137,8 @@ export default {
             modelFilterChanged: "modelFilterChangedAction",
             colourFilterChanged: "colourFilterChangedAction"
         }),
-        getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
-        getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1],
+        currency: value => `£${value.toFixed(2).toString()}`,
         setBgImageUrl: deal => `bg-${deal.Telcos_device_product_version_json.product_version_name.toLowerCase().replace(" ", "-")}-${deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")}`
-        
     },
     async fetch({ store }) {
         const { dispatch } = store;
