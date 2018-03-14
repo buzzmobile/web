@@ -17,7 +17,7 @@ module.exports = {
         script: [
         ]
     },
-    loading: { color: "#3B8070" },
+    loading: { color: "#cf1d69" },
     router: {
         middleware: ["https"]
     },
