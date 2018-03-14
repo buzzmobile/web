@@ -101,8 +101,6 @@
   </div>
 </template>
 
-
-
 <script>
 import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
