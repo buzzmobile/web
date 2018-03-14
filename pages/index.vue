@@ -7,3 +7,15 @@
   </div>
 </template>
 
+<script>
+export default {
+    head () {
+        return {
+            title: "Mobile Contracts - Mopho",
+            meta: [
+                { hid: "home", name: "home", content: "Mobile Contracts" }
+            ]
+        };
+    }
+};
+</script>

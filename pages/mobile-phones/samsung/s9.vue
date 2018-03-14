@@ -143,6 +143,14 @@ export default {
     async fetch({ store }) {
         const { dispatch } = store;
         return dispatch("s9Store/initDealsPageAction");
+    },
+    head () {
+        return {
+            title: "Samsung S9/+ Contracts - Mopho",
+            meta: [
+                { hid: "S9", name: "Samsung S9", content: "Samsung S9 Mobile Contracts" }
+            ]
+        };
     }
 };
 </script>

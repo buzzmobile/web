@@ -132,6 +132,14 @@ export default {
     async fetch({ store }) {
         const { dispatch } = store;
         return dispatch("iPhoneXStore/initDealsPageAction");
+    },
+    head () {
+        return {
+            title: "iPhone X Contracts - Mopho",
+            meta: [
+                { hid: "X", name: "iPhone X", content: "iPhone X Mobile Contracts" }
+            ]
+        };
     }
 };
 </script>
