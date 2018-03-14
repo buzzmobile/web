@@ -70,40 +70,37 @@
           </div>
         </div>
       </form>
-      <div class="mx-4">
-        <div class="px-4" v-for="dRow in dealRows" v-bind:key="dRow.aw_deep_link">
-          <div class="w-full p-4 rounded overflow-hidden shadow-lg my-4" v-for="dCol in dRow" v-bind:key="dCol.aw_deep_link">
-            <div class="max-w-md w-full lg:flex">
-              <div 
-                :class="setBgImageUrl(dCol)"
-                class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                :title=dCol.Telcos_device_full_name>
-              </div>
-              <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                <div class="mb-8">
-                  <div class="inline-block bg-brand-grey rounded-full font-bold text-xl text-center px-2 py-1 mb-4">{{dCol.Telcos_device_full_name}}</div>
+      <div class="flex flex-wrap justify-around mx-4">
+        <div class="w-full sm:w-46pc rounded overflow-hidden shadow-lg p-4" v-for="deal in deals" v-bind:key="deal.aw_deep_link">
+          <div class="max-w-md w-full lg:flex">
+            <div :class="setBgImageUrl(deal)" class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+              :title=deal.Telcos_device_full_name>
+            </div>
+            <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+              <div class="mb-8">
+                <div class="inline-block bg-brand-grey rounded-full font-bold text-xl text-center px-2 py-1 mb-4">{{deal.Telcos_device_full_name}}</div>
+                <div>
                   <div>
-                    <div>
-                      <span class="deal-card--price px-2 py-1">£{{dCol.Telcos_initial_cost}} upfront</span>
-                      <span class="deal-card--price px-2 py-1">{{dCol.Telcos_term}} months at £{{getMonthlyPricePoundsPart(dCol)}}.{{getMonthlyPricePencePart(dCol)}}</span>
-                      <p></p>
-                      <span class="deal-card--feature px-2 py-1 mt-4">Data: {{dCol.Telcos_inc_data/1000}} GB with {{dCol.Telcos_network}}</span>
-                      <span class="deal-card--feature px-2 py-1 ">Storage: {{dCol.Telcos_storage_size}}</span>
-                      <span class="deal-card--feature px-2 py-1 ">Colour: {{dCol.Telcos_device_features_json.colour}}</span>
-                    </div>
+                    <span class="deal-card--price px-2 py-1">£{{deal.Telcos_initial_cost}} upfront</span>
+                    <span class="deal-card--price px-2 py-1">{{deal.Telcos_term}} months at £{{getMonthlyPricePoundsPart(deal)}}.{{getMonthlyPricePencePart(deal)}}</span>
+                    <p></p>
+                    <span class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</span>
+                    <span class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</span>
+                    <span class="deal-card--feature px-2 py-1 ">Colour: {{deal.Telcos_device_features_json.colour}}</span>
                   </div>
                 </div>
-                <nuxt-link class="btn hover:bg-pink-light w-full px-4 py-1" :to="{ name: 'deal-id', params: { id: dCol.id }}">View Offer</nuxt-link>
               </div>
+              <nuxt-link class="btn hover:bg-pink-light w-full px-4 py-1" :to="{ name: 'deal-id', params: { id: deal.id }}">View Offer</nuxt-link>
             </div>
-            <div>
-            </div>
+          </div>
+          <div>
           </div>
         </div>
       </div>
     </main>
   </div>
 </template>
+
 
 
 <script>
@@ -114,7 +111,7 @@ const { mapState, mapActions, mapGetters } = createNamespacedHelpers("iPhoneXSto
 export default {
     computed: {
         ...mapState([
-            "dealRows"
+            "deals"
         ]),
         ...mapGetters([
             "availableColours",

@@ -478,6 +478,7 @@ module.exports = {
         "4/5": "80%",
         "1/6": "16.66667%",
         "5/6": "83.33333%",
+        "46pc": "46%",
         "full": "100%",
         "screen": "100vw"
     },
@@ -606,7 +607,7 @@ module.exports = {
 
     maxHeight: {
         "full": "100%",
-        "screen": "100vh",
+        "screen": "100vh"
     },
 
 
