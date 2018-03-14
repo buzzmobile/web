@@ -1,7 +1,7 @@
 {
-  "name": "buzzmobile",
+  "name": "mopho",
   "version": "1.0.0",
-  "description": "BuzzMobiles Nuxt Vue Web Project",
+  "description": "Mobile Contracts by Mopho",
   "author": "harry@unomee.com",
   "private": true,
   "scripts": {
