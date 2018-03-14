@@ -95,7 +95,7 @@
                 <div>
                   <div>
                     <span class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</span>
-                    <span class="deal-card--price px-2 py-1">{{deal.Telcos_term}} months at {{currency(deal.Telcos_month_cost)}}</span>
+                    <span class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</span>
                     <p></p>
                     <span class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</span>
                     <span class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</span>
