@@ -61,10 +61,10 @@
     margin: 0 auto;
   }
   .bg-iphone-x-space-grey {
-    background-image: url("https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_dark_gray_large.jpg")
+    background-image: url("~/assets/images/iphone-x-gray-600.jpg")
   }
   .bg-iphone-x-silver {
-    background-image: url("https://images.apple.com/v/iphone-x/e/images/specs/finish_iphone-x_silver_large.jpg");
+    background-image: url("~/assets/images/iphone-x-silver-600.jpg");
   }
   .bg-s9-coral-blue {
     background-image: url("~/assets/images/galaxy-s9-blue-back-360.jpg");
