@@ -18,6 +18,7 @@ module.exports = {
         ]
     },
     loading: { color: "#cf1d69" },
+    render: { push: true },
     router: {
         middleware: ["https"]
     },
