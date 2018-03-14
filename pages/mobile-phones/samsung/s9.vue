@@ -8,7 +8,7 @@
             Cost of Ownership</p>
         </div>
       </div>
-      <div class="flex shadow py-4 mx-8">
+      <div class="flex shadow py-4 mx-8 max-h-480">
         <img class="w-1/3" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,

@@ -7,7 +7,7 @@
           <p class="text-center px-4 mx-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
             Cost of Ownership</p>
         </div>
-        <div class="flex shadow py-4 mx-8">
+        <div class="flex shadow py-4 mx-8 max-h-250">
           <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphonex/iphone-x-silver-600.jpg 600w,
               ~/assets/images/iphonex/iphone-x-silver-1014.jpg 1014w,
