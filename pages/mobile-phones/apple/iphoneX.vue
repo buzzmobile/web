@@ -9,13 +9,13 @@
         </div>
         <div class="flex shadow py-4 mx-8">
           <img class="w-1/2" sizes="50vw" srcset="
-              ~/assets/images/iphone-x-silver-600.jpg 600w,
-              ~/assets/images/iphone-x-silver-1014.jpg 1014w,
-              ~/assets/images/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
+              ~/assets/images/iphonex/iphone-x-silver-600.jpg 600w,
+              ~/assets/images/iphonex/iphone-x-silver-1014.jpg 1014w,
+              ~/assets/images/iphonex/iphone-x-silver-1278.jpg 1278w" src="~/assets/images/iphonex/iphone-x-silver-600.jpg" alt="iPhone X in Silver">
           <img class="w-1/2" sizes="50vw" srcset="
-              ~/assets/images/iphone-x-gray-600.jpg 600w,
-              ~/assets/images/iphone-x-gray-966.jpg 966w,
-              ~/assets/images/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
+              ~/assets/images/iphonex/iphone-x-gray-600.jpg 600w,
+              ~/assets/images/iphonex/iphone-x-gray-966.jpg 966w,
+              ~/assets/images/iphonex/iphone-x-gray-1278.jpg 1278w" src="~/assets/images/iphonex/iphone-x-gray-600.jpg" alt="iPhone X in Space Grey">
         </div>
       </div>
     </header>

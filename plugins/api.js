@@ -46,6 +46,9 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
         Telcos_device_features_json {
           colour
         }
+        Telcos_device_product_version_json { 
+          product_version_name
+        }
       }
     }
     `;

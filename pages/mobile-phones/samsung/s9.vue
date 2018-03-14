@@ -10,22 +10,22 @@
       </div>
       <div class="flex shadow py-4 mx-8">
         <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/galaxy-s9-black-back-360.jpg 360w,
-                ~/assets/images/galaxy-s9-black-back-480.jpg 480w,
-                ~/assets/images/galaxy-s9-black-back-684.jpg 684w,
-                ~/assets/images/galaxy-s9-black-back-763.jpg 763w,
-                ~/assets/images/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/galaxy-s9-black-back-360.jpg" alt="Samsung S9 in Midnight Black">
+                ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
+                ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,
+                ~/assets/images/s9/galaxy-s9-black-back-684.jpg 684w,
+                ~/assets/images/s9/galaxy-s9-black-back-763.jpg 763w,
+                ~/assets/images/s9/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-black-back-360.jpg" alt="Samsung S9 in Midnight Black">
         <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/galaxy-s9-purple-back-360.jpg 360w,
-                ~/assets/images/galaxy-s9-purple-back-581.jpg 581w,
-                ~/assets/images/galaxy-s9-purple-back-785.jpg 785w,
-                ~/assets/images/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/galaxy-s9-purple-back-360.jpg"
+                ~/assets/images/s9/galaxy-s9-purple-back-360.jpg 360w,
+                ~/assets/images/s9/galaxy-s9-purple-back-581.jpg 581w,
+                ~/assets/images/s9/galaxy-s9-purple-back-785.jpg 785w,
+                ~/assets/images/s9/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-purple-back-360.jpg"
           alt="Samsung S9 in Lilac Purple">
         <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/galaxy-s9-blue-back-360.jpg 360w,
-                ~/assets/images/galaxy-s9-blue-back-596.jpg 596w,
-                ~/assets/images/galaxy-s9-blue-back-797.jpg 797w,
-                ~/assets/images/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/galaxy-s9-blue-back-360.jpg" alt="Samsung S9 in Coral Blue">
+                ~/assets/images/s9/galaxy-s9-blue-back-360.jpg 360w,
+                ~/assets/images/s9/galaxy-s9-blue-back-596.jpg 596w,
+                ~/assets/images/s9/galaxy-s9-blue-back-797.jpg 797w,
+                ~/assets/images/s9/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-blue-back-360.jpg" alt="Samsung S9 in Coral Blue">
       </div>
     </header>
     <main>
@@ -84,7 +84,7 @@
       <div class="flex flex-wrap justify-around mx-4">
         <div class="w-full sm:w-46pc rounded overflow-hidden shadow-lg p-4" v-for="deal in deals" v-bind:key="deal.aw_deep_link">
           <div class="max-w-md w-full lg:flex">
-            <div :class="setBgImageUrl(deal)" class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            <div :class="setBgImageUrl(deal)" class="flex-none h-48 lg:h-auto lg:w-48 bg-cover lg:bg-s9 rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               :title=deal.Telcos_device_full_name>
             </div>
             <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
@@ -141,7 +141,8 @@ export default {
         }),
         getMonthlyPricePoundsPart: deal => deal.Telcos_month_cost.toString().split(".")[0],
         getMonthlyPricePencePart: deal => deal.Telcos_month_cost.toFixed(2).toString().split(".")[1],
-        setBgImageUrl: deal => "bg-s9-" + deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")
+        setBgImageUrl: deal => `bg-${deal.Telcos_device_product_version_json.product_version_name.toLowerCase().replace(" ", "-")}-${deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")}`
+        
     },
     async fetch({ store }) {
         const { dispatch } = store;
