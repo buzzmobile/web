@@ -34,27 +34,32 @@
       </footer>
     </div>
   </div>
-
 </template>
-
-
-
 
 <script>
 import { createNamespacedHelpers } from "vuex";
-const ns = "layout-defaultStore";
-const { mapState, mapActions } = createNamespacedHelpers(ns);
+const { mapState, mapActions } = createNamespacedHelpers("layout-defaultStore");
+const { mapState : mapRouteState } = createNamespacedHelpers("route");
 
 export default {
     computed: {
         ...mapState([
             "open"
         ]),
+        ...mapRouteState([
+            "name"
+        ])
     },
     methods: {
         ...mapActions({
             menuToggled: "menuToggledAction"
         }),
+        routeNameChanged() {
+            this.$store.dispatch("layout-defaultStore/routeNameChangedAction");
+        }
+    },
+    watch: {
+        "name": "routeNameChanged"
     }
 };
 </script>
