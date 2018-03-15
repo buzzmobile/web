@@ -30,7 +30,9 @@
         <nuxt/>
       </main>
       <footer class="bg-brand-grey text-brand-pink font-light w-full p-4">
-        <p class="text-center">mopho.com 2018</p>
+        <h4>About us</h4>
+        <p class="my-4">We search deals across these merchants so you don't have to: O2 Mobiles, buymobiles.net, Mobiles.co.uk, EE Mobile, ID Mobile, giffgaff, Vodafone Ltd</p>
+        <p class="text-center font-hairline">© mopho.com 2018</p>
       </footer>
     </div>
   </div>
