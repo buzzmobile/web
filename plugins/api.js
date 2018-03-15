@@ -77,11 +77,11 @@ export function buildGetDealQuery ({ id }) {
           colour
           megapixels
         }
-        Telcos_network_details_json {
-          logo_url
-        }
         Telcos_deal_cost_json {
           tco_inc_vat
+        }
+        Telcos_device_product_version_json { 
+          product_version_name
         }
       }
     }
