@@ -19,7 +19,7 @@ module.exports = {
     },
     loading: { color: "#cf1d69" },
     router: {
-        // middleware: ["https"]
+        middleware: ["https"]
     },
     css: [
         "@/assets/styles/tailwind.css"
