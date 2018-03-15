@@ -38,6 +38,9 @@ module.exports = {
         "@nuxtjs/axios",
         "nuxt-vuex-router-sync"
     ],
+    icon: {
+        sizes: [16, 48, 72, 96, 120, 144, 152, 180, 192, 512, 120, 144, 152, 192, 384, 512, 1024]
+    },
     axios: {
     // See https://github.com/nuxt-community/axios-module#options
         baseURL: process.env.baseApiUrl || "http://localhost:7778/api/",
