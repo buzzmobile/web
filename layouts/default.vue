@@ -16,10 +16,10 @@
           </div>
           <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
             <div class="sm:flex-grow">
-              <nuxt-link to="/mobile-phones/apple/iphonex" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
+              <nuxt-link @click.native="menuLinkClicked" to="/mobile-phones/apple/iphonex" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
                 iPhone X
               </nuxt-link>
-              <nuxt-link to="/mobile-phones/samsung/s9" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
+              <nuxt-link @click.native="menuLinkClicked" to="/mobile-phones/samsung/s9" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
                 Samsung S9/+
               </nuxt-link>
             </div>
@@ -54,7 +54,8 @@ export default {
     },
     methods: {
         ...mapActions({
-            menuToggled: "menuToggledAction"
+            menuToggled: "menuToggledAction",
+            menuLinkClicked: "menuLinkClickedAction"
         }),
         routeNameChanged() {
             this.$store.dispatch("layout-defaultStore/routeNameChangedAction");

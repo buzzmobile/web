@@ -3,11 +3,14 @@ export const state = () => ({
 });
 
 export const actions = {
-    async menuToggledAction ({ commit }) {
+    menuToggledAction ({ commit }) {
         commit("menuToggledMutation");
     },
     routeNameChangedAction ({ commit }) {
-        commit("routeNameChanged");
+        commit("routeNameChangedMutation");
+    },
+    menuLinkClickedAction ({ commit }) {
+        commit("menuLinkClickedMutation");
     }
 };
 
@@ -15,7 +18,10 @@ export const mutations = {
     menuToggledMutation (state) {
         state.open = !state.open;
     },
-    routeNameChanged (state) {
+    routeNameChangedMutation (state) {
+        state.open = false;
+    },
+    menuLinkClickedMutation(state) {
         state.open = false;
     }
 };
