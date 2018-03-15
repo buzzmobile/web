@@ -11,7 +11,7 @@ export async function executeGetDealQuery (axios, query) {
 async function getQueryResult(axios, query) {
     return axios.get("/graphql", {
         params: {
-            query
+            query: query.replace(/\s{2}/g,"")
         }
     });
 }
@@ -21,15 +21,15 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
     {
       allDealsFiltered(
         merchantCategory:MobilePhone, 
-        operatingSystem: ${osFilter}, 
-        productVersionName: ${modelFilter}, 
-        contractType: Contract, 
-        numberOfTexts: Unlimited,
-        talkMinutes: Unlimited,
-        network: ${networkFilter},
-        merchant: e2saveNot,
-        storageSize: ${storageFilter},
-        colour: ${colourFilter},
+        operatingSystem:${osFilter}, 
+        productVersionName:${modelFilter}, 
+        contractType:Contract, 
+        numberOfTexts:Unlimited,
+        talkMinutes:Unlimited,
+        network:${networkFilter},
+        merchant:e2saveNot,
+        storageSize:${storageFilter},
+        colour:${colourFilter},
         sortBy:TCO_ASC
       ) 
       {
