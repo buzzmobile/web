@@ -20,17 +20,17 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
     return `
     {
       allDealsFiltered(
-        merchantCategory:MobilePhone, 
-        operatingSystem:${osFilter}, 
-        productVersionName:${modelFilter}, 
-        contractType:Contract, 
-        numberOfTexts:Unlimited,
-        talkMinutes:Unlimited,
-        network:${networkFilter},
-        merchant:e2saveNot,
-        storageSize:${storageFilter},
-        colour:${colourFilter},
-        sortBy:TCO_ASC
+        merchantCategory: MobilePhone, 
+        operatingSystem: ${osFilter}, 
+        productVersionName: ${modelFilter}, 
+        contractType: Contract, 
+        numberOfTexts: Unlimited,
+        talkMinutes: Unlimited,
+        network: ${networkFilter},
+        merchant: e2saveNot,
+        storageSize: ${storageFilter},
+        colour: ${colourFilter},
+        sortBy: TCO_ASC
       ) 
       {
         id
