@@ -45,9 +45,9 @@
         <img v-if="imageKey==='x-space-grey'" class="natural-image iphonex-deal-image-shift" src="~/assets/images/iphonex/iphone-x-gray-full.jpg"
           alt="iPhone X in Space Grey">
       </div>
-      <div class="sm:w-1/2">
-        <p class="w-full sm:w-1/2">{{deal.Telcos_device_description}}</p>
-        <h3>Key features</h3>
+      <div class="sm:w-1/2 px-4">
+        <p class="w-full sm:w-1/2 py-4">{{deal.Telcos_device_description}}</p>
+        <h3 class="pb-4">Key features</h3>
         <ul>
           <li>Network: {{deal.Telcos_network}}</li>
           <li>Data: {{deal.Telcos_inc_data/1000}} GB ({{deal.Telcos_device_features_json.max_data_standard}})</li>
@@ -55,19 +55,16 @@
           <li>Colour: {{deal.Telcos_device_features_json.colour}}</li>
           <li>Camera: {{deal.Telcos_device_features_json.megapixels}} MP</li>
         </ul>
-        <h3>Costs</h3>
-        <p>Upfront: {{deal.Telcos_initial_cost}}</p>
-        <p>Monthly: {{currency(deal.Telcos_month_cost)}}</p>
-        <p>
-          <b>Total (inc VAT): {{currency(deal.Telcos_deal_cost_json.tco_inc_vat)}}</b>
-          <br />
-          <small>Over a {{deal.Telcos_term}} month contract</small>
+        <h3 class="pt-4">Costs</h3>
+        <p class="py-2">Upfront: {{currency(deal.Telcos_initial_cost)}}</p>
+        <p class="pb-2">Monthly: {{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</p>
+        <p class="pb-2">
+          <b class="underline">Contract Total (inc VAT): {{currency(deal.Telcos_deal_cost_json.tco_inc_vat)}}</b>
         </p>
-        <p>
-          <small>Continue with {{deal.merchant_name}}</small>
-        </p>
-        <a :href=deal.aw_deep_link target="_blank">Go to deal</a>
       </div>
+    </div>
+    <div class="flex justify-center my-8">
+        <a class="btn py-4 px-6" :href=deal.aw_deep_link target="_blank">BUY WITH {{deal.merchant_name.toUpperCase()}}</a>
     </div>
   </div>
 </template>
