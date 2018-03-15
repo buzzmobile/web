@@ -34,11 +34,11 @@
 
       <form class="flex flex-col sm:flex-row mx-4">
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="model">
+          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="model">
             Model
           </label>
           <div class="relative">
-            <select @change="modelFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+            <select @change="modelFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="model">
               <option :value="s.coded" v-for="s in availableModels" v-bind:key="s.coded">{{s.display}}</option>
             </select>
@@ -50,11 +50,11 @@
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="colour">
+          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="colour">
             Colour
           </label>
           <div class="relative">
-            <select @change="colourFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+            <select @change="colourFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="colour">
               <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
             </select>
@@ -66,11 +66,11 @@
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-grey-darker font-bold mb-2" for="network">
+          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="network">
             Network
           </label>
           <div class="relative">
-            <select @change="networksFilterChanged" class="block appearance-none w-full border border-brand-grey py-3 px-4 pr-8 rounded"
+            <select @change="networksFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="network">
               <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
             </select>
