@@ -11,7 +11,7 @@ export async function executeGetDealQuery (axios, query) {
 async function getQueryResult(axios, query) {
     return axios.get("/graphql", {
         params: {
-            query
+            query: query.replace(/\s{2}/g,"")
         }
     });
 }
@@ -20,7 +20,7 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
     return `
     {
       allDealsFiltered(
-        merchantCategory:MobilePhone, 
+        merchantCategory: MobilePhone, 
         operatingSystem: ${osFilter}, 
         productVersionName: ${modelFilter}, 
         contractType: Contract, 
@@ -30,7 +30,7 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
         merchant: e2saveNot,
         storageSize: ${storageFilter},
         colour: ${colourFilter},
-        sortBy:TCO_ASC
+        sortBy: TCO_ASC
       ) 
       {
         id
@@ -45,6 +45,9 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
         Telcos_inc_data
         Telcos_device_features_json {
           colour
+        }
+        Telcos_device_product_version_json { 
+          product_version_name
         }
       }
     }

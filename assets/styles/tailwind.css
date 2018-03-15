@@ -1,0 +1,112 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, you should import this line from it's own file:
+ *
+ * @import "./tailwind-preflight.css";
+ *
+ * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
+ */
+
+@tailwind preflight;
+/**
+  * Here you would add any of your custom component classes; stuff that you'd
+  * want loaded *before* the utilities so that the utilities could still
+  * override them.
+  *
+  * Example:
+  *
+  * .btn { ... }
+  * .form-input { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "components/buttons";
+  * @import "components/forms";
+  */
+
+/**
+  * This injects all of Tailwind's utility classes, generated based on your
+  * config file.
+  *
+  * If using `postcss-import`, you should import this line from it's own file:
+  *
+  * @import "./tailwind-utilities.css";
+  *
+  * See: https://github.com/tailwindcss/tailwindcss/issues/53#issuecomment-341413622
+  */
+
+@tailwind utilities;
+/**
+  * Here you would add any custom utilities you need that don't come out of the
+  * box with Tailwind.
+  *
+  * Example :
+  *
+  * .bg-pattern-graph-paper { ... }
+  * .skew-45 { ... }
+  *
+  * Or if using a preprocessor or `postcss-import`:
+  *
+  * @import "utilities/background-patterns";
+  * @import "utilities/skew-transforms";
+  */
+
+.no-bigger-than {
+  max-width: config("screens.xl");
+  margin: 0 auto;
+}
+
+.bg-iphone-x-space-grey {
+  background-image: url("~/assets/images/iphonex/iphone-x-gray-600.jpg")
+}
+
+.bg-iphone-x-silver {
+  background-image: url("~/assets/images/iphonex/iphone-x-silver-600.jpg");
+}
+
+.bg-s9-coral-blue {
+  background-image: url("~/assets/images/s9/galaxy-s9-blue-back-360.jpg");
+}
+
+.bg-s9-midnight-black {
+  background-image: url("~/assets/images/s9/galaxy-s9-black-back-360.jpg");
+}
+
+.bg-s9-lilac-purple {
+  background-image: url("~/assets/images/s9/galaxy-s9-purple-back-360.jpg");
+}
+
+.bg-s9-plus-coral-blue {
+  background-image: url("~/assets/images/s9/galaxy-s9-plus-blue-back-360.jpg");
+}
+
+.bg-s9-plus-midnight-black {
+  background-image: url("~/assets/images/s9/galaxy-s9-plus-black-back-360.jpg");
+}
+
+.bg-s9-plus-lilac-purple {
+  background-image: url("~/assets/images/s9/galaxy-s9-plus-purple-back-360.jpg");
+}
+
+@responsive {
+  .bg-s9 {
+    background-position-x: -2rem;
+  }
+}
+
+.deal-card--price {
+  @apply .inline-block .bg-brand-grey .rounded-full .text-xl .font-black .text-brand-pink
+}
+
+.deal-card--feature {
+  @apply .inline-block .bg-brand-grey .rounded-full .font-semibold
+}
+
+.btn {
+  @apply .no-underline .bg-brand-pink .rounded .text-white .text-center
+}

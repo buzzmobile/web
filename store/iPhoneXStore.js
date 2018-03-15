@@ -1,7 +1,6 @@
 import { buildGetQuery, executeAllDealsQuery, executeGetDealQuery } from "../plugins/api";
 
 export const state = () => ({
-    dealRows: null,
     deals: null,
     networkFilter: "Any",
     colourFilter: "Any",
@@ -11,7 +10,6 @@ export const state = () => ({
 
 export const getters = {
     namespace: () => "iPhoneXStore",
-    dealsPerRow: () => 3,
     modelFilter: () => "iPhoneX",
     osFilter: () => "iOS",
     availableColours: () => [
@@ -46,45 +44,43 @@ export const getters = {
     },
 };
 
-// const namespace = "iPhoneXStore";
-
 export const actions = {
     async initDealsPageAction ({ commit, getters }) {
-        const { dealsPerRow, modelFilter, osFilter, namespace } = getters;
+        const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
-        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
+        commit("dealsChangedMutation", { deals });
     },
     async networksFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : networkFilter } = target;
         const { storageFilter, colourFilter } = state;
-        const { dealsPerRow, modelFilter, osFilter, namespace } = getters;
+        const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("networkFilterChangedMutation", { networkFilter });
-        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
+        commit("dealsChangedMutation", { deals });
     },
     async storageFilterChangedAction( { commit, state, getters }, { target }) {
         const { value : storageFilter } = target;
         const { networkFilter, colourFilter } = state;
-        const { dealsPerRow, modelFilter, osFilter, namespace } = getters;
+        const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("storageFilterChangedMutation", { storageFilter });
-        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
+        commit("dealsChangedMutation", { deals });
     },
     async colourFilterChangedAction( { commit, state, getters }, { target }) {
         const { value: colourFilter } = target;
         const { networkFilter, storageFilter } = state;
-        const { dealsPerRow, modelFilter, osFilter, namespace } = getters;
+        const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter } );
         const { $axios: axios } = this;
         const deals = await executeAllDealsQuery(axios, query);
         commit("colourFilterChangedMutation", { colourFilter });
-        commit("dealsChangedMutation", { namespace, deals, dealsPerRow }, { root: true });
+        commit("dealsChangedMutation", { deals });
     }
 };
 
@@ -97,5 +93,8 @@ export const mutations = {
     },
     colourFilterChangedMutation(state, { colourFilter }) {
         state.colourFilter = colourFilter;
+    },
+    dealsChangedMutation(state, { deals }) {
+        state.deals = deals;
     }
 };

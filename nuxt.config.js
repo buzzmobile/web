@@ -4,28 +4,25 @@ module.exports = {
     mode: "universal",
     // Headers of the page
     head: {
-        title: pkg.name,
+        title: "Mopho",
         meta: [
             { charset: "utf-8" },
             { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { hid: "description", name: "description", content: pkg.description },
+            { hid: "description", name: "description", content: "Mobile Contracts by Mopho" },
             { name: "http-equiv", content: "IE=edge" }
         ],
         link: [
             { rel: "icon", type: "image/x-icon", href: "/favicon.ico" }
         ],
         script: [
-            { src: "https://use.fontawesome.com/9a080b10fd.js" },
-            { src: "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" },
-            { src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" }
         ]
     },
-    loading: { color: "#3B8070" },
+    loading: { color: "#cf1d69" },
     router: {
         middleware: ["https"]
     },
     css: [
-        "@/assets/styles/style.scss"
+        "@/assets/styles/tailwind.css"
     ],
     plugins: [
     ],

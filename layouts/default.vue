@@ -1,70 +1,68 @@
 <template>
   <div>
-    <div>
-      <nav class="navbar navbar-default">
-        <div class="bm-logonav">
-          <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-              <nuxt-link class="bm-toplogo" to="/">mopho</nuxt-link>              
+    <div class="flex flex-col min-h-screen no-bigger-than">
+      <header class="font-sans antialiased" id="app">
+        <nav class="flex items-center justify-between flex-wrap bg-brand-grey p-4">
+          <div class="flex items-center flex-no-shrink mr-6">
+            <nuxt-link class="no-underline font-bold text-xl tracking-wide text-brand-pink" to="/">Mopho</nuxt-link>
+          </div>
+          <div class="block sm:hidden">
+            <button @click="menuToggled" class="flex items-center px-3 py-2 border rounded text-pink-light border-brand-pink hover:text-pink-light hover:border-pink-light">
+              <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
+          <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+            <div class="sm:flex-grow">
+              <nuxt-link @click.native="menuLinkClicked" to="/mobile-phones/apple/iphonex" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
+                iPhone X
+              </nuxt-link>
+              <nuxt-link @click.native="menuLinkClicked" to="/mobile-phones/samsung/s9" class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">
+                Samsung S9/+
+              </nuxt-link>
             </div>
           </div>
-        </div>
-      </nav>
-    </div>
-    <nuxt/>
-    <div>
-      <section class="bm-lower-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-12">
-              <h4>About us</h4>
-              <p>
-                <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit</b>
-              </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut vel nesciunt nostrum est at ipsa dicta aperiam
-                ea soluta excepturi. Maiores dolores quas expedita, obcaecati repudiandae eveniet, quos ipsam sapiente dolorem,
-                quis, accusamus aliquid qui.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer class="bm-footer">
-        <div class="bm-f-top">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12 col-md-4">
-                <h5 class="bm-f-t-logo">
-                  <a href="/">mopho</a>
-                </h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, nulla, vitae! Consectetur aliquid dolore,
-                  suscipit odio commodi tempore, animi voluptatum? Ipsa commodi ea rem! Corporis.</p>
-              </div>
-              <div class="col-xs-12 col-md-offset-2 col-md-2">
-                <ul class="list-unstyled bm-f-t-list">
-                  <li>
-                    <b>Footer head</b>
-                  </li>
-                  <li>
-                    <a href="">Footer link</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bm-f-bottom">
-          <div class="container">
-            <div class="row">
-              <div class="col-xs-12">
-                <p>
-                  <a href="">&copy; mopho.com 2017 | Lorem ipsum dolor sit amet, consectetur adipisicing elit</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </nav>
+      </header>
+      <main class="flex-1">
+        <nuxt/>
+      </main>
+      <footer class="bg-brand-grey text-brand-pink font-light w-full p-4">
+        <h4>About us</h4>
+        <p class="my-4">We search deals across these merchants so you don't have to: O2 Mobiles, buymobiles.net, Mobiles.co.uk, EE Mobile, ID Mobile, giffgaff, Vodafone Ltd</p>
+        <p class="text-center font-hairline">© mopho.com 2018</p>
       </footer>
     </div>
   </div>
 </template>
+
+<script>
+import { createNamespacedHelpers } from "vuex";
+const { mapState, mapActions } = createNamespacedHelpers("layout-defaultStore");
+const { mapState : mapRouteState } = createNamespacedHelpers("route");
+
+export default {
+    computed: {
+        ...mapState([
+            "open"
+        ]),
+        ...mapRouteState([
+            "name"
+        ])
+    },
+    methods: {
+        ...mapActions({
+            menuToggled: "menuToggledAction",
+            menuLinkClicked: "menuLinkClickedAction"
+        }),
+        routeNameChanged() {
+            this.$store.dispatch("layout-defaultStore/routeNameChangedAction");
+        }
+    },
+    watch: {
+        "name": "routeNameChanged"
+    }
+};
+</script>

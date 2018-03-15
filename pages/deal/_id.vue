@@ -1,23 +1,23 @@
 <template>
-  <section class="bm-deal-info">
-    <div class="container">
-      <div class="bm-di-box">
-        <div class="row">
-          <div class="col-xs-12">
+  <section>
+    <div>
+      <div>
+        <div>
+          <div>
             <h1>{{deal.Telcos_device_full_name}}</h1>
             <h4>{{deal.Telcos_device_description}}</h4>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-2">
+        <div>
+          <div>
             <div>
-              <img class="bm-di-d-network-logo" :src=deal.Telcos_network_details_json.logo_url alt="network logo" />
+              <img :src=deal.Telcos_network_details_json.logo_url alt="network logo" />
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="bm-di-b-features">
+          <div>
+            <div>
               <h3>Key features</h3>
-              <ul class="list-unstyled">
+              <ul>
                 <li>Data: {{deal.Telcos_inc_data/1000}} GB ({{deal.Telcos_device_features_json.max_data_standard}})</li>
                 <li>Storage: {{deal.Telcos_storage_size}}</li>
                 <li>Colour: {{deal.Telcos_device_features_json.colour}}</li>
@@ -26,8 +26,8 @@
 
             </div>
           </div>
-          <div class="col-xs-12 col-sm-4">
-            <div class="bm-di-b-costs">
+          <div>
+            <div>
               <h3>Costs</h3>
               <p>Upfront: £{{deal.Telcos_initial_cost}}</p>
               <p>Monthly: £{{getMonthlyPricePoundsPart(deal)}}.{{getMonthlyPricePencePart(deal)}}</p>
@@ -38,13 +38,13 @@
               </p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-2">
-            <div class="bm-di-b-button">
-              <img class="img-responsive" :src=getExternalImage(deal) alt="" />
+          <div>
+            <div>
+              <img :src=getExternalImage(deal) alt="" />
               <p>
                 <small>Continue with {{deal.merchant_name}}</small>
               </p>
-              <a class="btn btn-primary btn-block" :href=deal.aw_deep_link target="_blank">Go to deal</a>
+              <a :href=deal.aw_deep_link target="_blank">Go to deal</a>
             </div>
           </div>
         </div>
