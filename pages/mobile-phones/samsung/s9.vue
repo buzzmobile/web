@@ -86,7 +86,7 @@
       <div class="flex flex-wrap justify-around mx-4">
         <div class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.aw_deep_link">
           <div class="max-w-md w-full lg:flex">
-            <div :class="setBgImageUrl(deal)" class="flex-none h-48 lg:h-auto lg:w-48 bg-cover lg:bg-s9 text-center overflow-hidden"
+            <div :class="setBgImageUrl(deal)" class="flex-none h-48 sm:h-64 lg:h-auto lg:w-48 bg-cover lg:bg-s9 text-center overflow-hidden"
               :title=deal.Telcos_device_full_name>
             </div>
             <div class="p-4 flex flex-col justify-between leading-normal">
