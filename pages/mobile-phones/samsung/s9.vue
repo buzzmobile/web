@@ -8,27 +8,6 @@
             Cost of Ownership</p>
         </div>
       </div>
-      <div class="flex max-h-480 py-4 mx-8">
-        <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
-                ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,
-                ~/assets/images/s9/galaxy-s9-black-back-684.jpg 684w,
-                ~/assets/images/s9/galaxy-s9-black-back-763.jpg 763w,
-                ~/assets/images/s9/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-black-back-360.jpg"
-          alt="Samsung S9 in Midnight Black">
-        <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/s9/galaxy-s9-purple-back-360.jpg 360w,
-                ~/assets/images/s9/galaxy-s9-purple-back-581.jpg 581w,
-                ~/assets/images/s9/galaxy-s9-purple-back-785.jpg 785w,
-                ~/assets/images/s9/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-purple-back-360.jpg"
-          alt="Samsung S9 in Lilac Purple">
-        <img class="w-1/3" sizes="30vw" srcset="
-                ~/assets/images/s9/galaxy-s9-blue-back-360.jpg 360w,
-                ~/assets/images/s9/galaxy-s9-blue-back-596.jpg 596w,
-                ~/assets/images/s9/galaxy-s9-blue-back-797.jpg 797w,
-                ~/assets/images/s9/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-blue-back-360.jpg"
-          alt="Samsung S9 in Coral Blue">
-      </div>
     </header>
     <main>
 
