@@ -7,7 +7,7 @@
           <p class="text-center px-4 mx-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
             Cost of Ownership</p>
         </div>
-        <div class="flex py-4 mx-8 max-h-250">
+        <div class="flex max-h-250 py-4 mx-8 ">
           <img class="w-1/2" sizes="50vw" srcset="
               ~/assets/images/iphonex/iphone-x-silver-600.jpg 600w,
               ~/assets/images/iphonex/iphone-x-silver-1014.jpg 1014w,
@@ -86,8 +86,8 @@
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</p>
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</p>
                     <p class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</p>
-                    <p class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</p>
-                    <p class="deal-card--feature px-2 py-1 ">Colour: {{deal.Telcos_device_features_json.colour}}</p>
+                    <p class="deal-card--feature px-2 py-1">Storage: {{deal.Telcos_storage_size}}</p>
+                    <p class="deal-card--feature px-2 py-1">Colour: {{deal.Telcos_device_features_json.colour}}</p>
                   </div>
                 </div>
               </div>

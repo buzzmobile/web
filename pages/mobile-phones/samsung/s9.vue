@@ -8,7 +8,7 @@
             Cost of Ownership</p>
         </div>
       </div>
-      <div class="flex py-4 mx-8 max-h-480">
+      <div class="flex max-h-480 py-4 mx-8">
         <img class="w-1/3" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,
@@ -97,8 +97,8 @@
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</p>
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</p>
                     <p class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</p>
-                    <p class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</p>
-                    <p class="deal-card--feature px-2 py-1 ">Colour: {{deal.Telcos_device_features_json.colour}}</p>
+                    <p class="deal-card--feature px-2 py-1">Storage: {{deal.Telcos_storage_size}}</p>
+                    <p class="deal-card--feature px-2 py-1">Colour: {{deal.Telcos_device_features_json.colour}}</p>
                   </div>
                 </div>
               </div>
