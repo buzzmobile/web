@@ -108,11 +108,11 @@
 }
 
 .deal-card--price {
-  @apply .inline-block .bg-brand-grey .rounded-full .text-xl .font-black .text-brand-pink
+  @apply .text-xl .font-black .text-brand-pink
 }
 
 .deal-card--feature {
-  @apply .inline-block .bg-brand-grey .rounded-full .font-semibold
+  @apply .font-semibold
 }
 
 .btn {

@@ -8,7 +8,7 @@
             Cost of Ownership</p>
         </div>
       </div>
-      <div class="flex shadow py-4 mx-8 max-h-480">
+      <div class="flex py-4 mx-8 max-h-480">
         <img class="w-1/3" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,
@@ -84,22 +84,21 @@
 
       </form>
       <div class="flex flex-wrap justify-around mx-4">
-        <div class="w-full sm:w-46pc rounded overflow-hidden shadow-lg p-4" v-for="deal in deals" v-bind:key="deal.aw_deep_link">
+        <div class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.aw_deep_link">
           <div class="max-w-md w-full lg:flex">
-            <div :class="setBgImageUrl(deal)" class="flex-none h-48 lg:h-auto lg:w-48 bg-cover lg:bg-s9 rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+            <div :class="setBgImageUrl(deal)" class="flex-none h-48 lg:h-auto lg:w-48 bg-cover lg:bg-s9 text-center overflow-hidden"
               :title=deal.Telcos_device_full_name>
             </div>
-            <div class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+            <div class="p-4 flex flex-col justify-between leading-normal">
               <div class="mb-8">
-                <div class="inline-block bg-brand-grey rounded-full font-bold text-xl text-center px-2 py-1 mb-4">{{deal.Telcos_device_full_name}}</div>
+                <div class="inline-block font-bold text-xl text-center px-2 py-1 mb-4">{{deal.Telcos_device_full_name}}</div>
                 <div>
                   <div>
-                    <span class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</span>
-                    <span class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</span>
-                    <p></p>
-                    <span class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</span>
-                    <span class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</span>
-                    <span class="deal-card--feature px-2 py-1 ">Colour: {{deal.Telcos_device_features_json.colour}}</span>
+                    <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</p>
+                    <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</p>
+                    <p class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</p>
+                    <p class="deal-card--feature px-2 py-1 ">Storage: {{deal.Telcos_storage_size}}</p>
+                    <p class="deal-card--feature px-2 py-1 ">Colour: {{deal.Telcos_device_features_json.colour}}</p>
                   </div>
                 </div>
               </div>
