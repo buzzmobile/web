@@ -30,6 +30,7 @@ export function buildGetQuery ({ osFilter, modelFilter, networkFilter = "Any", s
         merchant: e2saveNot,
         storageSize: ${storageFilter},
         colour: ${colourFilter},
+        mobileData: AtLeast2GB,
         sortBy: TCO_ASC
       ) 
       {
