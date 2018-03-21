@@ -111,10 +111,6 @@
   @apply .text-xl .font-black .text-brand-pink
 }
 
-.deal-card--feature {
-  @apply .font-semibold
-}
-
 .btn {
   @apply .no-underline .bg-brand-pink .rounded .text-white .text-center
 }

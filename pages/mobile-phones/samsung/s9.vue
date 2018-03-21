@@ -4,7 +4,7 @@
       <div>
         <div>
           <h2 class="text-center py-4">Samsung S9/S9+ Contracts</h2>
-          <p class="text-center px-4">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes ordered by Total
+          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes and at least 2GB of data, ordered by Total
             Cost of Ownership</p>
         </div>
       </div>
@@ -75,9 +75,9 @@
                   <div>
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_initial_cost)}} upfront</p>
                     <p class="deal-card--price px-2 py-1">{{currency(deal.Telcos_month_cost)}} for {{deal.Telcos_term}} months</p>
-                    <p class="deal-card--feature px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</p>
-                    <p class="deal-card--feature px-2 py-1">Storage: {{deal.Telcos_storage_size}}</p>
-                    <p class="deal-card--feature px-2 py-1">Colour: {{deal.Telcos_device_features_json.colour}}</p>
+                    <p class="font-semibold px-2 py-1 mt-4">Data: {{deal.Telcos_inc_data/1000}} GB with {{deal.Telcos_network}}</p>
+                    <p class="font-semibold px-2 py-1">Storage: {{deal.Telcos_storage_size}}</p>
+                    <p class="font-semibold px-2 py-1">Colour: {{deal.Telcos_device_features_json.colour}}</p>
                   </div>
                 </div>
               </div>
