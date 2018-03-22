@@ -21,11 +21,11 @@ export const getters = {
         "Any",
         "BT",
         "EE",
-        "Giffgaff",
-        "iD",
+        // "Giffgaff",
+        // "iD",
         "O2",
         "Three",
-        "VirginMobile",
+        // "VirginMobile",
         "Vodafone"
     ],
     availableStorages: () => [
