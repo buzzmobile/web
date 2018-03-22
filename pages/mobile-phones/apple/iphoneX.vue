@@ -4,7 +4,7 @@
       <div>
         <div>
           <h2 class="text-center py-4">iPhone X Contracts</h2>
-          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes and at least 2GB of data, ordered by Total
+          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimited Texts and Minutes and at least 2GB of data, ordered by Total
             Cost of Ownership</p>
         </div>
       </div>
