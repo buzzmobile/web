@@ -4,45 +4,45 @@
 
     <div class="flex flex-col sm:flex-row sm:items-center">
       <div class="sm:w-1/2">
-        <img v-if="imageKey==='s9-midnight-black'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-midnight-black'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-black-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-black-back-480.jpg 480w,
                 ~/assets/images/s9/galaxy-s9-black-back-684.jpg 684w,
                 ~/assets/images/s9/galaxy-s9-black-back-763.jpg 763w,
                 ~/assets/images/s9/galaxy-s9-black-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-black-back-360.jpg"
           alt="Samsung S9 in Midnight Black">
-        <img v-if="imageKey==='s9-plus-midnight-black'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-plus-midnight-black'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-plus-black-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-plus-black-back-698.jpg 698w,
                 ~/assets/images/s9/galaxy-s9-plus-black-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-plus-black-back-360.jpg"
           alt="Samsung S9 Plus in Midnight Black">
-        <img v-if="imageKey==='s9-lilac-purple'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-lilac-purple'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-purple-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-purple-back-581.jpg 581w,
                 ~/assets/images/s9/galaxy-s9-purple-back-785.jpg 785w,
                 ~/assets/images/s9/galaxy-s9-purple-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-purple-back-360.jpg"
           alt="Samsung S9 in Lilac Purple">
-        <img v-if="imageKey==='s9-plus-lilac-purple'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-plus-lilac-purple'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-plus-purple-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-plus-purple-back-582.jpg 582w,
                 ~/assets/images/s9/galaxy-s9-plus-purple-back-765.jpg 765w,
                 ~/assets/images/s9/galaxy-s9-plus-purple-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-plus-purple-back-360.jpg"
           alt="Samsung S9 Plus in Coral Blue">
-        <img v-if="imageKey==='s9-coral-blue'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-coral-blue'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-blue-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-blue-back-596.jpg 596w,
                 ~/assets/images/s9/galaxy-s9-blue-back-797.jpg 797w,
                 ~/assets/images/s9/galaxy-s9-blue-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-blue-back-360.jpg"
           alt="Samsung S9 in Coral Blue">
-        <img v-if="imageKey==='s9-plus-coral-blue'" class="w-full" sizes="30vw" srcset="
+        <img v-if="imageKey(deal)==='s9-plus-coral-blue'" class="w-full" sizes="30vw" srcset="
                 ~/assets/images/s9/galaxy-s9-plus-blue-back-360.jpg 360w,
                 ~/assets/images/s9/galaxy-s9-plus-blue-back-594.jpg 594w,
                 ~/assets/images/s9/galaxy-s9-plus-blue-back-786.jpg 786w,
                 ~/assets/images/s9/galaxy-s9-plus-blue-back-900.jpg 900w" src="~/assets/images/s9/galaxy-s9-plus-blue-back-360.jpg"
           alt="Samsung S9 Plus in Coral Blue">
-        <img v-if="imageKey==='x-silver'" class="natural-image iphonex-deal-image-shift" src="~/assets/images/iphonex/iphone-x-silver-full.jpg"
+        <img v-if="imageKey(deal)==='x-silver'" class="natural-image iphonex-deal-image-shift" src="~/assets/images/iphonex/iphone-x-silver-full.jpg"
           alt="iPhone X in Silver">
-        <img v-if="imageKey==='x-space-grey'" class="natural-image iphonex-deal-image-shift" src="~/assets/images/iphonex/iphone-x-gray-full.jpg"
+        <img v-if="imageKey(deal)==='x-space-grey'" class="natural-image iphonex-deal-image-shift" src="~/assets/images/iphonex/iphone-x-gray-full.jpg"
           alt="iPhone X in Space Grey">
       </div>
       <div class="sm:w-1/2 px-4">
