@@ -61,7 +61,8 @@
         </div>
       </form>
       <div class="flex flex-wrap justify-around mx-4">
-        <div class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.id">
+        <p v-if="deals.length < 1" class="font-bold text-center p-4">We can't find any deals. Please try a different set of options.</p>
+        <div v-else class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.id">
           <div class="max-w-md w-full lg:flex">
             <div :class="setBgImageUrl(deal)" class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
               :title=deal.Telcos_device_full_name>

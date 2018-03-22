@@ -4,8 +4,8 @@
       <div>
         <div>
           <h2 class="text-center py-4">Samsung S9/S9+ Contracts</h2>
-          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes and at least 2GB of data, ordered by Total
-            Cost of Ownership</p>
+          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimted Texts and Minutes and at least
+            2GB of data, ordered by Total Cost of Ownership</p>
         </div>
       </div>
     </header>
@@ -60,10 +60,10 @@
             </div>
           </div>
         </div>
-
       </form>
       <div class="flex flex-wrap justify-around mx-4">
-        <div class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.id">
+        <p v-if="deals.length < 1" class="font-bold text-center p-4">We can't find any deals. Please try a different set of options.</p>
+        <div v-else class="w-full sm:w-46pc overflow-hidden shadow mb-4 p-4" v-for="deal in deals" v-bind:key="deal.id">
           <div class="max-w-md w-full lg:flex">
             <div :class="setBgImageUrl(deal)" class="flex-none h-48 sm:h-64 lg:h-auto lg:w-48 bg-cover lg:bg-s9 text-center overflow-hidden"
               :title=deal.Telcos_device_full_name>
@@ -92,6 +92,7 @@
   </div>
 </template>
 
+
 <script>
 import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "../../../plugins/api";
@@ -106,7 +107,8 @@ export default {
             "availableColours",
             "availableNetworks",
             "availableModels",
-            "getNetworkDisplayName"
+            "getNetworkDisplayName",
+            "filterSummary"
         ])
     },
     methods: {
