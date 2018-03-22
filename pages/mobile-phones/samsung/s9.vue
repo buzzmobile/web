@@ -107,8 +107,7 @@ export default {
             "availableColours",
             "availableNetworks",
             "availableModels",
-            "getNetworkDisplayName",
-            "filterSummary"
+            "getNetworkDisplayName"
         ])
     },
     methods: {
