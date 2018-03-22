@@ -36,7 +36,8 @@ module.exports = {
         "@nuxtjs/pwa",
         // Doc: https://github.com/nuxt-community/axios-module#usage
         "@nuxtjs/axios",
-        "nuxt-vuex-router-sync"
+        "nuxt-vuex-router-sync",
+        "@nuxtjs/sitemap"
     ],
     icon: {
         sizes: [16, 48, 72, 96, 120, 144, 152, 180, 192, 512, 120, 144, 152, 192, 384, 512, 1024]
