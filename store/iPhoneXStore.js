@@ -4,8 +4,7 @@ export const state = () => ({
     deals: null,
     networkFilter: "Any",
     colourFilter: "Any",
-    storageFilter: "Any",
-    selectedDeal: null
+    storageFilter: "Any"
 });
 
 export const getters = {
@@ -45,7 +44,10 @@ export const getters = {
 };
 
 export const actions = {
-    async initDealsPageAction ({ commit, getters }) {
+    async initDealsPageAction ({ commit, getters, state }) {
+        if (process.client && state.deals) {
+            return;
+        }
         const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter });
         const { $axios: axios } = this;

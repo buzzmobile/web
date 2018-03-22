@@ -45,6 +45,9 @@ export const getters = {
 
 export const actions = {
     async initDealsPageAction ({ commit, getters, state }) {
+        if (process.client && state.deals) {
+            return;
+        }
         const { osFilter, namespace } = getters;
         const { modelFilter } = state;
         const query = buildGetQuery({ osFilter, modelFilter });

@@ -19,7 +19,7 @@
           <div class="relative">
             <select @change="modelFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="model">
-              <option :value="s.coded" v-for="s in availableModels" v-bind:key="s.coded">{{s.display}}</option>
+              <option :value="s.coded" :selected="modelFilter===s.coded" v-for="s in availableModels" v-bind:key="s.coded">{{s.display}}</option>
             </select>
             <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
               <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -35,7 +35,7 @@
           <div class="relative">
             <select @change="colourFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="colour">
-              <option :value="s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
+              <option :value="s.coded" :selected="colourFilter===s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
             </select>
             <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
               <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -51,7 +51,7 @@
           <div class="relative">
             <select @change="networksFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
               id="network">
-              <option :value="network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
+              <option :value="network" :selected="networkFilter===network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
             </select>
             <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
               <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -101,7 +101,10 @@ const { mapState, mapActions, mapGetters } = createNamespacedHelpers("s9Store");
 export default {
     computed: {
         ...mapState([
-            "deals"
+            "deals",
+            "modelFilter",
+            "colourFilter",
+            "networkFilter"
         ]),
         ...mapGetters([
             "availableColours",
