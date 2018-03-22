@@ -64,10 +64,14 @@
       </div>
     </div>
     <div class="flex justify-center my-8">
-        <a class="btn py-4 px-6" :href=deal.aw_deep_link target="_blank">BUY WITH {{deal.merchant_name.toUpperCase()}}</a>
+      <a class="btn py-4 px-6" :href=deal.aw_deep_link target="_blank">BUY WITH {{deal.merchant_name.toUpperCase()}}</a>
+    </div>
+    <div class="flex justify-center my-8">
+      <nuxt-link class="btn-secondary py-2 px-4" :to="backUrl(deal)">&lt; Back to deals</nuxt-link>
     </div>
   </div>
 </template>
+
 
 <script>
 import { createNamespacedHelpers } from "vuex";
@@ -77,7 +81,8 @@ export default {
     computed: {
         ...mapGetters([
             "deal",
-            "imageKey"
+            "imageKey",
+            "backUrl"
         ])
     },
     methods: {
