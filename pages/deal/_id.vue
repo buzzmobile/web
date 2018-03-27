@@ -92,6 +92,14 @@ export default {
         const { dispatch } = store;
         const { id } = params;
         return dispatch("dealStore/initDealPageAction", { id });
+    },
+    head () {
+        return {
+            title: `${this.deal.Telcos_device_full_name} - Mopho`,
+            meta: [
+                { hid: "description", name: "description", content: this.deal.Telcos_device_description }
+            ]
+        };
     }
 };
 </script>

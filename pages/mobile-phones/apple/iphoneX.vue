@@ -128,7 +128,7 @@ export default {
         return {
             title: "iPhone X Contracts - Mopho",
             meta: [
-                { hid: "X", name: "iPhone X", content: "iPhone X Mobile Contracts" }
+                { hid: "description", name: "description", content: "iPhone X Mobile Contracts" }
             ]
         };
     }

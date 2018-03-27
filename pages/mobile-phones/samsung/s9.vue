@@ -130,7 +130,7 @@ export default {
         return {
             title: "Samsung S9/+ Contracts - Mopho",
             meta: [
-                { hid: "S9", name: "Samsung S9", content: "Samsung S9 Mobile Contracts" }
+                { hid: "description", name: "description", content: "Samsung S9/+ Mobile Contracts" }
             ]
         };
     }

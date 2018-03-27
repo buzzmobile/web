@@ -14,7 +14,7 @@ export default {
         return {
             title: "Mobile Contracts - Mopho",
             meta: [
-                { hid: "home", name: "home", content: "Mobile Contracts" }
+                { hid: "description", name: "description", content: "iPhone X and Samsung S9/+ Mobile Contracts by Mopho" }
             ]
         };
     }
