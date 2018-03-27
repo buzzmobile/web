@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="deal">
     <h1 class="text-center my-4 px-4">{{deal.Telcos_device_full_name}}</h1>
 
     <div class="flex flex-col sm:flex-row sm:items-center">
@@ -70,8 +70,12 @@
       <nuxt-link class="btn-secondary py-2 px-4" :to="backUrl(deal)">&lt; Back to deals</nuxt-link>
     </div>
   </div>
+  <div v-else class="flex flex-col items-center p-6">
+    <h1 class="text-brand-pink px-4 py-8">Apologies but we're unable to find this deal. It may no longer be available. Please try a new search.</h1>
+    <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-8" to="/mobile-phones/samsung/s9">SAMSUNG GALAXY S9/+</nuxt-link>
+    <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-4" to="/mobile-phones/apple/iPhoneX">APPLE IPHONE X</nuxt-link>
+  </div>
 </template>
-
 
 <script>
 import { createNamespacedHelpers } from "vuex";
@@ -95,9 +99,9 @@ export default {
     },
     head () {
         return {
-            title: `${this.deal.Telcos_device_full_name} - Mopho`,
+            title: this.deal ? `${this.deal.Telcos_device_full_name} - Mopho` : "Deal not found - Mopho",
             meta: [
-                { hid: "description", name: "description", content: this.deal.Telcos_device_description }
+                { hid: "description", name: "description", content: this.deal ? this.deal.Telcos_device_description : "" }
             ]
         };
     }
