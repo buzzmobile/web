@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-center my-4">{{deal.Telcos_device_full_name}}</h2>
+    <h1 class="text-center my-4 px-4">{{deal.Telcos_device_full_name}}</h1>
 
     <div class="flex flex-col sm:flex-row sm:items-center">
       <div class="sm:w-1/2">

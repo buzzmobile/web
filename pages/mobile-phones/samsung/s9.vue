@@ -3,9 +3,9 @@
     <header>
       <div>
         <div>
-          <h2 class="text-center py-4">Samsung S9/S9+ Contracts</h2>
-          <p class="text-center px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimited Texts and Minutes and at least
-            2GB of data, ordered by Total Cost of Ownership</p>
+          <h1 class="text-center py-4 px-4">Samsung S9/S9+ Contracts</h1>
+          <h2 class="text-center font-light text-lg px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimited Texts and Minutes and at least
+            2GB of data, ordered by Total Cost of Ownership</h2>
         </div>
       </div>
     </header>
