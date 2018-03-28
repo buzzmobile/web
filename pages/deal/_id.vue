@@ -73,7 +73,7 @@
   <div v-else class="flex flex-col items-center p-6">
     <h1 class="text-brand-pink px-4 py-8">Apologies but we're unable to find this deal. It may no longer be available. Please try a new search.</h1>
     <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-8" to="/mobile-phones/samsung/s9">SAMSUNG GALAXY S9/+</nuxt-link>
-    <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-4" to="/mobile-phones/apple/iPhoneX">APPLE IPHONE X</nuxt-link>
+    <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-4" to="/mobile-phones/apple/iphonex">APPLE IPHONE X</nuxt-link>
   </div>
 </template>
 
