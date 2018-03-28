@@ -3,13 +3,6 @@ const PurgecssPlugin = require("purgecss-webpack-plugin");
 const glob = require("glob-all");
 const path = require("path");
 
-class TailwindExtractor {
-    static extract(content) {
-        console.log("harrrryyyyyyyyyyyyyy");
-        return content.match(/[A-z0-9-:/]+/g) || [];
-    }
-}
-
 module.exports = {
     mode: "universal",
     // Headers of the page
@@ -30,9 +23,6 @@ module.exports = {
     router: {
         middleware: ["https"]
     },
-    css: [
-        "@/assets/styles/tailwind.css"
-    ],
     plugins: [
     ],
     workbox: {
@@ -64,6 +54,9 @@ module.exports = {
             require("tailwindcss")("./assets/styles/tailwind.js"),
             require("autoprefixer")
         ],
+        css: [
+            "@/assets/styles/tailwind.css"
+        ],
         extend(config, ctx) {
             // Run ESLint on save
             if (ctx.isDev && ctx.isClient) {
@@ -84,7 +77,11 @@ module.exports = {
                         ]),
                         extractors: [
                             {
-                                extractor: TailwindExtractor,
+                                extractor: class {
+                                    static extract(content) {
+                                        return content.match(/[A-z0-9-:/]+/g) || [];
+                                    }
+                                },
                                 extensions: ["vue"]
                             }
                         ],
