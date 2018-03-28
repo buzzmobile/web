@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="flex justify-center my-8">
-      <a class="btn py-4 px-6" :href=deal.aw_deep_link target="_blank">BUY WITH {{deal.merchant_name.toUpperCase()}}</a>
+      <a class="btn py-4 px-6" target="_blank" :href=buyUrl(deal)>BUY WITH {{deal.merchant_name.toUpperCase()}}</a>
     </div>
     <div class="flex justify-center my-8">
       <nuxt-link class="btn-secondary py-2 px-4" :to="backUrl(deal)">&lt; Back to deals</nuxt-link>
@@ -86,7 +86,8 @@ export default {
         ...mapGetters([
             "deal",
             "imageKey",
-            "backUrl"
+            "backUrl",
+            "buyUrl"
         ])
     },
     methods: {
@@ -98,10 +99,14 @@ export default {
         return dispatch("dealStore/initDealPageAction", { id });
     },
     head () {
+        const deal = this.deal || {
+            Telcos_device_description: "",
+            Telcos_device_full_name: "Deal not found - Mopho"
+        };
         return {
-            title: this.deal ? `${this.deal.Telcos_device_full_name} - Mopho` : "Deal not found - Mopho",
+            title: `${deal.Telcos_device_full_name} - Mopho`,
             meta: [
-                { hid: "description", name: "description", content: this.deal ? this.deal.Telcos_device_description : "" }
+                { hid: "description", name: "description", content: deal.Telcos_device_description }
             ]
         };
     }

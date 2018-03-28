@@ -46,6 +46,9 @@ module.exports = {
         baseURL: process.env.baseApiUrl || "http://localhost:7778/api/",
         credentials: false
     },
+    env: {
+        dealRedirectTimeoutMs: process.env.dealRedirectTimeoutMs || isProd ? 3000 : 500
+    },
     build: {
         extend(config, ctx) {
             // Run ESLint on save

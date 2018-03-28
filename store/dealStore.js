@@ -1,10 +1,12 @@
 import { buildGetDealQuery, executeGetDealQuery } from "../plugins/api";
 
 export const state = () => ({
-    deal: null
+    deal: null,
+    id: null
 });
 
 export const getters = {
+    id: state => state.id,
     deal: state => state.deal,
     imageKey: () => deal => {
         const model = deal.Telcos_device_product_version_json.product_version_name.toLowerCase().replace(" ", "-");
@@ -16,7 +18,8 @@ export const getters = {
             return "/mobile-phones/apple/iphonex";
         }
         return "/mobile-phones/samsung/s9";
-    }
+    },
+    buyUrl: (state, getters) => deal => `/buy/${getters.id}`
 };
 
 export const actions = {
@@ -24,12 +27,13 @@ export const actions = {
         const query = buildGetDealQuery({ id });
         const { $axios: axios } = this;
         const deal = await executeGetDealQuery(axios, query);
-        commit("initDealPageMutation", { deal });
+        commit("initDealPageMutation", { id, deal });
     }
 };
 
 export const mutations = {
-    initDealPageMutation (state, { deal }) {
+    initDealPageMutation (state, { id, deal }) {
+        state.id = id;
         state.deal = deal;
     }
 };
