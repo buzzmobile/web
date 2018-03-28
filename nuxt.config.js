@@ -37,16 +37,6 @@ module.exports = {
         "@nuxtjs/axios",
         "nuxt-vuex-router-sync",
         "@nuxtjs/sitemap",
-        ["@nuxtjs/google-analytics", {
-            id: "UA-116498889-1", 
-            autoTracking: {
-                exception: true
-            },
-            debug: {
-                sendHitTask: isProd,
-                enabled: !isProd
-            }
-        }],
     ],
     icon: {
         sizes: [16, 48, 72, 96, 120, 144, 152, 180, 192, 512, 120, 144, 152, 192, 384, 512, 1024]
