@@ -36,13 +36,17 @@ module.exports = {
         "@nuxtjs/axios",
         "nuxt-vuex-router-sync",
         "@nuxtjs/sitemap",
-        ["@nuxtjs/google-analytics", { id: "UA-116498889-1" }],
+        ["@nuxtjs/google-analytics", {
+            id: "UA-116498889-1", debug: {
+                sendHitTask: process.env.NODE_ENV === "production"
+            }
+        }],
     ],
     icon: {
         sizes: [16, 48, 72, 96, 120, 144, 152, 180, 192, 512, 120, 144, 152, 192, 384, 512, 1024]
     },
     axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+        // See https://github.com/nuxt-community/axios-module#options
         baseURL: process.env.baseApiUrl || "http://localhost:7778/api/",
         credentials: false
     },
