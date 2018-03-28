@@ -1,5 +1,14 @@
 const pkg = require("./package");
-const isProd = process.env.NODE_ENV === "production";
+const PurgecssPlugin = require("purgecss-webpack-plugin");
+const glob = require("glob-all");
+const path = require("path");
+
+class TailwindExtractor {
+    static extract(content) {
+        console.log("harrrryyyyyyyyyyyyyy");
+        return content.match(/[A-z0-9-:/]+/g) || [];
+    }
+}
 
 module.exports = {
     mode: "universal",
@@ -50,6 +59,11 @@ module.exports = {
         dealRedirectTimeoutMs: process.env.dealRedirectTimeoutMs || isProd ? 3000 : 500
     },
     build: {
+        extractCSS: true,
+        postcss: [
+            require("tailwindcss")("./assets/styles/tailwind.js"),
+            require("autoprefixer")
+        ],
         extend(config, ctx) {
             // Run ESLint on save
             if (ctx.isDev && ctx.isClient) {
@@ -60,6 +74,23 @@ module.exports = {
                     loader: "eslint-loader",
                     exclude: /(node_modules)/
                 });
+            }
+            if (!ctx.isDev) {
+                config.plugins.push(
+                    new PurgecssPlugin({
+                        paths: glob.sync([
+                            path.join(__dirname, "./pages/**/*.vue"),
+                            path.join(__dirname, "./layouts/**/*.vue")
+                        ]),
+                        extractors: [
+                            {
+                                extractor: TailwindExtractor,
+                                extensions: ["vue"]
+                            }
+                        ],
+                        whitelist: ["html", "body"]
+                    })
+                );
             }
         }
     }
