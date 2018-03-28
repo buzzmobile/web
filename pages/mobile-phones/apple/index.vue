@@ -1,0 +1,20 @@
+<template>
+  <div class="flex flex-col items-center p-6">
+    <h2 class="mt-1 sm:mt-4">your next apple mobile</h2>
+    <p class="text-lg text-center mt-2 sm:mt-4">lets simplify finding your next apple mobile (at the moment only iPhone X)</p>
+    <nuxt-link class="btn hover:bg-pink-light w-4/5 sm:w-3/5 sm:max-w-xs px-4 py-2 mt-4 sm:mt-4" to="/mobile-phones/apple/iphonex">APPLE IPHONE X</nuxt-link>
+  </div>
+</template>
+
+<script>
+export default {
+    head () {
+        return {
+            title: "iPhone Mobile Contracts - Mopho",
+            meta: [
+                { hid: "description", name: "description", content: "iPhone Mobile Contracts by Mopho" }
+            ]
+        };
+    }
+};
+</script>
