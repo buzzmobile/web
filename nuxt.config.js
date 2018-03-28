@@ -1,4 +1,5 @@
 const pkg = require("./package");
+const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
     mode: "universal",
@@ -37,8 +38,13 @@ module.exports = {
         "nuxt-vuex-router-sync",
         "@nuxtjs/sitemap",
         ["@nuxtjs/google-analytics", {
-            id: "UA-116498889-1", debug: {
-                sendHitTask: process.env.NODE_ENV === "production"
+            id: "UA-116498889-1", 
+            autoTracking: {
+                exception: true
+            },
+            debug: {
+                sendHitTask: isProd,
+                enabled: !isProd
             }
         }],
     ],
