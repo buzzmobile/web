@@ -53,10 +53,6 @@ module.exports = {
     ],
     build: {
         extractCSS: true,
-        postcss: [
-            require("tailwindcss")("./assets/styles/tailwind.js"),
-            require("autoprefixer")
-        ],
         extend(config, ctx) {
             // Run ESLint on save
             if (ctx.isDev && ctx.isClient) {
@@ -83,9 +79,10 @@ module.exports = {
                                         return content.match(/[A-z0-9-:/]+/g) || [];
                                     }
                                 },
-                                extensions: ["vue"]
+                                extensions: ["vue"],
                             }
                         ],
+                        whitelistPatterns: [/bg-s9-/, /bg-iphone-/],
                         whitelist: ["html", "body", "nuxt-loading"]
                     })
                 );
