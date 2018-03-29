@@ -118,7 +118,7 @@ export default {
             colourFilterChanged: "colourFilterChangedAction"
         }),
         currency: value => `£${value.toFixed(2).toString()}`,
-        setBgImageUrl: deal => "bg-iphone-x-" + deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")
+        setBgImageUrl: deal => "bg-image-iphone-x-" + deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")
     },
     async fetch({ store }) {
         const { dispatch } = store;

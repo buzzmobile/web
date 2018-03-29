@@ -84,7 +84,7 @@ module.exports = {
                                 extensions: ["vue"],
                             }
                         ],
-                        whitelistPatterns: [/bg-s9-/, /bg-iphone-/],
+                        whitelistPatterns: [/bg-image-/],
                         whitelist: ["html", "body", "nuxt-loading"]
                     })
                 );

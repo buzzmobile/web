@@ -120,7 +120,7 @@ export default {
             colourFilterChanged: "colourFilterChangedAction"
         }),
         currency: value => `£${value.toFixed(2).toString()}`,
-        setBgImageUrl: deal => `bg-${deal.Telcos_device_product_version_json.product_version_name.toLowerCase().replace(" ", "-")}-${deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")}`
+        setBgImageUrl: deal => `bg-image-${deal.Telcos_device_product_version_json.product_version_name.toLowerCase().replace(" ", "-")}-${deal.Telcos_device_features_json.colour.toLowerCase().replace(" ", "-")}`
     },
     async fetch({ store }) {
         const { dispatch } = store;
