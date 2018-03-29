@@ -3,6 +3,8 @@ const PurgecssPlugin = require("purgecss-webpack-plugin");
 const glob = require("glob-all");
 const path = require("path");
 
+const isProd = process.env.NODE_ENV === "production";
+
 module.exports = {
     mode: "universal",
     // Headers of the page
