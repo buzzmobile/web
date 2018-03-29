@@ -26,6 +26,7 @@ module.exports = {
         middleware: ["https"]
     },
     plugins: [
+        { src: "~/plugins/cookies", ssr: false },
     ],
     workbox: {
         importScripts: [

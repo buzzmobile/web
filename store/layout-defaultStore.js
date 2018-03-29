@@ -1,5 +1,7 @@
 export const state = () => ({
-    open: false
+    menuOpen: false,
+    showCookieSettings: true,
+    gaAllowed: true
 });
 
 export const actions = {
@@ -11,17 +13,36 @@ export const actions = {
     },
     menuLinkClickedAction ({ commit }) {
         commit("menuLinkClickedMutation");
+    },
+    showCookieSettingsClickedAction ({ commit }) {
+        commit("showCookieSettingsClickedMutation");
+    },
+    gaAllowedChangedAction ({ commit }, { target }) {
+        const { checked } = target;
+        commit("gaAllowedChangedMutation", checked);
+    },
+    saveCookiePrefsClickedAction ({ commit }) {
+        commit("saveCookiePrefsClickedMutation");
     }
 };
 
 export const mutations = {
     menuToggledMutation (state) {
-        state.open = !state.open;
+        state.menuOpen = !state.menuOpen;
     },
     routeNameChangedMutation (state) {
-        state.open = false;
+        state.menuOpen = false;
     },
     menuLinkClickedMutation(state) {
-        state.open = false;
+        state.menuOpen = false;
+    },
+    showCookieSettingsClickedMutation(state) {
+        state.showCookieSettings = true;
+    },
+    gaAllowedChangedMutation(state, gaAllowed) {
+        state.gaAllowed = gaAllowed;
+    },
+    saveCookiePrefsClickedMutation(state) {
+        state.showCookieSettings = false;
     }
 };
