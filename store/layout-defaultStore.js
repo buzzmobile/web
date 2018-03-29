@@ -1,8 +1,15 @@
 export const state = () => ({
     menuOpen: false,
-    showCookieSettings: true,
-    gaAllowed: true
+    showCookieSettings: false,
+    gaAllowed: null,
+    cookieLib: null,
+    gaOnCookieValue: null
 });
+
+export const getters = {
+    cookieLib: state =>  state.cookieLib,
+    gaOnOffCookieName: () => "GAOnOff",    
+};
 
 export const actions = {
     menuToggledAction ({ commit }) {
@@ -17,13 +24,25 @@ export const actions = {
     showCookieSettingsClickedAction ({ commit }) {
         commit("showCookieSettingsClickedMutation");
     },
-    gaAllowedChangedAction ({ commit }, { target }) {
-        const { checked } = target;
-        commit("gaAllowedChangedMutation", checked);
+    gaAllowedChangedAction ({ commit, getters }, { target }) {
+        const { checked: gaAllowed } = target;
+        const { gaOnOffCookieName, cookieLib } = getters;
+        commit("gaAllowedChangedMutation", { gaAllowed, gaOnOffCookieName, cookieLib });
     },
-    saveCookiePrefsClickedAction ({ commit }) {
+    saveCookiePrefsClickedAction ({ commit, state, getters }) {
+        const { gaOnOffCookieName, cookieLib } = getters;
+        const { gaAllowed } = state;
+        commit("gaAllowedChangedMutation", { gaAllowed, gaOnOffCookieName, cookieLib });
         commit("saveCookiePrefsClickedMutation");
-    }
+    },
+    initCookieStateAction({ commit, getters }, cookieLib) {
+        const { gaOnOffCookieName } = getters;
+        const gaOnCookieValue = cookieLib.get(gaOnOffCookieName);
+        commit("initCookieLibMutation", cookieLib);
+        commit("initShowCookieSettingsMutation", gaOnCookieValue);
+        commit("initgaOnCookieValueMutation", gaOnCookieValue);
+        commit("initGaAllowedMutation", gaOnCookieValue);
+    },
 };
 
 export const mutations = {
@@ -39,10 +58,28 @@ export const mutations = {
     showCookieSettingsClickedMutation(state) {
         state.showCookieSettings = true;
     },
-    gaAllowedChangedMutation(state, gaAllowed) {
+    gaAllowedChangedMutation(state, { gaAllowed, gaOnOffCookieName, cookieLib }) {
         state.gaAllowed = gaAllowed;
+        cookieLib.set(gaOnOffCookieName, gaAllowed, { expires: "1M" });
+        state.gaOnCookieValue = cookieLib.get(gaOnOffCookieName);
+    },
+    initGaAllowedMutation(state, gaOnCookieValue) {
+        if (gaOnCookieValue === null) {
+            state.gaAllowed = true;
+        } else {
+            state.gaAllowed = gaOnCookieValue === "true" ? true : false;
+        }
     },
     saveCookiePrefsClickedMutation(state) {
         state.showCookieSettings = false;
+    },
+    initCookieLibMutation(state, cookieLib) {
+        state.cookieLib = cookieLib;
+    },
+    initShowCookieSettingsMutation(state, gaOnCookieValue) {
+        state.showCookieSettings = gaOnCookieValue ? false : true;
+    },
+    initgaOnCookieValueMutation(state, gaOnCookieValue) {
+        state.gaOnCookieValue = gaOnCookieValue;
     }
 };

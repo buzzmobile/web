@@ -79,13 +79,7 @@ export default {
         "name": "routeNameChanged"
     },
     mounted () {
-        const cookieLib = this.$nuxt.$cookie;
-        const gdprCookieName = "GDPR";
-        const gdprCookie = cookieLib.get(gdprCookieName);
-        if (!gdprCookie) {
-            alert("GDPR Popup");
-        }
-        cookieLib.set(gdprCookieName, "GA=Allowed");
+        this.$store.dispatch("layout-defaultStore/initCookieStateAction", this.$nuxt.$cookie);
     }
 };
 </script>
