@@ -48,14 +48,14 @@ module.exports = {
     env: {
         dealRedirectTimeoutMs: process.env.dealRedirectTimeoutMs || isProd ? 3000 : 500
     },
+    css: [
+        "@/assets/styles/tailwind.css"
+    ],
     build: {
         extractCSS: true,
         postcss: [
             require("tailwindcss")("./assets/styles/tailwind.js"),
             require("autoprefixer")
-        ],
-        css: [
-            "@/assets/styles/tailwind.css"
         ],
         extend(config, ctx) {
             // Run ESLint on save
@@ -73,7 +73,8 @@ module.exports = {
                     new PurgecssPlugin({
                         paths: glob.sync([
                             path.join(__dirname, "./pages/**/*.vue"),
-                            path.join(__dirname, "./layouts/**/*.vue")
+                            path.join(__dirname, "./layouts/**/*.vue"),
+                            path.join(__dirname, "./components/**/*.vue")
                         ]),
                         extractors: [
                             {
@@ -85,7 +86,7 @@ module.exports = {
                                 extensions: ["vue"]
                             }
                         ],
-                        whitelist: ["html", "body"]
+                        whitelist: ["html", "body", "nuxt-loading"]
                     })
                 );
             }
