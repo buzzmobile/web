@@ -1,18 +1,16 @@
 <template>
   <div>
     <div v-if="showCookieSettings">
-      <div class="absolute w-full h-screen border-solid z-50 bg-brand-grey opacity-95">
-        <div class="mx-auto w-64 mt-20pc bg-pink-light rounded p-4 font-extrabold leading-normal">
-            We use Google Analytics to help us understand and therefore improve your experience with us. As its
-            widely used by many sites, we're assuming you're happy with this but if not, untick this box.
-            <div class="my-4">
-              <label for="gaAllowed">Allow Google Analytics</label>
-              <input class="ml-2" type="checkbox" id="gaAllowed" :checked="gaAllowed" @change="gaAllowedChanged">
-            </div>
-
-            <p>We also need to store your answer in a cookie.</p>
-
-            <button @click="saveCookiePrefsClicked" class="btn mt-4 p-2 w-full">Close</button>
+      <div class="fixed w-full h-screen z-50 bg-brand-grey opacity-95">
+        <div class="mx-auto w-64 bg-pink-light rounded font-extrabold leading-normal mt-20pc p-4">
+          We use Google Analytics to help us understand and therefore improve your experience with us. As its widely used by many sites,
+          we're assuming you're happy with this but if not, untick this box.
+          <div class="my-4">
+            <label for="gaAllowed">Allow Google Analytics</label>
+            <input class="ml-2" type="checkbox" id="gaAllowed" :checked="gaAllowed" @change="gaAllowedChanged">
+          </div>
+          <p>We also need to store your answer in a cookie.</p>
+          <button @click="saveCookiePrefsClicked" class="btn w-full mt-4 p-2">Close</button>
         </div>
       </div>
     </div>
