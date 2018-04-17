@@ -48,6 +48,8 @@
         <p class="my-2">We search deals across these merchants so you don't have to: O2 Mobiles, buymobiles.net, Mobiles.co.uk, EE Mobile,
           ID Mobile, giffgaff, Vodafone Ltd</p>
         <button @click="showCookieSettingsClicked" class="block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">Cookie Settings</button>
+        <a class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0" href="/about/privacy-policy">Privacy Policy</a>
+        <a class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0" href="/about/contact-us">Contact Us</a>
         <p class="text-center font-hairline">© mopho.com 2018</p>
       </footer>
     </div>

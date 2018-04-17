@@ -119,3 +119,12 @@
   @apply .no-underline .bg-pink-light .rounded .text-white .text-center
 }
 
+.about-h1 {
+  @apply m-4 text-brand-pink
+}
+.about-h2 {
+  @apply about-h1
+}
+.about-p {
+  @apply about-h1 text-pink-light
+}
