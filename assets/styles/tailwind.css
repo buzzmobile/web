@@ -120,11 +120,11 @@
 }
 
 .about-h1 {
-  @apply m-4 text-brand-pink
+  @apply m-4 
 }
 .about-h2 {
-  @apply about-h1
+  @apply about-h1 text-lg
 }
 .about-p {
-  @apply about-h1 text-pink-light
+  @apply about-h1 font-light leading-normal
 }
