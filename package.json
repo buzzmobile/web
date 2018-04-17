@@ -15,13 +15,15 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^4.4.0",
+    "@nuxtjs/google-analytics": "^2.0.2",
     "@nuxtjs/pwa": "^2.0.5",
     "@nuxtjs/sitemap": "^0.0.3",
     "glob": "^7.1.2",
     "glob-all": "^3.1.0",
     "nuxt": "^1.0.0",
     "nuxt-vuex-router-sync": "^0.0.2",
-    "purgecss-webpack-plugin": "^0.22.0"
+    "purgecss-webpack-plugin": "^0.22.0",
+    "vue-cookie": "^1.1.4"
   },
   "devDependencies": {
     "@nuxtjs/localtunnel": "^1.0.1",
