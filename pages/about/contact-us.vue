@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="about-h1">Contact Us</h1>
-    <p class="about-p">Our development partner will happily handle any queries, concerns or support you need</p>
+    <p class="about-p">Our development partner will happily handle any queries, concerns, feedback or support you need</p>
     <h2 class="about-h2">By Email</h2>
     <p class="about-p"><a href="mailto:support@unomee.com">support@unomee.com</a></p>
     <h2 class="about-h2">By Phone</h2>

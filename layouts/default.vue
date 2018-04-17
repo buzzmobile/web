@@ -44,13 +44,13 @@
         <nuxt/>
       </main>
       <footer class="bg-brand-grey text-brand-pink font-light w-full p-4">
-        <h4 class="mt-2">About us</h4>
-        <p class="my-2">We search deals across these merchants so you don't have to: O2 Mobiles, buymobiles.net, Mobiles.co.uk, EE Mobile,
-          ID Mobile, giffgaff, Vodafone Ltd</p>
-        <button @click="showCookieSettingsClicked" class="block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">Cookie Settings</button>
+        <p class="my-4">We search deals across these merchants so you don't have to: O2 Mobiles, buymobiles.net, Mobiles.co.uk, EE Mobile, ID
+      Mobile, giffgaff, Vodafone Ltd</p>
+        <a class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0" href="/about/about-us">About us</a>
         <a class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0" href="/about/privacy-policy">Privacy Policy</a>
+        <button @click="showCookieSettingsClicked" class="block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0">Cookie Settings</button>
         <a class="no-underline block text-brand-pink font-medium hover:text-pink-light sm:inline-block mt-4 mr-4 sm:mt-0" href="/about/contact-us">Contact Us</a>
-        <p class="text-center font-hairline">© mopho.com 2018</p>
+        <p class="text-center font-hairline mt-4">© mopho.co.uk 2018</p>
       </footer>
     </div>
   </div>
