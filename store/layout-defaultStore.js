@@ -8,7 +8,8 @@ export const state = () => ({
 
 export const getters = {
     cookieLib: state =>  state.cookieLib,
-    gaOnOffCookieName: () => "GAOnOff",    
+    gaOnOffCookieName: () => "GAOnOff",
+    gaAllowed: state => state.gaAllowed
 };
 
 export const actions = {
@@ -34,15 +35,17 @@ export const actions = {
         const { gaAllowed } = state;
         commit("gaAllowedChangedMutation", { gaAllowed, gaOnOffCookieName, cookieLib });
         commit("saveCookiePrefsClickedMutation");
+        commit("setGaAllowedOnWindowMutation");
     },
     initCookieStateAction({ commit, getters }, cookieLib) {
         const { gaOnOffCookieName } = getters;
         const gaOnCookieValue = cookieLib.get(gaOnOffCookieName);
         commit("initCookieLibMutation", cookieLib);
         commit("initShowCookieSettingsMutation", gaOnCookieValue);
-        commit("initgaOnCookieValueMutation", gaOnCookieValue);
+        commit("initGaOnCookieValueMutation", gaOnCookieValue);
         commit("initGaAllowedMutation", gaOnCookieValue);
-    },
+        commit("setGaAllowedOnWindowMutation");
+    }
 };
 
 export const mutations = {
@@ -79,7 +82,11 @@ export const mutations = {
     initShowCookieSettingsMutation(state, gaOnCookieValue) {
         state.showCookieSettings = gaOnCookieValue ? false : true;
     },
-    initgaOnCookieValueMutation(state, gaOnCookieValue) {
+    initGaOnCookieValueMutation(state, gaOnCookieValue) {
         state.gaOnCookieValue = gaOnCookieValue;
+    },
+    setGaAllowedOnWindowMutation(state) {
+        const { gaAllowed } = state;
+        window["ga-disable-UA-116498889-1"] = !gaAllowed;
     }
 };
