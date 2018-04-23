@@ -43,7 +43,6 @@
 
 <script>
 import AppDropDown from "~/components/AppDropDown";
-import AppSelectDownArrow from "~/components/AppSelectDownArrow";
 import AppMobileHeading from "~/components/AppMobileHeading";
 import AppMobileSubHeading from "~/components/AppMobileSubHeading";
 import { createNamespacedHelpers } from "vuex";
@@ -52,7 +51,6 @@ const { mapState, mapActions, mapGetters } = createNamespacedHelpers("iPhoneXSto
 
 export default {
     components: {
-        AppSelectDownArrow,
         AppMobileHeading,
         AppMobileSubHeading,
         AppDropDown,
