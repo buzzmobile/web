@@ -4,8 +4,7 @@
       <div>
         <div>
           <h1 class="text-center py-4 px-4">iPhone X Contracts</h1>
-          <h2 class="text-center font-light text-lg px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimited Texts and Minutes and at least 2GB of data, ordered by Total
-            Cost of Ownership</h2>
+          <AppMobileSubHeading>></AppMobileSubHeading>
         </div>
       </div>
     </header>
@@ -92,11 +91,15 @@
 </template>
 
 <script>
+import AppMobileSubHeading from "~/components/AppMobileSubHeading.vue";
 import { createNamespacedHelpers } from "vuex";
-import { buildGetQuery } from "../../../plugins/api";
+import { buildGetQuery } from "~/plugins/api";
 const { mapState, mapActions, mapGetters } = createNamespacedHelpers("iPhoneXStore");
 
 export default {
+    components: {
+        AppMobileSubHeading
+    },
     computed: {
         ...mapState([
             "deals",

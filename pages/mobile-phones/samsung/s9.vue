@@ -4,8 +4,7 @@
       <div>
         <div>
           <h1 class="text-center py-4 px-4">Samsung S9/S9+ Contracts</h1>
-          <h2 class="text-center font-light text-lg px-4 mx-4 mb-8">Keeping it simple, we only show you contracts for brand new phones with Unlimited Texts and Minutes and at least
-            2GB of data, ordered by Total Cost of Ownership</h2>
+          <AppMobileSubHeading></AppMobileSubHeading>
         </div>
       </div>
     </header>
@@ -94,11 +93,15 @@
 
 
 <script>
+import AppMobileSubHeading from "~/components/AppMobileSubHeading";
 import { createNamespacedHelpers } from "vuex";
-import { buildGetQuery } from "../../../plugins/api";
+import { buildGetQuery } from "~/plugins/api";
 const { mapState, mapActions, mapGetters } = createNamespacedHelpers("s9Store");
 
 export default {
+    components: {
+        AppMobileSubHeading
+    },
     computed: {
         ...mapState([
             "deals",
