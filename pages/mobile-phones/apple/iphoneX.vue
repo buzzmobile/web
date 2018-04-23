@@ -1,12 +1,8 @@
 <template>
   <div>
     <header>
-      <div>
-        <div>
-          <h1 class="text-center py-4 px-4">iPhone X Contracts</h1>
-          <AppMobileSubHeading>></AppMobileSubHeading>
-        </div>
-      </div>
+      <AppMobileHeading phone="iPhone X"></AppMobileHeading>
+      <AppMobileSubHeading>></AppMobileSubHeading>
     </header>
     <main>
       <form class="flex flex-col sm:flex-row mx-4 mb-8">
@@ -19,11 +15,7 @@
               id="storage">
               <option :value="s.coded" :selected="storageFilter===s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
             </select>
-            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <AppSelectDownArrow></AppSelectDownArrow>
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
@@ -35,11 +27,7 @@
               id="colour">
               <option :value="s.coded" :selected="colourFilter===s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
             </select>
-            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <AppSelectDownArrow></AppSelectDownArrow>
           </div>
         </div>
         <div class="sm:w-1/3 p-4">
@@ -51,11 +39,7 @@
               id="network">
               <option :value="network" :selected="networkFilter===network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
             </select>
-            <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-              </svg>
-            </div>
+            <AppSelectDownArrow></AppSelectDownArrow>
           </div>
         </div>
       </form>
@@ -91,13 +75,17 @@
 </template>
 
 <script>
-import AppMobileSubHeading from "~/components/AppMobileSubHeading.vue";
+import AppSelectDownArrow from "~/components/AppSelectDownArrow";
+import AppMobileHeading from "~/components/AppMobileHeading";
+import AppMobileSubHeading from "~/components/AppMobileSubHeading";
 import { createNamespacedHelpers } from "vuex";
 import { buildGetQuery } from "~/plugins/api";
 const { mapState, mapActions, mapGetters } = createNamespacedHelpers("iPhoneXStore");
 
 export default {
     components: {
+        AppSelectDownArrow,
+        AppMobileHeading,
         AppMobileSubHeading
     },
     computed: {
