@@ -17,30 +17,18 @@ export const getters = {
         { display: "Space Grey", coded: "Space_Grey" }
     ],
     availableNetworks: () => [
-        "Any",
-        "BT",
-        "EE",
-        // "Giffgaff",
-        // "iD",
-        "O2",
-        "Three",
-        // "VirginMobile",
-        "Vodafone"
+        { display: "Any", coded: "Any" },
+        { display: "BT", coded: "BT" },
+        { display: "EE", coded: "EE" },
+        { display: "O2", coded: "O2" },
+        { display: "Three", coded: "Three" },
+        { display: "Vodafone", coded: "Vodafone" },
     ],
     availableStorages: () => [
         { display: "Any", coded: "Any" },
         { display: "64 GB", coded: "GB64" },
         { display: "256 GB", coded: "GB256" }
     ],
-    getNetworkDisplayName: state => network => {
-        const availableNetworksDisplay = [
-            { coded: "VirginMobile", display: "Virgin" }
-        ];
-        const hasDisplay = availableNetworksDisplay.find(
-            a => a.coded === network
-        );
-        return hasDisplay ? hasDisplay.display : network;
-    },
 };
 
 export const actions = {
@@ -54,8 +42,7 @@ export const actions = {
         const deals = await executeAllDealsQuery(axios, query);
         commit("dealsChangedMutation", { deals });
     },
-    async networksFilterChangedAction( { commit, state, getters }, { target }) {
-        const { value : networkFilter } = target;
+    async networksFilterChangedAction( { commit, state, getters }, networkFilter) {
         const { storageFilter, colourFilter } = state;
         const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
@@ -64,8 +51,7 @@ export const actions = {
         commit("networkFilterChangedMutation", { networkFilter });
         commit("dealsChangedMutation", { deals });
     },
-    async storageFilterChangedAction( { commit, state, getters }, { target }) {
-        const { value : storageFilter } = target;
+    async storageFilterChangedAction( { commit, state, getters }, storageFilter) {
         const { networkFilter, colourFilter } = state;
         const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter });
@@ -74,8 +60,7 @@ export const actions = {
         commit("storageFilterChangedMutation", { storageFilter });
         commit("dealsChangedMutation", { deals });
     },
-    async colourFilterChangedAction( { commit, state, getters }, { target }) {
-        const { value: colourFilter } = target;
+    async colourFilterChangedAction( { commit, state, getters }, colourFilter) {
         const { networkFilter, storageFilter } = state;
         const { modelFilter, osFilter, namespace } = getters;
         const query = buildGetQuery({ osFilter, modelFilter, networkFilter, storageFilter, colourFilter } );

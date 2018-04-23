@@ -6,42 +6,9 @@
     </header>
     <main>
       <form class="flex flex-col sm:flex-row mx-4 mb-8">
-        <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="storage">
-            Storage
-          </label>
-          <div class="relative">
-            <select @change="storageFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
-              id="storage">
-              <option :value="s.coded" :selected="storageFilter===s.coded" v-for="s in availableStorages" v-bind:key="s.coded">{{s.display}}</option>
-            </select>
-            <AppSelectDownArrow></AppSelectDownArrow>
-          </div>
-        </div>
-        <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="colour">
-            Colour
-          </label>
-          <div class="relative">
-            <select @change="colourFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
-              id="colour">
-              <option :value="s.coded" :selected="colourFilter===s.coded" v-for="s in availableColours" v-bind:key="s.coded">{{s.display}}</option>
-            </select>
-            <AppSelectDownArrow></AppSelectDownArrow>
-          </div>
-        </div>
-        <div class="sm:w-1/3 p-4">
-          <label class="block uppercase tracking-wide text-brand-pink font-bold mb-2" for="network">
-            Network
-          </label>
-          <div class="relative">
-            <select @change="networksFilterChanged" class="block appearance-none w-full border border-brand-grey text-brand-pink rounded py-3 px-4 pr-8"
-              id="network">
-              <option :value="network" :selected="networkFilter===network" v-for="network in availableNetworks" v-bind:key="network">{{getNetworkDisplayName(network)}}</option>
-            </select>
-            <AppSelectDownArrow></AppSelectDownArrow>
-          </div>
-        </div>
+        <AppDropDown label="Storage" :dropDownItems="availableStorages" :currentValue="storageFilter" v-on:change="storageFilterChanged"></AppDropDown>
+        <AppDropDown label="Colour" :dropDownItems="availableColours" :currentValue="colourFilter" v-on:change="colourFilterChanged"></AppDropDown>
+        <AppDropDown label="Network" :dropDownItems="availableNetworks" :currentValue="networkFilter" v-on:change="networksFilterChanged"></AppDropDown>
       </form>
       <div class="flex flex-wrap justify-around mx-4">
         <p v-if="deals.length < 1" class="font-bold text-center p-4">We can't find any deals. Please try a different set of options.</p>
@@ -75,6 +42,7 @@
 </template>
 
 <script>
+import AppDropDown from "~/components/AppDropDown";
 import AppSelectDownArrow from "~/components/AppSelectDownArrow";
 import AppMobileHeading from "~/components/AppMobileHeading";
 import AppMobileSubHeading from "~/components/AppMobileSubHeading";
@@ -86,7 +54,8 @@ export default {
     components: {
         AppSelectDownArrow,
         AppMobileHeading,
-        AppMobileSubHeading
+        AppMobileSubHeading,
+        AppDropDown,
     },
     computed: {
         ...mapState([
@@ -99,7 +68,6 @@ export default {
             "availableColours",
             "availableNetworks",
             "availableStorages",
-            "getNetworkDisplayName"
         ])
     },
     methods: {
